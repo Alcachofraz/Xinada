@@ -1,0 +1,63 @@
+world:
+  # Name of the world folder where maps are contained:
+  name: "Xinada"
+
+  # Lobby coordinates:
+  lobby:
+    x: 570.5
+    y: 54
+    z: 943.5
+game:
+  # Number of rounds per game:
+  rounds: 5
+
+  # Duration of 1 round (minutes):
+  roundTime: 3
+
+  # Number of traps Hunter can set:
+  trapNum: 3
+
+  # Illusionist's bomb radius (blocks):
+  illusionistRange: 6
+
+  # Slowness duration due to Illusionist's bomb (seconds):
+  illusionistTime: 6
+
+  # Ninja's invisibility potion duration (seconds):
+  ninjaTime: 5
+
+  # Treasure hiding time for the pirates (seconds):
+  pirateTime: 12
+
+  # Blindness time due to the Electrician (seconds):
+  electricianTime: 10
+
+  # Fisherman's fishing rod strength multiplier [1, 5]:
+  fisherKnockback: 5
+
+  # Fisherman's fishing opportunities [1, 20]:
+  fisherTimes: 5
+
+  # Maximum distance between a couple, due to Cupid (blocks):
+  cupidDistance: 4
+
+  # Time Murderer cannot pickup the sword, due to the Clown's joke (seconds):
+  clownTime: 2
+
+  # Time to turn rose back to a sword (seconds):
+  magicianTime: 8
+
+  # Athlete's speed time (seconds):
+  athleteTime: 6
+
+  # Terrorist's maze puzzle rows:
+  terroristRows: 6
+
+  # Rate at which the bomb's fuses crack (ticks):
+  terroristFuseRate: 10
+
+  # Role and Role Description language (Available: "PT", "EN"):
+  language: "PT"
+
+  # Spectator Mode (Available: "screen", "free"):
+  spectatorMode: "screen"

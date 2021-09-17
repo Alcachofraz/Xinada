@@ -1,0 +1,630 @@
+Stalingrad:
+  spawnsNum: 10
+  location1:
+    x: 1023.5
+    y: 68
+    z: -29.5
+  location2:
+    x: 998.5
+    y: 59
+    z: -48.5
+  location3:
+    x: 1048
+    y: 57
+    z: -55
+  location4:
+    x: 1025.5
+    y: 57
+    z: -22.5
+  location5:
+    x: 1006.5
+    y: 58
+    z: 29.5
+  location6:
+    x: 1055.5
+    y: 57
+    z: 69.5
+  location7:
+    x: 1079.5
+    y: 57
+    z: 123.5
+  location8:
+    x: 998.5
+    y: 57
+    z: 123.5
+  location9:
+    x: 999
+    y: 58
+    z: 89.5
+  location10:
+    x: 1040.5
+    y: 58
+    z: 24.5
+Headquarters:
+  spawnsNum: 10
+  location1:
+    x: 287.5
+    y: 56
+    z: 857.5
+  location2:
+    x: 331.5
+    y: 56
+    z: 847.5
+  location3:
+    x: 317.5
+    y: 56
+    z: 805
+  location4:
+    x: 317.5
+    y: 56
+    z: 833.5
+  location5:
+    x: 315.5
+    y: 56
+    z: 847.5
+  location6:
+    x: 291.5
+    y: 56
+    z: 832.5
+  location7:
+    x: 323.5
+    y: 63
+    z: 828.5
+  location8:
+    x: 297.5
+    y: 63
+    z: 814.5
+  location9:
+    x: 315.5
+    y: 62
+    z: 823.5
+  location10:
+    x: 284.5
+    y: 61
+    z: 823
+Crashsite:
+  spawnsNum: 10
+  location1:
+    x: 580
+    y: 60
+    z: 767
+  location2:
+    x: 566
+    y: 56
+    z: 767
+  location3:
+    x: 573.5
+    y: 56
+    z: 764.5
+  location4:
+    x: 585.5
+    y: 58
+    z: 759.5
+  location5:
+    x: 593.5
+    y: 58
+    z: 741.5
+  location6:
+    x: 577.5
+    y: 57
+    z: 745.5
+  location7:
+    x: 580
+    y: 57
+    z: 719
+  location8:
+    x: 591.5
+    y: 59
+    z: 718.5
+  location9:
+    x: 576.5
+    y: 56
+    z: 712.5
+  location10:
+    x: 569.5
+    y: 56
+    z: 735.5
+Towers:
+  spawnsNum: 10
+  location1:
+    x: 762.5
+    y: 44
+    z: 969.5
+  location2:
+    x: 775.5
+    y: 31
+    z: 945.5
+  location3:
+    x: 798.5
+    y: 37
+    z: 985.5
+  location4:
+    x: 810.5
+    y: 30
+    z: 963.5
+  location5:
+    x: 808.5
+    y: 30
+    z: 929.5
+  location6:
+    x: 784.5
+    y: 36
+    z: 935.5
+  location7:
+    x: 760.5
+    y: 40
+    z: 929.5
+  location8:
+    x: 738.5
+    y: 30
+    z: 949.5
+  location9:
+    x: 741.5
+    y: 30
+    z: 985.5
+  location10:
+    x: 767.5
+    y: 31.5
+    z: 954.5
+Cargoship:
+  spawnsNum: 10
+  location1:
+    x: 1168.5
+    y: 75
+    z: 901.5
+  location2:
+    x: 1177.5
+    y: 71
+    z: 910.5
+  location3:
+    x: 1163.5
+    y: 71
+    z: 918.5
+  location4:
+    x: 1157.5
+    y: 71
+    z: 931.5
+  location5:
+    x: 1179.5
+    y: 73
+    z: 931.5
+  location6:
+    x: 1157.5
+    y: 71
+    z: 947.5
+  location7:
+    x: 1170
+    y: 75.5
+    z: 947
+  location8:
+    x: 1177.5
+    y: 71
+    z: 943.5
+  location9:
+    x: 1168.5
+    y: 71
+    z: 951.5
+  location10:
+    x: 1157.5
+    y: 71
+    z: 961.5
+Destroyer:
+  spawnsNum: 10
+  location1:
+    x: 1169.5
+    y: 79
+    z: 1603.5
+  location2:
+    x: 1174.5
+    y: 68
+    z: 1598.5
+  location3:
+    x: 1167.5
+    y: 69
+    z: 1600.5
+  location4:
+    x: 1173.5
+    y: 72
+    z: 1631.5
+  location5:
+    x: 1170.5
+    y: 66
+    z: 1569.5
+  location6:
+    x: 1171.5
+    y: 73
+    z: 1639.5
+  location7:
+    x: 1172.5
+    y: 73
+    z: 1624.5
+  location8:
+    x: 1171.5
+    y: 60
+    z: 1674.5
+  location9:
+    x: 1161
+    y: 63
+    z: 1643.5
+  location10:
+    x: 1170.5
+    y: 63
+    z: 1547.5
+Skyscrapper:
+  spawnsNum: 10
+  location1:
+    x: 587.5
+    y: 126
+    z: 1531.5
+  location2:
+    x: 568.5
+    y: 116
+    z: 1528.5
+  location3:
+    x: 585.5
+    y: 116
+    z: 1541.5
+  location4:
+    x: 594.5
+    y: 116
+    z: 1553.5
+  location5:
+    x: 594.5
+    y: 110
+    z: 1552.5
+  location6:
+    x: 587.5
+    y: 111
+    z: 1537.5
+  location7:
+    x: 583.5
+    y: 110
+    z: 1538.5
+  location8:
+    x: 568.5
+    y: 116
+    z: 1550.5
+  location9:
+    x: 576.5
+    y: 116
+    z: 1555.5
+  location10:
+    x: 576.5
+    y: 110
+    z: 1527.5
+Office:
+  spawnsNum: 10
+  location1:
+    x: 470.5
+    y: 52
+    z: 1949.5
+  location2:
+    x: 457.5
+    y: 58
+    z: 1944.5
+  location3:
+    x: 447.5
+    y: 58
+    z: 1941.5
+  location4:
+    x: 437
+    y: 58
+    z: 1920.5
+  location5:
+    x: 420
+    y: 58
+    z: 1933.5
+  location6:
+    x: 412
+    y: 58
+    z: 1956
+  location7:
+    x: 431
+    y: 58
+    z: 1968
+  location8:
+    x: 418.5
+    y: 58
+    z: 1985.5
+  location9:
+    x: 407.5
+    y: 52
+    z: 1985.5
+  location10:
+    x: 466
+    y: 52
+    z: 2003
+Aztec:
+  spawnsNum: 10
+  location1:
+    x: 70
+    y: 58
+    z: 1494
+  location2:
+    x: 53
+    y: 58
+    z: 1494
+  location3:
+    x: 12.5
+    y: 58
+    z: 1507.5
+  location4:
+    x: 28
+    y: 53
+    z: 1508
+  location5:
+    x: 27.5
+    y: 58
+    z: 1480.5
+  location6:
+    x: 46.5
+    y: 58
+    z: 1465.5
+  location7:
+    x: 6
+    y: 60
+    z: 1472
+  location8:
+    x: -8.5
+    y: 58
+    z: 1493.5
+  location9:
+    x: -33
+    y: 58
+    z: 1487
+  location10:
+    x: -24.5
+    y: 58
+    z: 1502.5
+Herbatic:
+  spawnsNum: 10
+  location1:
+    x: 39.5
+    y: 56
+    z: 1145.5
+  location2:
+    x: 39.5
+    y: 56.25
+    z: 1108.5
+  location3:
+    x: -1.5
+    y: 56
+    z: 1100.5
+  location4:
+    x: -53.5
+    y: 56
+    z: 1105.5
+  location5:
+    x: -47.5
+    y: 56
+    z: 1151.5
+  location6:
+    x: -21.5
+    y: 56
+    z: 1157.5
+  location7:
+    x: -35.5
+    y: 56
+    z: 1143.5
+  location8:
+    x: -43.5
+    y: 56
+    z: 1112.5
+  location9:
+    x: -18.5
+    y: 56
+    z: 1120.5
+  location10:
+    x: 20.5
+    y: 56
+    z: 1130.5
+Ascaland:
+  spawnsNum: 10
+  location1:
+    x: 16.5
+    y: 100
+    z: 861.5
+  location2:
+    x: 42.5
+    y: 101
+    z: 854.5
+  location3:
+    x: 17.5
+    y: 100
+    z: 850.5
+  location4:
+    x: 8.5
+    y: 101
+    z: 836.5
+  location5:
+    x: 15.5
+    y: 106
+    z: 824.5
+  location6:
+    x: 14.5
+    y: 101
+    z: 820.5
+  location7:
+    x: 28.5
+    y: 101
+    z: 812.5
+  location8:
+    x: 33.5
+    y: 95
+    z: 836.5
+  location9:
+    x: 21.5
+    y: 105
+    z: 831.5
+  location10:
+    x: 35.5
+    y: 102
+    z: 834.5
+Nuketown:
+  spawnsNum: 10
+  location1:
+    x: 106.5
+    y: 62
+    z: 492.5
+  location2:
+    x: 128.5
+    y: 62
+    z: 483.5
+  location3:
+    x: 115.5
+    y: 62
+    z: 466.5
+  location4:
+    x: 116
+    y: 67
+    z: 460
+  location5:
+    x: 96
+    y: 62.5
+    z: 435.5
+  location6:
+    x: 126.5
+    y: 63
+    z: 440.5
+  location7:
+    x: 127
+    y: 67
+    z: 408
+  location8:
+    x: 124
+    y: 62
+    z: 403
+  location9:
+    x: 100.5
+    y: 62
+    z: 393.5
+  location10:
+    x: 110.5
+    y: 62
+    z: 360.5
+Ship:
+  spawnsNum: 10
+  location1:
+    x: 561.5
+    y: 60
+    z: 369.5
+  location2:
+    x: 596.5
+    y: 63
+    z: 369.5
+  location3:
+    x: 577.5
+    y: 60
+    z: 365.5
+  location4:
+    x: 592.5
+    y: 56
+    z: 367.5
+  location5:
+    x: 583.5
+    y: 56
+    z: 367.5
+  location6:
+    x: 561.5
+    y: 56
+    z: 369.5
+  location7:
+    x: 560.5
+    y: 54
+    z: 368.5
+  location8:
+    x: 585.5
+    y: 54
+    z: 370.5
+  location9:
+    x: 575.5
+    y: 54
+    z: 365.5
+  location10:
+    x: 570.5
+    y: 51
+    z: 369.5
+Sandyland:
+  spawnsNum: 10
+  location1:
+    x: 341.5
+    y: 57
+    z: 1177.5
+  location2:
+    x: 347.5
+    y: 56
+    z: 1160.5
+  location3:
+    x: 342.5
+    y: 57
+    z: 1147.5
+  location4:
+    x: 354.5
+    y: 56
+    z: 1147.5
+  location5:
+    x: 358
+    y: 56
+    z: 1157
+  location6:
+    x: 355.5
+    y: 53
+    z: 1173.5
+  location7:
+    x: 374.5
+    y: 56
+    z: 1177.5
+  location8:
+    x: 371.5
+    y: 56
+    z: 1162.5
+  location9:
+    x: 374
+    y: 56
+    z: 1145
+  location10:
+    x: 353.5
+    y: 56
+    z: 1176.5
+Plaza:
+  spawnsNum: 10
+  location1:
+    x: 1282.5
+    y: 61
+    z: 445.5
+  location2:
+    x: 1286.5
+    y: 62
+    z: 424
+  location3:
+    x: 1289.5
+    y: 62
+    z: 402.5
+  location4:
+    x: 1296.5
+    y: 62
+    z: 385.5
+  location5:
+    x: 1273.5
+    y: 61
+    z: 391.5
+  location6:
+    x: 1264.5
+    y: 62
+    z: 406.5
+  location7:
+    x: 1256.5
+    y: 61
+    z: 423.5
+  location8:
+    x: 1248.5
+    y: 62
+    z: 435.5
+  location9:
+    x: 1239.5
+    y: 62
+    z: 442.5
+  location10:
+    x: 1258.5
+    y: 62
+    z: 454.5

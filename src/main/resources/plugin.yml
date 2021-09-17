@@ -1,0 +1,14 @@
+name: Xinada
+version: 1.0
+author: Alcachofra
+main: com.alcachofra.main.Xinada
+api-version: 1.17
+commands:
+  start:
+    description: Start a new game.
+  role:
+    description: See description for your role.
+  next:
+    description: Jump to next round.
+  end:
+    description: End the current game.
