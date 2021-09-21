@@ -1,7 +1,8 @@
 package com.alcachofra.bomb;
 
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Xinada;
+import com.alcachofra.utils.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.Listener;
@@ -35,7 +36,7 @@ public class Puzzle implements Listener {
             ItemStack item = new ItemStack(color, 1);
             ItemMeta itemMeta = item.getItemMeta();
             if (itemMeta != null) {
-                itemMeta.setDisplayName(Language.getRoleString("135"));
+                itemMeta.setDisplayName(Language.getString("fuse"));
                 item.setItemMeta(itemMeta);
             }
             inventory.setItem(i, item);
@@ -43,7 +44,7 @@ public class Puzzle implements Listener {
     }
 
     public void start() {
-        int rate = Xinada.getPlugin().getConfig().getInt("game.terroristFuseRate");
+        int rate = Config.get(Xinada.GAME).getInt("game.terroristFuseRate");
         Random rand = new Random();
         task = new BukkitRunnable() {
             public void run() {

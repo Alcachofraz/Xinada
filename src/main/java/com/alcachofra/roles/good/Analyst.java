@@ -1,8 +1,7 @@
 package com.alcachofra.roles.good;
 
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
@@ -10,24 +9,29 @@ public class Analyst extends Role {
     public Analyst(Player player) {
         super(
             player,
-            Language.getRolesName("analyst"),
-            Language.getRolesDescription("analyst"),
-            1
+            Language.getRoleName("analyst"),
+            Language.getRoleDescription("analyst"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
     public void onHit(EntityDamageByEntityEvent e, Role wwh) {
         if (!isDead() && wwh.isDead()) { // If the target is dead...
             if (wwh instanceof Immune) {
-                getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("2"));
-                wwh.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("71") + ", " + ChatColor.GREEN + Language.getRoleString("1"));
+                getPlayer().sendMessage(String.format(Language.getString("isImmune"), wwh.getPlayer().getName()));
+                wwh.getPlayer().sendMessage(String.format(Language.getString("triedToAnalyseYou"), getPlayer().getName()) + ", " + Language.getString("butImmune"));
             }
 
-            if (wwh.getKiller().getName().equals(wwh.getPlayerName())) {
-                getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("72"));
+            if (wwh.getKiller().getName().equals(wwh.getPlayer().getName())) {
+                getPlayer().sendMessage(String.format(Language.getString("killedHimself"), wwh.getPlayer().getName()));
             }
-            else getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("73") + " " + wwh.getKiller().getName() + "!");
+            else getPlayer().sendMessage(String.format(Language.getString("wasKilledBy"), wwh.getPlayer().getName(), wwh.getKiller().getName()));
         }
     }
 }

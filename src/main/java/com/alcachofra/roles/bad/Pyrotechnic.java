@@ -1,11 +1,11 @@
 package com.alcachofra.roles.bad;
 
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import com.alcachofra.roles.good.Cop;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.WorldManager;
+import com.alcachofra.utils.WorldManager;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
@@ -20,10 +20,15 @@ public class Pyrotechnic extends Role {
     public Pyrotechnic(Player player) {
         super(
                 player,
-                Language.getRolesName("pyrotechnic"),
-                Language.getRolesDescription("pyrotechnic"),
-                -1
+                Language.getRoleName("pyrotechnic"),
+                Language.getRoleDescription("pyrotechnic"),
+                Side.BAD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -37,13 +42,14 @@ public class Pyrotechnic extends Role {
         super.reset();
     }
 
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.FIREWORK_ROCKET) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.FIREWORK_ROCKET)) {
-                if ((a.equals(Action.RIGHT_CLICK_BLOCK) || a.equals(Action.RIGHT_CLICK_AIR)) && !isActivated()) {
+                if ((action.equals(Action.RIGHT_CLICK_BLOCK) || action.equals(Action.RIGHT_CLICK_AIR)) && !isActivated()) {
                     Utils.removeItem(getPlayer(), Material.FIREWORK_ROCKET);
-                    e.setCancelled(true);
+                    event.setCancelled(true);
                     Role cop = Xinada.getGame().getRound().getCurrentRole(Cop.class);
                     if (!cop.hasBow()) {
                         cop = null;

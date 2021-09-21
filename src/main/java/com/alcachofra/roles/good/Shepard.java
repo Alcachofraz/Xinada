@@ -1,9 +1,8 @@
-package com.alcachofra.roles.neutral;
+package com.alcachofra.roles.good;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -14,10 +13,16 @@ public class Shepard extends Role {
     public Shepard(Player player) {
         super(
             player,
-            Language.getRolesName("shepard"),
-            Language.getRolesDescription("shepard"),
-            0
+            Language.getRoleName("shepard"),
+            Language.getRoleDescription("shepard"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        addPoint();
+        if (isActivated()) addPoint();
     }
 
     @Override
@@ -33,12 +38,7 @@ public class Shepard extends Role {
     }
 
     @Override
-    public void award() {
-        // No points (neutral)
-    }
-
-    @Override
-    public void onInteractEntity(PlayerInteractAtEntityEvent e, Role clicked) {
+    public void onInteractEntity(PlayerInteractAtEntityEvent event, Role clicked) {
         if (!isDead()) { // If not dead...
             if (clicked instanceof Sheep) {
                 if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.SHEARS) ||
@@ -52,10 +52,11 @@ public class Shepard extends Role {
                     Utils.soundLocation(clicked.getPlayer().getLocation(), Sound.ENTITY_SHEEP_SHEAR);
                     Utils.dropItem(new ItemStack(Material.WHITE_WOOL, 1), clicked.getPlayer().getLocation());
 
-                    setPoints(2);
+                    setActivated(true);
+                    clicked.setActivated(false);
 
-                    getPlayer().sendMessage(ChatColor.GREEN + clicked.getPlayerName() + " " + Language.getRoleString("127"));
-                    clicked.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("128"));
+                    getPlayer().sendMessage(String.format(Language.getString("foundSheep"), clicked.getPlayer().getName()));
+                    clicked.getPlayer().sendMessage(String.format(Language.getString("cutWool"), getPlayer().getName()));
                 }
             }
         }

@@ -1,14 +1,13 @@
 package com.alcachofra.roles.neutral;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import com.alcachofra.roles.good.Cop;
 import com.alcachofra.roles.good.Immune;
 import com.alcachofra.roles.good.Innocent;
 import com.alcachofra.roles.good.Pirate;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -19,26 +18,24 @@ public class Thief extends Role {
     public Thief(Player player) {
         super(
             player,
-            Language.getRolesName("thief"),
-            Language.getRolesDescription("thief"),
-            0
+            Language.getRoleName("thief"),
+            Language.getRoleDescription("thief"),
+            Side.NEUTRAL
         );
     }
 
     @Override
-    public void award() {
-        // No points (neutral)
-    }
+    public void award() {}
 
     @Override
     public void onHit(EntityDamageByEntityEvent e, Role wwh) {
         if (!isDead() && !wwh.isDead() && !isActivated()) {
             if (wwh instanceof Immune) {
-                getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("2"));
+                getPlayer().sendMessage(String.format(Language.getString("isImmune"), wwh.getPlayer().getName()));
                 return;
             }
             if ((wwh instanceof Pirate) && !wwh.isActivated()) {
-                getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("134"));
+                getPlayer().sendMessage(Language.getString("cannotStealPirate"));
                 return;
             }
             // Roles:
@@ -54,7 +51,7 @@ public class Thief extends Role {
             victim_player.closeInventory(); // Close inventory, in case of Terrorist
 
             // If victim is a bad role, remove bow thief may have:
-            if (victim.getRoleSide() < 0) {
+            if (victim.getRoleSide() == Side.BAD) {
                 Utils.removeItem(thief_player, Material.BOW);
                 Utils.removeItem(thief_player, Material.ARROW);
                 setHasBow(false);
@@ -86,8 +83,8 @@ public class Thief extends Role {
 
             // Before anything, switch positions (to not mess the points up)
             roles.forEach((player, role) -> {
-                if (role.getPlayerName().equals(thief_player.getName())) roles.put(player, victim);
-                else if (role.getPlayerName().equals(victim_player.getName())) roles.put(player, this);
+                if (role.getPlayer().getName().equals(thief_player.getName())) roles.put(player, victim);
+                else if (role.getPlayer().getName().equals(victim_player.getName())) roles.put(player, this);
             });
 
             // Copy Thief status to the victim Role:
@@ -111,8 +108,8 @@ public class Thief extends Role {
             roles.forEach((player, role) -> { // Replace old Thief position with Innocent (with player victim)
                 if (role instanceof Thief) roles.put(player, innocent);
             });
-            innocent.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("132") + " " + innocent.getRoleName() + "!");
-            victim.getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("133") + " " + victim.getRoleName() + "!");
+            innocent.getPlayer().sendMessage(String.format(Language.getString("youAreNowA"), innocent.getRoleName()));
+            victim.getPlayer().sendMessage(String.format(Language.getString("youAreNowThe"), victim.getRoleName()));
         }
     }
 }

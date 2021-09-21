@@ -1,9 +1,8 @@
 package com.alcachofra.roles.bad;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -14,10 +13,15 @@ public class Trickster extends Role {
     public Trickster(Player player) {
         super(
             player,
-            Language.getRolesName("trickster"),
-            Language.getRolesDescription("trickster"),
-            -1
+            Language.getRoleName("trickster"),
+            Language.getRoleDescription("trickster"),
+            Side.BAD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -33,14 +37,15 @@ public class Trickster extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.SKELETON_SKULL) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.SKELETON_SKULL)) {
-                if ((a.equals(Action.RIGHT_CLICK_BLOCK) || a.equals(Action.RIGHT_CLICK_AIR)) && !isActivated()) {
+                if ((action.equals(Action.RIGHT_CLICK_BLOCK) || action.equals(Action.RIGHT_CLICK_AIR)) && !isActivated()) {
                     Utils.removeItem(getPlayer(), Material.SKELETON_SKULL); // Remove item
                     setActivated(true);
-                    Utils.messageGlobal(ChatColor.GRAY + " > " + ChatColor.RED + getPlayerName() + " " + Language.getRoleString("16"));
+                    Utils.messageGlobal(String.format(Language.getString("died"), getPlayer().getName()));
                     Utils.soundGlobal(Sound.ENTITY_LIGHTNING_BOLT_THUNDER);
                 }
             }

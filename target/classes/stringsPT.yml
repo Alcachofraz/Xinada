@@ -1,162 +1,467 @@
+# There are some conventions in this file you should be aware of:
+#
+# '&' stands for color code. Visit https://www.spigotmc.org/wiki/textcosmetics-colors-and-formats/
+# '%s' means that position in the String will be replaced by another String.
+# '%d' means that position in the String will be replaced by an Integer.
+# '%1$d' means this is the first argument. This is useful when the Same String has more than 1 argument.
+
 strings:
-  xinada:
-    gameAlreadyStarted: "Já começou um jogo!"
-    gameNotStarted: "Ainda não começou nenhum jogo!"
-    notEnoughPlayers: "Não há jogadores suficientes!"
-    notPartOfGame: "Não fazes parte do jogo corrente."
-    wait: "Espera uns segundos e tenta novamente."
-  game:
-    gameStarting: "A começar jogo..."
-    round: "Ronda"
-    starting: "a começar em"
-    gameEnded: "O jogo terminou!"
-    winner: "Vencedor"
-    draw: "Empate"
-  round:
-    ended: "terminou."
-    map: "Mapa"
-    endingIn: "termina em"
-    minutes: "minutos"
-    seconds: "segundos"
-    points: "pontos"
-    errorOccurred: "Ocorreu um erro."
-  role:
-    role: "Role"
-    description: "Description"
-    1: "mas tu és imune aos seus poderes."
-    2: "é imune aos teus poderes."
-    3: "but you're immortal."
-    4: "is immortal."
-    5: "Reviveste o teu parceiro!"
-    6: "O teu parceiro reviveu-te!"
-    7: "era o"
-    8: "era bonzinho. Foste despromovido."
-    9: "Tenta não atirar em ti próprio"
-    10: "tentou pescar-te"
-    11: "tentou roubar-te o coração"
-    12: "Reviveste o"
-    13: "O Fantasma reviveu-te!"
-    14: "desarmou a bomba!"
-    15: "Morreste."
-    16: "morreu."
-    17: "Estás morto."
-    18: "Agacha-te para voltares à vida!"
-    19: "Espera que um médico te venha reviver."
-    20: "voltou à vida!"
-    21: "Uma arma foi largada no chão!"
-    22: "morreu e as vossas almas estavam fundidas."
-    23: "morreu à conta dos teus poderes negros!"
-    24: "é o Traidor!"
-    25: "O Assassino matou-te"
-    26: "mas tu és o Traidor!"
-    27: "Não podes matar o"
-    28: "Ele é teu tropa!"
-    29: "tentou matar-te, mas tu és tropa dele!"
-    30: "Devolveste a faca ao Assassino!"
-    31: "O Cúmplice devolveu-te a faca"
-    32: "Já não estás apaixonado!"
-    33: "Roubaste ao"
-    34: " o seu coração!"
-    35: "O Cupido roubou-te o coração"
-    36: "Já roubaste o coração do"
-    37: "Tu e "
-    38: "estão apaixonados!"
-    39: "e"
-    40: "Estás apaixonado! Mantém-te perto da tua alma gémea."
-    41: "Agacha-te para voltares ao normal."
-    42: "Afastaste-te demasiado da tua alma gémea."
-    43: "não conseguiram viver um sem o outro."
-    44: "O Diabo libertou a tua alma!"
-    45: "tentou roubar-te a alma"
-    46: " a sua alma!"
-    47: "O Diabo roubou-te a alma"
-    48: "Fundiste a alma do"
-    49: " com a do"
-    50: "!"
-    51: "O Diabo fundiu a tua alma com a do"
-    52: "O Flautista desafinou!"
-    53: "gosta do som da tua flauta!"
-    54: "Tens de selecionar pelo menos um jogador."
-    55: "Foste atraído pela música do Flautista!"
-    56: "A tua música atraiu os jogadores que selecionaste!"
-    57: "é imortal. Foste despromovido"
-    58: "disparou contra ti"
-    59: "é o Cúmplice!"
-    60: "Não há Cúmplice."
-    61: "Emprestaste a tua faca ao Cúmplice."
-    62: "Ele pode devolver-ta quando quiser."
-    63: "O Assassino emprestou-te a faca dele."
-    64: "Podes devolvê-la quando quiseres."
-    65: "tentou matar-te"
-    66: "O Cúmplice é"
-    67: "A bomba do Terrorista explodiu. Toda a gente morreu!"
-    68: "O Terrorista plantou uma bomba. Desarmem-na, antes que morram todos!"
-    69: "Desarma a bomba!"
-    70: "Ativa todos os fusíveis, rápido!"
-    71: "tentou analisar-te"
-    72: "matou-se a ele próprio!"
-    73: "foi morto por"
-    74: "Estás a voar com o vento por"
-    75: "segundos!"
-    76: "Os mauzões espalharam-se a rir!"
-    77: "Rápido! Apanha a faca!"
-    78: "tentou reviver-te"
-    79: "reviveu-te!"
-    80: "Rebentaste com o quadro da luz. Cegaste todos os jogadores durante alguns segundos."
-    81: "O Eletricista rebentou com o quadro da luz. Não consegues ver nada durante os próximos"
-    82: "Há um Assassino a"
-    83: "blocks de distância!"
-    84: "O Guru expôs-te!"
-    85: "Agacha-te para voltares ao normal."
-    86: "é o"
-    87: "Tem cuidado!"
-    88: "tentou expor-te"
-    89: "não tem uma faca."
-    90: "tentou expor-te, mas tu não tens uma faca."
-    91: "Armadilha posta!"
-    92: "Não podes pôr uma armadilha aqui."
-    93: "Usaste a bomba de fumo!"
-    94: "tentou usar uma bomba de fumo em ti"
-    95: "Foste apanhado pela bomba de fumo do Ilusionista!"
-    96: "A faca do Assassino transformou-se numa inofensiva rosa!"
-    98: "A vossa parceria terminou!"
-    99: "tentou fazer paceria contigo"
-    100: "Fizeste parceria com"
-    101: "fez parceria contigo!"
-    102: "Estás invisível por"
-    103: "O outro Pirata não escondeu o seu tesouro."
-    104: "Ganhaste um ponto grátis!"
-    105: "Tens"
-    106: "segundos para esconderes o teu tesouro."
-    107: "segundo para esconderes o teu tesouro."
-    108: "O teu tesouro está escondido!"
-    109: "Encontra o tesouro do outro Pirata!"
-    110: "Não escondeste o teu tesouro. Estás amaldiçoado."
-    111: "Encontraste o tesouro do outro Pirata!"
-    112: "tentou abençoar-te"
-    113: "Abençoaste o"
-    114: "abençoou-te!"
-    115: "Não podes promover o"
-    116: "Ele é um dos mauzões!"
-    117: "tentou promover-te a Polícia."
-    118: "Agora ele sabe que és um dos mauzões!"
-    119: "tentou promover-te a Polícia"
-    120: "já é um Polícia."
-    121: "promoveu-te, mas tu já és um Polícia!"
-    122: "promoveu-te a Polícia. Ainda podes usar a tua outra habilidade."
-    123: "Promoveste o"
-    124: "Localização salva."
-    125: "Tens de salvar uma localização antes de te teletransportares!"
-    126: "Teletransportaste-te!"
-    127: "era a tua Ovelha perdida. Cortaste-lhe a lã!"
-    128: "cortou-te a lã!"
-    129: "tentou amaldiçoar-te"
-    130: "Amaldiçoaste o"
-    131: "amaldiçoou-te!"
-    132: "Agora és um"
-    133: "Agora és o"
-    134: "Não podes roubar a habilidade do Pirata enquanto ele não esconder o seu tesouro!"
-    135: "Fusível"
+
+  # Thrown when a Player tries to start a Game, with a Game already running.
+  gameAlreadyStarted: "&7Já começou um jogo!"
+
+  # Thrown when a Player tries a command that requires a Gameto be running.
+  gameNotStarted: "&7Ainda não começou nenhum jogo!"
+
+  # Thrown when a Player starts a Game.
+  gameStarting: "&7A começar jogo..."
+
+  # Thrown when Game ends.
+  gameEnded: "&7O jogo terminou!"
+
+  # The 1st argument is the ID of the current Round. The 2nd is the time remaining.
+  roundStartingIn: "&7Ronda &5&l%1$d &r&7a começar em &6%2$d&7..."
+
+  # The 1st argument is the ID of the current Round. The 2nd is the time remaining. The 3rd is either "seconds" or minutes".
+  roundEndingIn: "&7A Ronda &5&l%1$d &r&7termina em &6%2$d&7 %3$s..."
+
+  # The 1st argument is the ID of the current Round.
+  roundEnded: "&7A Ronda &5&l%d &r&7terminou."
+
+  # Thrown when there are not enough players to start a Round.
+  notEnoughPlayers: "&7Não há jogadores suficientes!"
+
+  # Thrown when a Player who's not part of the game issues certain commands.
+  notPartOfGame: "&7Não fazes parte do jogo corrente."
+
+  # Thrown when Player issues commands in round intervals.
+  waitAndTryAgain: "&7Espera uns segundos e tenta novamente."
+
+  # Thrown when an error occurs.
+  errorOccurred: "&7Ocorreu um erro."
+
+  # Word 'Winner'.
+  winner: "Vencedor"
+
+  # Word 'Draw'.
+  draw: "Empate"
+
+  # Word 'Map'.
+  map: "Mapa"
+
+  # Word 'minutes'.
+  minutes: "minutos"
+
+  # Word 'minute'.
+  minute: "minuto"
+
+  # Word 'seconds'.
+  seconds: "segundos"
+
+  # Word 'second'.
+  second: "segundo"
+
+  # Word 'points'.
+  points: "pontos"
+
+  # The 1st argument is the Role name.
+  sendRole: "&7 > Papel: &r%s"
+
+  # The 1st argument is the Role description.
+  sendDescription: "&7 > Descrição: &r%s"
+
+  # Thrown when a Player tries to use ability on Immune
+  butImmune: "&amas tu és imune aos seus poderes."
+
+  # Thrown when a Player tries to use ability on Immune
+  isImmune: "&c%s é imune aos teus poderes."
+
+  # Thrown when a Player tries to kill the Monster
+  butImmortal: "&amas tu és imortal."
+
+  # Thrown when a Player tries to kill the Monster
+  isImmortal: "&c%s é imortal."
+
+  # Thrown when Player revives his partner.
+  youRevivedPartner: "&aReviveste o teu parceiro!"
+
+  # Thrown when partner revives Player.
+  partnerRevivedYou: "&aO teu parceiro reviveu-te!"
+
+  # The 1st argument is the Player name, and the 2nd is his Role
+  wasThe: "&a%1$s era o %2$s."
+
+  # The 1st argument is the name of the 'good' Player.
+  wasGood: "&c%s era bonzinho. Foste despromovido."
+
+  # Thrown when Player accidentally shoots himself.
+  selfShot: "&cTenta não atirar em ti próprio. :)"
+
+  # The 1st argument is the name of the Player who tried to steal heart.
+  triedStealHeart: "&c%s tentou roubar-te o coração"
+
+  # Thrown when someone dies, in chat. 1st argument is the dead Player.
+  died: "&7 > &c%s bateu as botas."
+
+  # Thrown when Player dies.
+  youDied: "Estás morto."
+
+  # Thrown when Survivor dies the first time.
+  crouchToRevive: "&aAgacha-te para voltares à vida!"
+
+  # Thrown when someone dies.
+  spectatorMode: "&aEstás em modo espectador."
+
+  # Thrown when someone is revived, in chat. 1st argument is the revived Player.
+  revived: "&7 > &a%s voltou à vida!"
+
+  # Thrown when a weapon is dropped on the floor.
+  weaponDropped: "&7 > &9Uma arma foi largada no chão!"
+
+  # 1st argument is the dead merged Player.
+  diedMerged: "&c%s morreu e as vossas almas estavam fundidas."
+
+  # 1st argument is the to be dead merged Player.
+  diedOfYourSorcery: "&a%s morreu à conta dos teus poderes negros!"
+
+  # 1st argument is the name of the Traitor.
+  isTraitor: "&a%s é o Traidor!"
+
+  # Thrown when Traitor is murdered.
+  murderedButTraitor: "&cO Assassino matou-te, &amas tu és o Traidor!"
+
+  # 1st argument is the name of the Player who was targeted.
+  cannotMurderPal: "&cNão podes matar o %s. Ele é teu tropa!"
+
+  # 1st argument is the name of the Player who tried to murder.
+  triedMurderPal: "&c%s tentou matar-te, &amas tu és tropa dele!"
+
+  # Thrown when knife is returned to the Murderer.
+  knifeReturnedToMurderer: "&aDevolveste a faca ao Assassino!"
+
+  # Thrown when knife is returned from Accomplice.
+  accompliceReturnedKnife: "&aO Cúmplice devolveu-te a faca!"
+
+  # Thrown when a Player is no longer in love.
+  noLongerInLove: "&aJá não estás apaixonado!"
+
+  # The 1st argument is the name of the Player whose heart was stolen.
+  youStoleHeart: "&aRoubaste o coração do %s!"
+
+  # Thrown when Cupid steals a Player's heart.
+  cupidStoleHeart: "&cO Cupido roubou-te o coração!"
+
+  # The 1st argument is the name of the Player whose heart was already stolen.
+  alreadyStoleHeart: "&cJá roubaste o coração do %s."
+
+  # The 1st argument is the other Player in love.
+  youAreInLove: "&cTu e %s estão apaixonados!"
+
+  # The 1st argument is a Player in love. The 2nd is the other.
+  theyAreInLove: "&a%1$s e %2$s estão apaixonados!"
+
+  # Thrown when Players are in love.
+  keepCloseToLoved: "&cEstás apaixonado! Mantém-te perto da tua alma gémea."
+
+  # Thrown when Players are in love.
+  crouchToNormal: "&cAgacha-te para voltares ao normal."
+
+  # Thrown when Players in love step too far from each other.
+  tooFarFromLoved: "&cAfastaste-te demasiado da tua alma gémea."
+
+  # Thrown when Players in love step too far from each other (global).
+  couldNotLiveWithout: "&a%1$s e %2$s não conseguiram viver um sem o outro."
+
+  # Thrown when devil frees Player's soul.
+  devilFreedSoul: "&aO Diabo libertou a tua alma!"
+
+  # The 1st argument is the name of the Devil.
+  triedStealSoul: "&c%s tentou roubar-te a alma"
+
+  # The 1st argument is the name of the Player whose soul was stolen.
+  youStoleSoul: "&aRoubaste a alma do %s!"
+
+  # Thrown when Devil steals a Player's soul.
+  devilStoleSoul: "&cO Diabo roubou-te a alma"
+
+  # The 1st argument is the name of the Player whose heart was already stolen.
+  alreadyStoleSoul: "&cJá roubaste a alma do %s."
+
+  # The 1st argument is the name of one Player merged. The 2nd is the other.
+  soulsMerged: "&aFundiste a alma do %1$s com a do %2$s!"
+
+  # The 1st argument is the name of the other Player merged.
+  yourSoulMergedWith: "&cO Diabo fundiu a tua alma com a do %s!"
+
+  # Thrown when the flutist is reset.
+  outOfTune: "&aO Flautista desafinou!"
+
+  # The 1st argument is the name of the Flutist.
+  triedToEnchant: "&c%s tentou encantar-te"
+
+  # Thrown when the flutist enchants another Player.
+  enchantedByFlutist: "&cO Flautista encantou-te."
+
+  # Thrown when Flutist enchants a Player.
+  enchanted: "&a%s gosta do som da tua flauta!"
+
+  # Thrown when Flutist summons zero players.
+  atLeastEnchantOne: "&cTens de selecionar pelo menos um jogador."
+
+  # Thrown when a Player is summoned by the Flutist's music..
+  summonedByFlutist: "&cFoste atraído pela música do Flautista!"
+
+  # Thrown when Flutist summons Players.
+  youSummonedEnchanted: "&aA tua música atraiu os jogadores que selecionaste!"
+
+  # The 1st argument is the name of the Monster.
+  immortalYouAreDemoted: "&c%s é imortal. Foste despromovido."
+
+  # The 1st argument is the name of the shooter.
+  triedToShootYou: "&c%s disparou contra ti"
+
+  # The 1st argument is the name of the Accomplice.
+  isAccomplice: "&c%s é o Cúmplice!"
+
+  # Thrown when there is no Accomplice.
+  noAccomplice: "Não há Cúmplice."
+
+  # Thrown when knife is returned to the Accomplice.
+  knifeReturnedToAccomplice: "&aEmprestaste a tua faca ao Cúmplice. Ele pode devolver-ta quando quiser."
+
+  # Thrown when knife is borrowed from Murderer.
+  borrowedMurdererKnife: "&aO Assassino emprestou-te a faca dele. Podes devolvê-la quando quiseres."
+
+  # The 1st argument is the name of the Accomplice.
+  accompliceIs: "&7O Cúmplice é &c%s&7!"
+
+  # The 1st argument is the name of the Player who disarmed the bomb.
+  bombDisarmed: "%s desarmou a bomba! Acabou-se o terrorismo."
+
+  # Thrown when bom explodes.
+  bombExploded: "&cA bomba do Terrorista explodiu. Toda a gente morreu!"
+
+  # Thrown when Terrorist sets up the bomb.
+  disarmBomb: "&cO Terrorista plantou uma bomba. Desarmem-na, antes que morram todos!"
+
+  # Thrown when Terrorist sets up the bomb (Popup).
+  disarmBombPopup: "&cDesarma a bomba!"
+
+  # Thrown when Terrorist sets up the bomb. Tells him to activate the fuses.
+  activateFuses: "Ativa todos os fusíveis, rápido!"
+
+  # The name of the fuses.
+  fuse: "Fusível"
+
+  # The 1st argument is the name of the Analyst.
+  triedToAnalyseYou: "&c%s tentou analisar-te"
+
+  # The 1st argument is the name of the Player that killed himself.
+  killedHimself: "&c%s matou-se a ele próprio!"
+
+  # The 1st argument is the name of the killed. The 2nd is the name of the killer.
+  wasKilledBy: "&c%1$s foi morto por %2$s!"
+
+  # The 1st argument is the amount of seconds Athlete has the speed effect.
+  pedalToTheMetal: "&aEstás com o pé na tábua por %d segundos!"
+
+  # Thrown when Clown tells a joke.
+  badGuysLaughing: "&7> &aOs mauzões espalharam-se a rir!"
+
+  # Thrown to Assassins when Clown tells a joke.
+  quicklyPickUpKnife: "&cRápido! Apanha a faca!"
+
+  # The 1st argument is the name of the Player that tried to revive.
+  triedToRevive: "&c%s tentou reviver-te"
+
+  # The 1st argument is the name of the revived Player.
+  youRevived: "&aReviveste o %s!"
+
+  # The 1st argument is the name of Player that revived another.
+  revivedYou: "&a%s trouxe-te de volta à vida!"
+
+  # Thrown when Electrician cuts power.
+  youCutPower: "&aRebentaste com o quadro da luz. Cegaste todos os jogadores durante alguns segundos."
+
+  # Thrown when Electrician cuts power (global).
+  electricianCutPower: "&cO Eletricista rebentou com o quadro da luz. Não consegues ver nada durante os próximos %d segundos."
+
+  # The 1st argument is the distant from the closest assassin.
+  assassinCloseBy: "&7Há um Assassino a &6%d &7blocos de distância!"
+
+  # The 1st argument is the Fisherman name.
+  triedToFishYou: "&c%s tentou pescar-te"
+
+  # Thrown when Guru exposes a Player.
+  guruExposedYou: "&cO Guru descobriu-te a careca!"
+
+  # The 1st argument is the Player name. 2nd is his Role.
+  isAssassin: "&a%1$s é o %2$s. &cTem cuidado!"
+
+  # The 1st argument is the Guru's name.
+  triedToExposeYou: "&c%s tentou expor-te"
+
+  # The 1st argument is the name of the Player Guru tried to expose.
+  noKnife: "&c%s não tem uma faca."
+
+  # The 1st argument is the Guru's name.
+  exposedButNoKnife: "&a%s tentou expor-te, mas tu não tens uma faca."
+
+  # Thrown when the Hunter tries to place a trap in a non-empty block.
+  trapNotAllowedHere: "&cNão podes pôr uma armadilha aqui."
+
+  # Thrown when Illusionist uses the smoke bomb.
+  usedSmokeBomb: "&aUsaste a bomba de fumo!"
+
+  # The 1st argument is the name of the Illusionist.
+  triedToSmokeBombYou: "&a%s tentou usar uma bomba de fumo em ti"
+
+  # Thrown when Player is caught in the smoke bomb.
+  caughtInSmokeBomb: "&cFoste apanhado pela bomba de fumo do Ilusionista!"
+
+  # Thrown when the knife is turned into a rose.
+  knifeTurnedIntoRose: "&aA faca do Assassino transformou-se numa inofensiva rosa!"
+
+  # Thrown when partners end partnership.
+  partnershipEnded: "&cA vossa parceria terminou!"
+
+  # Thrown when Negotiator tries to create a partnership.
+  triedToPartnership: "&c%s tentou fazer paceria contigo"
+
+  # Thrown when Negotiator creates a partnership.
+  partnershipWith: "&aFizeste parceria com %s!"
+
+  # The 1st argument is the name of the Negotiator.
+  partnershipWithYou: "&a%s fez parceria contigo!"
+
+  # The 1st argument is the time remaining (seconds).
+  invisibleFor: "&aEstás invisível por %d segundos!"
+
+  # Thrown when the other Pirate wasn't able to hide his treasure, in the given time.
+  otherPirateFailed: "&cO outro Pirata não escondeu o seu tesouro. &aGanhaste um ponto grátis!"
+
+  # The 1st argument is the time remaining for the Pirate to hide his treasure (> 1 second).
+  secondsToHideTreasure: "&7Tens &6%d &7segundos para esconderes o teu tesouro."
+
+  # The 1st argument is the time remaining for the Pirate to hide his treasure (= 1 second).
+  secondToHideTreasure: "&7Tens &6%d &7segundo para esconderes o teu tesouro."
+
+  # Thrown when Pirate hides his treasure.
+  treasureHidden: "&aO teu tesouro está escondido!"
+
+  # Thrown when Pirate needs to find the other Pirate's treasure.
+  findOtherPirateTreasure: "&aEncontra o tesouro do outro Pirata!"
+
+  # Thrown when Pirate couldn't hide his treasure and is now cursed.
+  youAreCursed: "&cNão escondeste o teu tesouro. Estás amaldiçoado."
+
+  # Thrown when Pirate finds the other Pirate's treasure.
+  foundOtherPirateTreasure: "&aEncontraste o tesouro do outro Pirata!"
+
+  # The 1st argument is the name of the Priest.
+  triedToBlessYou: "&c%s tentou abençoar-te"
+
+  # The 1st argument is the name of the blessed Player.
+  blessed: "&aAbençoaste %s!"
+
+  # The 1st argument is the name of the Priest.
+  blessedYou: "&a%s abençoou-te!"
+
+  # The 1st argument is the name of the Bad Guy.
+  cannotPromote: "&9Não podes promover o %s. &cEle é um dos mauzões!"
+
+  # The 1st argument is the name of the Promoter.
+  triedToPromoteYouButBadGuy: "&9%s tentou promover-te a Polícia. &cAgora ele sabe que és um dos mauzões!"
+
+  # The 1st argument is the name of the Promoter.
+  triedToPromoteYou: "&c%s tentou promover-te a Polícia"
+
+  # The 1st argument is the name of the Player that's already a Cop.
+  alreadyPromoted: "&c%s já é um Polícia."
+
+  # The 1st argument is the name of the Promoter.
+  promotedButAlreadyPromoted: "&9%s promoveu-te, mas tu já és um Polícia!"
+
+  # The 1st argument is the name of the Promoter.
+  promotedYou: "&9%s promoveu-te a Polícia. Ainda podes usar a tua outra habilidade."
+
+  # The 1st argument is the name of the promoted Player.
+  youPromoted: "&9Promoveste o %s!"
+
+  # Thrown when Psychic saves Location.
+  locationSaved: "&aLocalização salva."
+
+  # Thrown when Psychic tries to teleport without saving a Location..
+  mustSaveLocation: "&cTens de salvar uma localização antes de te teletransportares!"
+
+  # Thrown when Psychic teleports.
+  teleported: "&aTeletransportaste-te!"
+
+  # The 1st argument is the name of the Lost Sheep.
+  foundSheep: "&a%s era a tua Ovelha perdida. Cortaste-lhe a lã!"
+
+  # The 1st argument is the name of the Shepard.
+  cutWool: "&c%s cortou-te a lã!"
+
+  # The 1st argument is the name of the Witch.
+  triedToCurseYou: "&c%s tentou amaldiçoar-te"
+
+  # The 1st argument is the name of the cursed Player.
+  youCursed: "&aAmaldiçoaste %s!"
+
+  # The 1st argument is the name of the Witch.
+  cursedYou: "&c%s amaldiçoou-te!"
+
+  # The 1st argument is the Gravedigger/Thief's new Role.
+  youAreNowA: "&cAgora és um %s!"
+
+  # The 1st argument is the stolen Player new Role (probably Innocent).
+  youAreNowThe: "&aAgora és o %s!"
+
+  # Thrown when the Thief tries to steal the Pirate without the treasure being hidden yet.
+  cannotStealPirate: "&cNão podes roubar a habilidade do Pirata enquanto ele não esconder o seu tesouro!"
+
+  # Thrown when Christ takes a leg from a Player.
+  christStoleYourLeg: "&cJesus Cristo levou-te uma perna pelos teus pecados. Digita &lamen &r&cno chat, para a recuperares!"
+
+  # Thrown when Christ takes a leg from a Player (Popup).
+  legStolen: "&cFicaste sem uma perna!"
+
+  # Thrown when Player has to type "amen" (Popup).
+  typeAmen: "&cDigita &lamen &r&c."
+
+  # Thrown when Christ takes a leg from all Players.
+  youStoleLegs: "&aYou stole a leg from everyone. They now move slowly."
+
+jokes:
+  - "Que nome se dá a uma ferramente perdida? Foice!"
+  - "Conheces a piada da construção? Nem eu, ainda estão a trabalhar nela!"
+  - "Dizem que todos têm um lado bonito... Então tu deves ser um círculo!"
+  - "E se o pai natal falecer..? Não estará mais em trenós!"
+  - "Qual é o pior nome que uma sogra pode ter? Esperança, pois a esperança é a última a morrer!"
+  - "Qual é a panela que está sempre triste? A panela de pressão!"
+  - "Mamã, na escola chamaram-me mentiroso! Cala-te que nem foste à escola ainda..."
+  - "Como é que o Batman faz para que abram a Bat-caverna? Ele Bat-palmas!"
+  - "Como se faz uma omelete de chocolate? Com ovos da Páscoa!"
+  - "De que morreu o diabo? De diabretes!"
+  - "O que fazem 17 alentejanos á frente do cinema? Esperam que venha mais um, porque o filme é para +18!"
+  - "Qual foi a última refeição de Jesus? Prego na tábua!"
+  - "O que acontece quando 2 bandidos caem ao mar? Uma onda de crimes!"
+  - "O que diz um piolho para o outro, em cima de uma careca? Piso escorregadio!"
+  - "Qual é a cor mais barulhenta? A corneta!"
+  - "Qual é o animal que já não vale nada? O javali!"
+  - "Como se chama o profissional que pinta carros? É o Car-pinteiro!"
+  - "Por que é que o polícia não gosta de sabão? Porque prefere detergente."
+  - "Quando estiveres triste, abraça um sapato. Um sapato consola."
+  - "Porque é que as loiras lavam o cabelo com o chuveiro fechado? Porque na embalagem diz \"para cabelos secos\"!"
+  - "Como se chama o peixe que caiu do décimo andar? Aaaaaaaaah, Tum!"
+  - "O que é que uma mãe feiticeira diz à filha feiticeira? Não devias ter feit’ isso!"
+  - "O que diz o tubarão para a \"tubaroa\"? Tu baralhas-me."
+  - "Porque é que ninguém se perde na Polónia? Porque há muitas \"polacas\" de sinalização."
+  - "Porque é que as pombas não matam os outros animais? Porque têm pena."
+  - "Qual é o contrário de skate? Molhei-te."
+  - "A que horas acordam os cactos? Às oito e picos."
+
 roles:
   cop:
     name: "Polícia"
@@ -269,3 +574,9 @@ roles:
   pyrotechnic:
     name: "Pirotécnico"
     description: "Usa o foguete para expor a localização do polícia!"
+  cannibal:
+    name: "Canibal"
+    description: "Alimenta-te de outros jogadores antes que morras à fome. Eles tornar-se-ão mais lentos."
+  jesus:
+    name: "Jesus"
+    description: "Acende uma vela e todos os jogadores mauzões terão de digitar \"amen\" para se conseguirem mover novamente."

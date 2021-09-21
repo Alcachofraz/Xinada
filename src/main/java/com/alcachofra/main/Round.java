@@ -1,128 +1,123 @@
 package com.alcachofra.main;
 
-import com.alcachofra.roles.neutral.Sheep;
-import com.alcachofra.utils.Utils;
 import com.alcachofra.roles.bad.*;
-import com.alcachofra.utils.Countdown;
-import org.bukkit.*;
+import com.alcachofra.utils.*;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
+import static com.alcachofra.main.Xinada.GAME;
+import static com.alcachofra.main.Xinada.MAPS;
+
 public class Round {
-
-    private int id;
-    private String map = null;
-    private final Set<Player> players;
-
-    private Map<Player, Role> currentRoles;
+    private final int id;
+    private final String map;
+    private final Map<Player, Role> currentRoles;
     private final Map<Player, Role> originalRoles = new HashMap<>();
+    private RoundCountdown roundCountdown;
 
-    private int swords_dropped = 0;
-
-    Countdown roundCountdown;
-
+    private int swordsDropped = 0;
 
     /**
-     * Unique constructor for Round. Takes an Identifier and a list of Players that will participate.
-     * @param id Identifier.
-     * @param players Participants.
+     * Enum EndCause. Indicates what caused a Round to end.
      */
-    public Round(int id, Set<Player> players) {
-        this.players = players;
+    public enum EndCause {
+        GOOD_WON,
+        BAD_WON,
+        TERRORIST_WON,
+        FORCED_ROUND_END,
+        FORCED_GAME_END
+    }
+
+    /**
+     * Constructor for Round. Randomizes a Map and draws Roles for this Round.
+     * @param id Identifier of this Round.
+     * @param players Set of Players to participate in this round.
+     * @throws IllegalAccessException When an Instance of a Role can't be accessed.
+     * @throws InvocationTargetException When a Role Constructor can't be invoked.
+     * @throws InstantiationException When an Instance of a Role can't be created.
+     */
+    public Round(int id, Set<Player> players) throws IllegalAccessException, InstantiationException, InvocationTargetException {
         this.id = id;
-    }
-
-
-    /**
-     * Get Round Identifier.
-     * @return Identifier.
-     */
-    public int getID() {
-        return id;
+        this.map = randomizeMap();
+        this.currentRoles = RoleManager.draw(players);
+        this.originalRoles.putAll(currentRoles);
     }
 
     /**
-     * Set Round Identifier.
-     * @param id Identifier.
+     * Start this Round. Spawns Players, initialises Roles and starts the Round countdown. Also, outputs the name
+     * of this Round's Map.
      */
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Get the map name this round is being played on.
-     * @return Map name.
-     */
-    public String getMap() {
-        return map;
-    }
-
-    /**
-     * Set this round's current map.
-     * @param map Name of the map.
-     */
-    public void setMap(String map) {
-        this.map = map;
-    }
-
-    /**
-     * Get a Map of this round's Players and their current Roles.
-     * @return Map of Players and their current Roles.
-     */
-    public Map<Player, Role> getCurrentRoles() {
-        return currentRoles;
-    }
-
-    /**
-     * Get a Map of this round's Players and their original Roles.
-     * @return Map of Players and their original Roles.
-     */
-    public Map<Player, Role> getOriginalRoles() {
-        return originalRoles;
-    }
-
-    public int getSwordsDropped() {
-        return swords_dropped;
-    }
-
-    public void addSwordsDropped() {
-        this.swords_dropped++;
-    }
-
-    public void subtractSwordsDropped() {
-        this.swords_dropped--;
-    }
-
-    public Countdown getCountdown() {
-        return roundCountdown;
-    }
-
-    /**
-     * Get nearest assassin (i. e. all bad Roles that can kill), relative to a certain Role's Player.
-     * @param r Role.
-     * @return The nearest Assassin Role.
-     */
-    public Role getNearestAssassin(Role r) {
-        Role nearest = getCurrentRole(Murderer.class);
-        Role aux;
-        if ((aux = getCurrentRole(Accomplice.class)) != null) {
-            if (r.getPlayer().getLocation().distance(aux.getPlayer().getLocation())
-                <
-                r.getPlayer().getLocation().distance(nearest.getPlayer().getLocation())
-            ) nearest = aux;
+    public void start() {
+        if (Xinada.getGame().getPlayers().keySet().size() < currentRoles.keySet().size()) {
+            end(EndCause.FORCED_ROUND_END); // If someone left the Game in Round interval.
         }
-        if ((aux = getCurrentRole(Traitor.class)) != null) {
-            if (
-                r.getPlayer().getLocation().distance(aux.getPlayer().getLocation())
-                <
-                r.getPlayer().getLocation().distance(nearest.getPlayer().getLocation())
-            ) nearest = aux;
+        else {
+            spawnPlayers(map, currentRoles.keySet());
+            currentRoles.forEach((player, role) -> role.initialise());
+            Utils.soundGlobal(Sound.ENTITY_PLAYER_LEVELUP);
+            roundCountdown(id);
+            new BukkitRunnable() {
+                public void run() {
+                    Utils.messageGlobal(Xinada.getTag() + Language.getString("map") + ": " + ChatColor.WHITE + map);
+                }
+            }.runTaskLater(Xinada.getPlugin(), 20 * 2);
         }
-        return nearest;
     }
 
+    /**
+     * End this Round. Cancels Round countdown, scores Players' points and outputs, and cleans Players.
+     * @param cause Ending cause. What caused the Round to end.
+     */
+    public void end(EndCause cause) {
+        if (roundCountdown != null) roundCountdown.cancel();
+        scorePoints(cause);
+        clean();
+        Utils.soundGlobal(Sound.ENTITY_BLAZE_HURT);
+        Utils.messageGlobal(
+                Xinada.getTag() +
+                        String.format(
+                                Language.getString("roundEnded"),
+                                id
+                        )
+        );
+        outputPoints();
+    }
+
+    /**
+     * Starts the round countdown. Starts at "game.roundTime" minutes. This field can
+     * be found in game.yml.
+     * @param round Round identifier.
+     */
+    public void roundCountdown(int round) {
+        roundCountdown = new RoundCountdown(
+                Config.get(GAME).getInt("game.roundTime") * 60,
+                1,
+                0,
+                round,
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        end(EndCause.GOOD_WON);
+                    }
+                }
+        );
+        roundCountdown.setMessage(
+                Xinada.getTag() + Language.getString("roundEndingIn")
+        ).start();
+    }
+
+    /**
+     * Looks for an instance of a specific Role participating in this Round.
+     * @param roleClass Role you're looking for.
+     * @param <T> Class of the specified Role.
+     * @return Instance of Role participating, or null if Class specified has not been instantiated for this game.
+     */
     public <T extends Role> T getCurrentRole(Class<T> roleClass) {
         for (Role role : currentRoles.values()) {
             if (roleClass.isInstance(role)) {
@@ -141,145 +136,129 @@ public class Round {
         return currentRoles.get(p);
     }
 
-    /**
-     * Get original Role of a certain Player.
-     * @param p Player.
-     * @return Original Role.
-     */
-    public Role getOriginalRole(Player p) {
-        return originalRoles.get(p);
+
+    public Map<Player, Role> getCurrentRoles() {
+        return currentRoles;
     }
 
     /**
-     * Start this Round. Draws roles, spawns players, initialises roles and
-     * starts the round countdown.
+     * Get number of swords dropped on the floor.
+     * @return Number of swords dropped.
      */
-    public void start() {
-        System.out.println("Round - Starting Round");
-        if ((currentRoles = RoleManager.draw(players)) != null) {
-            originalRoles.putAll(currentRoles);
-            spawnPlayers();
-            currentRoles.forEach((player, role) -> role.initialise());
-            Utils.soundGlobal(Sound.ENTITY_PLAYER_LEVELUP);
-            Xinada.getGame().updateTabList();
-            startRoundCountdown(getID());
-            new BukkitRunnable() {
-                public void run() {
-                    Utils.messageGlobal(ChatColor.DARK_PURPLE + "[Xinada] " + Language.getRoundString("map") + ": " + ChatColor.WHITE + getMap());
-                }
-            }.runTaskLater(Xinada.getPlugin(), 20*2);
-        }
-        else {
-            // Error drawing roles...
-            Utils.messageGlobal(
-                    ChatColor.DARK_PURPLE + "[Xinada] " +
-                            ChatColor.GRAY + Language.getXinadaString("errorOccurred")
-            );
-            Xinada.getGame().endRound(true);
-        }
+    public int getSwordsDropped() {
+        return swordsDropped;
     }
 
     /**
-     * End this Round. Updates and prints points, cleans world and players and
-     * @param side Winning side. If 1, good guys win and if -1 bad guys win.
-     *             If 0, no one wins.
+     * Increment number of swords dropped on the floor.
      */
-    public void end(int side) { // side -> winning side (if 0, all players receive 0 points)
-        System.out.println("Round - Ending Round");
-        Xinada.getGame().setInRound(false); // Game no longer in round
-        if (roundCountdown != null) roundCountdown.cancel();
+    public void addSwordsDropped() {
+        this.swordsDropped++;
+    }
 
-        updatePoints(side);
+    /**
+     * Decrement number of swords dropped on the floor.
+     */
+    public void subtractSwordsDropped() {
+        this.swordsDropped--;
+    }
 
-        Utils.soundGlobal(Sound.ENTITY_BLAZE_HURT);
-        Utils.messageGlobal(
-                ChatColor.DARK_PURPLE + "[Xinada] " +
-                ChatColor.GRAY + Language.getGameString("round") + " " +
-                ChatColor.DARK_PURPLE + getID() +
-                ChatColor.GRAY + " " + Language.getRoundString("ended")
-        );
-
+    /**
+     * Clean Round. Cleans Map and Players.
+     */
+    public void clean() {
         WorldManager.clean();
         for (Role role : currentRoles.values()) {
             role.clean();
             role.getPlayer().closeInventory();
         }
-
-        Xinada.getGame().updateTabList();
-        printPoints();
-
-        // End round in 5 seconds:
-        new BukkitRunnable() {
-            public void run() {
-                Xinada.getGame().endRound(false);
-                this.cancel();
-            }
-        }.runTaskLater(Xinada.getPlugin(), 20*5); // 20 ticks = 1 second
     }
 
     /**
-     * Starts the round countdown. Starts at "game.roundTime" minutes. This field can
-     * be found in config.yml.
-     * @param round Round identifier.
+     * Get a list of Maps from the Config File, and randomize.
+     * @return The rolled map.
      */
-    public void startRoundCountdown(int round) {
-        roundCountdown = new Countdown(
-                Xinada.getPlugin().getConfig().getInt("game.roundTime") * 60,
-                1,
-                0,
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        end(1);
-                    }
-                }
-        );
-        roundCountdown.setMessage(
-                ChatColor.DARK_PURPLE + "[Xinada] " +
-                ChatColor.GRAY + Language.getGameString("round") + " " +
-                ChatColor.DARK_PURPLE + round +
-                ChatColor.GRAY + " " + Language.getRoundString("endingIn") + " " +
-                ChatColor.GOLD + "%s" +
-                ChatColor.GRAY + " %s..."
-        ).start();
-    }
-
-    /**
-     * Rolls a map, cleans Players and teleports them to the rolled map.
-     */
-    private void spawnPlayers() {
+    private String randomizeMap() {
         Random rand = new Random();
 
-        // Get map names:
         ArrayList<String> mapNames = new ArrayList<>(
-            Objects.requireNonNull(Xinada.getMapsConfig().getConfigurationSection("")).getKeys(false)
+                Objects.requireNonNull(Config.get(MAPS).getConfigurationSection("")).getKeys(false)
         );
+        return mapNames.get(rand.nextInt(mapNames.size()));
+    }
+
+    /**
+     * Spawn Players in Map.
+     * @param map The map where Players will spawn.
+     * @param players Set of Players that will spawn.
+     */
+    private void spawnPlayers(String map, Collection<Player> players) {
+        Random rand = new Random();
 
         int[] used = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; // In order to not repeat spawn locations
         int spawnLocation; // Random spawn location
 
-        // Randomize new world:
-        setMap(mapNames.get(rand.nextInt(mapNames.size())));
-
         // Spawn players:
         for (Player player : players) {
             do { // Generate random numbers without repeating
-                spawnLocation = rand.nextInt(Xinada.getMapsConfig().getInt(getMap() + ".spawnsNum")) + 1; // From 1 to 10
+                spawnLocation = rand.nextInt(Config.get(MAPS).getInt(map + ".spawnsNum")) + 1; // From 1 to 10
             } while (used[spawnLocation-1] == 1);
             used[spawnLocation-1] = 1;
 
             Utils.cleanPlayer(player);
             player.teleport(new Location( // Teleports player
-                player.getWorld(),
-                Xinada.getMapsConfig().getDouble(getMap() + ".location" + spawnLocation + ".x"),
-                Xinada.getMapsConfig().getDouble(getMap() + ".location" + spawnLocation + ".y"),
-                Xinada.getMapsConfig().getDouble(getMap() + ".location" + spawnLocation + ".z")
+                    player.getWorld(),
+                    Config.get(MAPS).getDouble(map + ".location" + spawnLocation + ".x"),
+                    Config.get(MAPS).getDouble(map + ".location" + spawnLocation + ".y"),
+                    Config.get(MAPS).getDouble(map + ".location" + spawnLocation + ".z")
             ));
         }
     }
 
     /**
-     * Check if game has ended.
+     * Award Players their points, and update game score.
+     * @param cause End cause. This variable has information on which side won.
+     */
+    private void scorePoints(EndCause cause) {
+        currentRoles.forEach((player, role) -> {
+            switch (cause) {
+                case FORCED_GAME_END:
+                case FORCED_ROUND_END:
+                    role.setPoints(0);
+                    break;
+                case GOOD_WON:
+                    if (role.getRoleSide() == Role.Side.GOOD && !role.isDead()) role.award();
+                    break;
+                case BAD_WON:
+                    if (role.getRoleSide() == Role.Side.BAD && !role.isDead()) role.award();
+                    break;
+                case TERRORIST_WON:
+                    if (role instanceof Terrorist) role.award();
+                    else role.setPoints(0);
+                    break;
+            }
+            Xinada.getGame().addPoints(player, role.getPoints());
+        });
+    }
+
+    /**
+     * Print this Round's players points to chat.
+     */
+    private void outputPoints() {
+        Utils.messageGlobal("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "----------------------------------");
+        for (Player player : currentRoles.keySet()) {
+            Utils.messageGlobal(
+                    ChatColor.GRAY + " > " + originalRoles.get(player).getColor() +
+                            "{" + originalRoles.get(player).getRoleName() + "} " +
+                            ChatColor.GRAY + originalRoles.get(player).getPlayer().getName() + ": " +
+                            ChatColor.GOLD + "+ " + currentRoles.get(player).getPoints() + " " + Language.getString("points") + "."
+            );
+        }
+        Utils.messageGlobal("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "----------------------------------");
+    }
+
+    /**
+     * Check if game has ended. If the case, calls Game.endRound() accordingly.
      */
     public void checkEnd() {
         boolean end = false;
@@ -290,7 +269,7 @@ public class Round {
         Terrorist terrorist = getCurrentRole(Terrorist.class);
 
         if (terrorist != null && terrorist.exploded()) {
-            end(-1);
+            Xinada.getGame().endRound(EndCause.TERRORIST_WON);
             return;
         }
 
@@ -319,67 +298,19 @@ public class Round {
         }
 
         if (end) { // If the good side has already won up there
-            end(1); // Game ends and good side wins
+            Xinada.getGame().endRound(EndCause.GOOD_WON); // Game ends and good side wins
         }
         else {
             // Check win for bad side
             for (Role role : currentRoles.values()) {
                 if (!role.isDead()) {
-                    if (role.getRoleSide() >= 0) { // If there are good roles alive
+                    if (role.getRoleSide() != Role.Side.BAD) { // If there are good roles alive
                         return; // Else, game doesn't end (there's no else {} because when it gets out of end(), this method needs to return ASAP)
                     }
                 }
             }
             // There are no good roles alive:
-            end(-1); // Game ends and the bad side wins
+            Xinada.getGame().endRound(EndCause.BAD_WON); // Game ends and the bad side wins
         }
-    }
-
-    /**
-     * Award players their points, and update game score.
-     * @param side Winning side.
-     */
-    private void updatePoints(int side) {
-        // No winners:
-        if (side == 0) {
-            for (Role role : currentRoles.values()) {
-                role.setPoints(0);
-            }
-        }
-        else {
-            currentRoles.forEach((player, role) -> {
-                if (!(role instanceof Monster)) { // If not the Monster
-                    if (role.getRoleSide() == side) { // If his side won
-                        if (!role.isDead()) {
-                            role.award();
-                        }
-                    }
-                    if ((role instanceof Sheep) && (!role.isActivated())) role.setPoints(2); // If Sheep still has its wool
-                    if (role instanceof Terrorist) {
-                        Terrorist t = (Terrorist) role;
-                        if (t.exploded()) t.setPoints(2);
-                    }
-                    if (role.isBlessed()) role.setPoints(3); // Blessed
-                    if (role.isCursed()) role.setPoints(0); // Cursed
-                }
-                Xinada.getGame().addPoints(player, role.getPoints());
-            });
-        }
-    }
-
-    /**
-     * Print this Round's players points to chat.
-     */
-    private void printPoints() {
-        Utils.messageGlobal("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "----------------------------------");
-        for (Player player : currentRoles.keySet()) {
-            Utils.messageGlobal(
-                ChatColor.GRAY + " > " + originalRoles.get(player).getColor() +
-                        "{" + originalRoles.get(player).getRoleName() + "} " +
-                        ChatColor.GRAY + originalRoles.get(player).getPlayerName() + ": " +
-                        ChatColor.GOLD + "+ " + currentRoles.get(player).getPoints() + " " + Language.getRoundString("points") + "."
-            );
-        }
-        Utils.messageGlobal("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "----------------------------------");
     }
 }

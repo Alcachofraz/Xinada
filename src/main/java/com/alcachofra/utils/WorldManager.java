@@ -1,9 +1,12 @@
-package com.alcachofra.main;
+package com.alcachofra.utils;
 
+import com.alcachofra.main.Xinada;
 import org.bukkit.Difficulty;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public final class WorldManager {
@@ -27,19 +30,34 @@ public final class WorldManager {
     }
 
     /**
-     * Clean World. This method will remove all item entities.
-     */
-    public static void clean() {
-        for (Entity e : world.getEntities())
-            if (e instanceof Item) e.remove();
-    }
-
-    /**
      * Get World.
      * @return World.
      */
     public static World getWorld() {
         return world;
+    }
+
+    /**
+     * Teleport player to Lobby.
+     * @param player Player to teleport.
+     */
+    public static void lobby(Player player) {
+        player.teleport(
+                new Location(
+                        player.getWorld(),
+                        Config.get(Xinada.GAME).getDouble("world.lobby.x"),
+                        Config.get(Xinada.GAME).getDouble("world.lobby.y"),
+                        Config.get(Xinada.GAME).getDouble("world.lobby.z")
+                )
+        );
+    }
+
+    /**
+     * Clean World. This method will remove all item entities.
+     */
+    public static void clean() {
+        for (Entity e : world.getEntities())
+            if (e instanceof Item) e.remove();
     }
 
     public static final class Builder {

@@ -2,15 +2,13 @@ package com.alcachofra.events;
 
 import com.alcachofra.main.Xinada;
 import org.bukkit.entity.Arrow;
-import org.bukkit.entity.FishHook;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class Damage implements Listener {
-    public Damage(Xinada xinada) {}
+    public Damage() {}
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent e) {
@@ -29,16 +27,8 @@ public class Damage implements Listener {
                     Xinada.getGame().getRound().getCurrentRole(whoWasShot).onShot(e, Xinada.getGame().getRound().getCurrentRole(whoShot));
                 }
             }
-            /*else if ((e.getEntity() instanceof Player) && (e.getDamager() instanceof Snowball)) { // If a fish hook hits a player...
-                Player whoWasShot = (Player) e.getEntity(); // Gets the player who was shot
-                Snowball ball = (Snowball) e.getDamager();
-                if (ball.getShooter() instanceof Player) {
-                    Player whoShot = (Player) ball.getShooter();
-                    Xinada.getGame().getRound().getCurrentRole(whoWasShot).onSnowballed(e, Xinada.getGame().getRound().getCurrentRole(whoShot));
-                }
-            }*/
         }
-        else if (!Xinada.inGame()) e.setDamage(0);
-        else e.setCancelled(true); // Entity doesn't get hit
+        else if (!Xinada.inGame()) e.setDamage(0); // Game intervals
+        else e.setCancelled(true); // Round intervals
     }
 }

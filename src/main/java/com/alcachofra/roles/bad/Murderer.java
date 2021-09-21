@@ -1,7 +1,7 @@
 package com.alcachofra.roles.bad;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import org.bukkit.ChatColor;
@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 
 public class Murderer extends Role {
     private Role accomplice;
@@ -17,10 +18,15 @@ public class Murderer extends Role {
     public Murderer(Player player) {
         super(
             player,
-            Language.getRolesName("murderer"),
-            Language.getRolesDescription("murderer"),
-            -1
+            Language.getRoleName("murderer"),
+            Language.getRoleDescription("murderer"),
+            Side.BAD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     public boolean isLaughing() {
@@ -37,9 +43,9 @@ public class Murderer extends Role {
         setCanPickUp(false);
         setActivated(true);
         if ((accomplice = Xinada.getGame().getRound().getCurrentRole(Accomplice.class)) != null) {
-            Utils.sendPopup(getPlayer(), getRoleName(), getColor() + accomplice.getPlayerName() + " " + Language.getRoleString("59"));
+            Utils.sendPopup(getPlayer(), getRoleName(), String.format(Language.getString("isAccomplice"), accomplice.getPlayer().getName()));
         } else {
-            Utils.sendPopup(getPlayer(), getRoleName(), ChatColor.RED + Language.getRoleString("60"));
+            Utils.sendPopup(getPlayer(), getRoleName(), ChatColor.RED + Language.getString("noAccomplice"));
         }
     }
 
@@ -63,16 +69,17 @@ public class Murderer extends Role {
                         // Add sword to Traitor:
                         wwh.addSword();
 
-                        getPlayer().sendMessage(ChatColor.GREEN + wwh.getPlayerName() + " " + Language.getRoleString("24"));
-                        wwh.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("25") + "," + ChatColor.GREEN + " " + Language.getRoleString("26"));
+                        getPlayer().sendMessage(String.format(Language.getString("isTraitor"), wwh.getPlayer().getName()));
+                        wwh.getPlayer().sendMessage(Language.getString("murderedButTraitor"));
 
                         Utils.soundIndividual(getPlayer(), Sound.ENTITY_ZOMBIFIED_PIGLIN_ANGRY);
                         Utils.soundIndividual(wwh.getPlayer(), Sound.ENTITY_ZOMBIFIED_PIGLIN_ANGRY);
                     } else {
-                        getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("27") + " " + wwh.getPlayerName() + ". " + Language.getRoleString("28"));
-                        wwh.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("29"));
+                        getPlayer().sendMessage(String.format(Language.getString("cannotMurderPal"), wwh.getPlayer().getName()));
+                        wwh.getPlayer().sendMessage(String.format(Language.getString("triedMurderPal"), getPlayer().getName()));
                     }
-                } else if (wwh instanceof Accomplice) { // If Assassin hits Accomplice:
+                }
+                else if (wwh instanceof Accomplice) { // If Assassin hits Accomplice:
                     wwh.setActivated(true);
                     setActivated(false);
 
@@ -85,31 +92,41 @@ public class Murderer extends Role {
                     // Select Accomplice's slot 1
                     wwh.getPlayer().getInventory().setHeldItemSlot(0);
 
-                    getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("61") + ChatColor.GRAY + " " + Language.getRoleString("62"));
-                    wwh.getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("63") + ChatColor.GRAY + " " + Language.getRoleString("64"));
+                    getPlayer().sendMessage(Language.getString("knifeReturnedToAccomplice"));
+                    wwh.getPlayer().sendMessage(Language.getString("borrowedMurdererKnife"));
 
                     Utils.soundIndividual(wwh.getPlayer(), Sound.ENTITY_CHICKEN_EGG);
-                } else if (wwh instanceof Monster) { // If Assassin hits Monster:
-                    wwh.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("65") + "," + ChatColor.GREEN + " " + Language.getRoleString("3"));
-                    getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("4"));
-                } else { // If Assassin hits anyone else:
-                    if (wwh.getRoleSide() > -1) {
-                        // Kill player:
-                        wwh.kill(getPlayer());
-                        Xinada.getGame().getRound().checkEnd();
-                    } else {
-                        getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("27") + " " + wwh.getPlayerName() + ". " + Language.getRoleString("28"));
-                        wwh.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("29"));
-                    }
+                }
+                else if (wwh.getRoleSide() == Side.BAD) {
+                    getPlayer().sendMessage(String.format(Language.getString("cannotMurderPal"), wwh.getPlayer().getName()));
+                    wwh.getPlayer().sendMessage(String.format(Language.getString("triedMurderPal"), getPlayer().getName()));
+                }
+                else {
+                    // Kill player:
+                    wwh.kill(getPlayer());
+                    Xinada.getGame().getRound().checkEnd();
                 }
             }
         }
     }
 
     @Override
+    public void onPickup(EntityPickupItemEvent event) {
+        if (event.getItem().getItemStack().getType() == Material.IRON_SWORD) {
+            if (!isLaughing()) { // Not laughing
+                setActivated(true); // Murderer is activated
+                Xinada.getGame().getRound().subtractSwordsDropped();
+                // All good, can pick up:
+                return;
+            }
+        }
+        event.setCancelled(true);
+    }
+
+    @Override
     public void sendRole() {
         super.sendRole();
-        if (accomplice != null) getPlayer().sendMessage(ChatColor.GRAY + Language.getRoleString("66") + " " + ChatColor.RED + accomplice.getPlayerName() + ChatColor.GRAY + "!");
-        else getPlayer().sendMessage(ChatColor.GRAY + " > " + Language.getRoleString("60"));
+        if (accomplice != null) getPlayer().sendMessage(String.format(Language.getString("accompliceIs"), accomplice.getPlayer().getName()));
+        else getPlayer().sendMessage(ChatColor.GRAY + Language.getString("noAccomplice"));
     }
 }

@@ -1,12 +1,13 @@
 package com.alcachofra.main;
 
+import com.alcachofra.utils.Config;
+import com.alcachofra.utils.Language;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.utils.FileManager;
 import com.alcachofra.events.*;
+import com.alcachofra.utils.WorldManager;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
@@ -20,17 +21,21 @@ public class Xinada extends JavaPlugin implements Listener {
     private static Plugin plugin;
     private static Game game;
 
+    public static int GAME = 0;
+    public static int STRINGS = 1;
+    public static int MAPS = 2;
+
     @Override
     public void onEnable() {
         this.saveDefaultConfig();
         plugin = this;
 
-        new FileManager.Builder()
+        new Config.Builder()
                 .setPlugin(this)
                 .setPaths(
+                        "game.yml",
                         "strings" + getConfig().getString("game.language") + ".yml",
-                        "maps.yml",
-                        "jokes" + getConfig().getString("game.language") + ".yml"
+                        "maps.yml"
                 ).build();
 
         new WorldManager.Builder()
@@ -38,28 +43,31 @@ public class Xinada extends JavaPlugin implements Listener {
                 .setWorldName(getConfig().getString("world.name"))
                 .build();
 
+        new Language.Builder()
+                .setFileConfiguration(Config.get(STRINGS))
+                .build();
+
         Bukkit.getServer().createWorld(new WorldCreator("Xinada"));
         Objects.requireNonNull(Bukkit.getServer().getWorld("Xinada")).setDifficulty(Difficulty.PEACEFUL);
 
         PluginManager pm = this.getServer().getPluginManager();
-        pm.registerEvents(new BreakBlocks(this), this);
-        pm.registerEvents(new Chest(this), this);
-        pm.registerEvents(new Consumables(this), this);
-        pm.registerEvents(new Crouch(this), this);
-        pm.registerEvents(new Damage(this), this);
-        pm.registerEvents(new Drop(this), this);
-        pm.registerEvents(new Hunger(this), this);
-        pm.registerEvents(new Interact(this), this);
-        pm.registerEvents(new InteractEntity(this), this);
-        pm.registerEvents(new InventoryClick(this), this);
-        pm.registerEvents(new Join(this), this);
-        pm.registerEvents(new Leave(this), this);
-        pm.registerEvents(new Move(this), this);
-        pm.registerEvents(new Pickup(this), this);
-        pm.registerEvents(new PlaceBlocks(this), this);
-        pm.registerEvents(new Projectile(this), this);
-        pm.registerEvents(new ShootBow(this), this);
-        pm.registerEvents(new Splash(this), this);
+        pm.registerEvents(new BreakBlocks(), this);
+        pm.registerEvents(new Consumables(), this);
+        pm.registerEvents(new Crouch(), this);
+        pm.registerEvents(new Damage(), this);
+        pm.registerEvents(new Drop(), this);
+        pm.registerEvents(new Hunger(), this);
+        pm.registerEvents(new Interact(), this);
+        pm.registerEvents(new InteractEntity(), this);
+        pm.registerEvents(new InventoryClick(), this);
+        pm.registerEvents(new Join(), this);
+        pm.registerEvents(new Leave(), this);
+        pm.registerEvents(new Move(), this);
+        pm.registerEvents(new Pickup(), this);
+        pm.registerEvents(new PlaceBlocks(), this);
+        pm.registerEvents(new Projectile(), this);
+        pm.registerEvents(new ShootBow(), this);
+        pm.registerEvents(new Splash(), this);
 
         plugin = this;
     }
@@ -88,11 +96,6 @@ public class Xinada extends JavaPlugin implements Listener {
     }
 
     /**
-     * Drop current game instance.
-     */
-    public static void dropGame() { game = null;}
-
-    /**
      * Check if a game has started.
      * @return true if in game, false otherwise.
      */
@@ -101,35 +104,11 @@ public class Xinada extends JavaPlugin implements Listener {
     }
 
     /**
-     * Get Strings config file. This file contains all strings in the language defined in config.yml.
-     * @return Strings config file.
+     * Get Xinada purple tag for chat messages.
+     * @return Xinada Tag.
      */
-    public static FileConfiguration getStringsConfig() {
-        return FileManager.getConfigs().get(0);
-    }
-
-    /**
-     * Get Maps config file. This file contains maps names and spawn positions.
-     * @return Maps config file.
-     */
-    public static FileConfiguration getMapsConfig() {
-        return FileManager.getConfigs().get(1);
-    }
-
-    /**
-     * Get Jokes config file. This file contains all jokes in the language defined in config.yml.
-     * @return Jokes config file.
-     */
-    public static FileConfiguration getJokesConfig() {
-        return FileManager.getConfigs().get(2);
-    }
-
-    /**
-     * Teleport player to Lobby.
-     * @param player Player to teleport.
-     */
-    public static void teleportLobby(Player player) {
-        player.teleport(new Location(player.getWorld(), 570.5, 54, 943.5));
+    public static String getTag() {
+        return ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.RESET;
     }
 
     /**
@@ -139,7 +118,7 @@ public class Xinada extends JavaPlugin implements Listener {
     public boolean startGame() {
             HashSet<Player> players = Utils.getOnlinePlayers();
             if (RoleManager.DEBUG || (players.size() > 2 && players.size() <= 10)) {
-                game = new Game(players); // Create game with players and maps
+                game = new Game(players, Config.get(GAME).getInt("game.rounds"));
                 game.start(); // Start game
                 return true;
             }
@@ -151,44 +130,37 @@ public class Xinada extends JavaPlugin implements Listener {
 
             Player player = (Player) sender;
 
-            if (label.equalsIgnoreCase("start")) { // /start
-                if (inGame()) player.sendMessage(
-                        ChatColor.DARK_PURPLE + "[Xinada] " +
-                        ChatColor.GRAY + Language.getXinadaString("gameAlreadyStarted"));
-                else if (!startGame()) Utils.messageGlobal(
-                        ChatColor.DARK_PURPLE + "[Xinada] " +
-                        ChatColor.GRAY + Language.getXinadaString("notEnoughPlayers"));
+            if (label.equalsIgnoreCase("start")) { // "/start"
+                if (inGame()) player.sendMessage(getTag() + Language.getString("gameAlreadyStarted"));
+                else if (!startGame()) Utils.messageGlobal(getTag() + Language.getString("notEnoughPlayers"));
                 return true;
             }
-            if (label.equalsIgnoreCase("role")) { // /role
+            if (label.equalsIgnoreCase("role")) { // "/role"
                 if (inGame()) {
                     if (game.inRound()) { // If a round has started...
                         Role role = game.getRound().getCurrentRole(player);
-                        if (role == null) player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("notPartOfGame"));
-                        else role.sendRole();
+                        if (game.getPlayers().containsKey(player)) role.sendRole();
+                        else player.sendMessage(getTag() + Language.getString("notPartOfGame"));
                     }
-                    else player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("wait"));
+                    else player.sendMessage(getTag() + Language.getString("waitAndTryAgain"));
                 }
-                else player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("gameNotStarted"));
+                else player.sendMessage(getTag() + Language.getString("gameNotStarted"));
                 return true;
             }
-            if (label.equalsIgnoreCase("next")) { // /next
+            if (label.equalsIgnoreCase("next")) { // "/next"
                 if (inGame()) {
-                    if (game.inRound()) game.getRound().end(0); // Skip round
-                    else player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("wait"));
+                    if (game.inRound()) game.endRound(Round.EndCause.FORCED_ROUND_END); // Skip round
+                    else player.sendMessage(getTag() + Language.getString("waitAndTryAgain"));
                 }
-                else player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("gameNotStarted"));
+                else player.sendMessage(getTag() + Language.getString("gameNotStarted"));
                 return true;
             }
-            if (label.equalsIgnoreCase("end")) { // /end
+            if (label.equalsIgnoreCase("end")) { // "/end"
                 if (inGame()) {
-                    if (game.inRound()) {
-                        game.getRound().setID(plugin.getConfig().getInt("game.rounds"));
-                        game.endRound(true);
-                    }
-                    else player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("wait"));
+                    if (game.inRound()) game.endRound(Round.EndCause.FORCED_GAME_END);
+                    else player.sendMessage(getTag() + Language.getString("waitAndTryAgain"));
                 }
-                else player.sendMessage(ChatColor.DARK_PURPLE + "[Xinada] " + ChatColor.GRAY + Language.getXinadaString("gameNotStarted"));
+                else player.sendMessage(getTag() + Language.getString("gameNotStarted"));
                 return true;
             }
         }

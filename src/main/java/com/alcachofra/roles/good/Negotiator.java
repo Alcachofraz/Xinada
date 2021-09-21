@@ -1,7 +1,7 @@
 package com.alcachofra.roles.good;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -14,23 +14,10 @@ public class Negotiator extends Role {
     public Negotiator(Player player) {
         super(
             player,
-            Language.getRolesName("negotiator"),
-            Language.getRolesDescription("negotiator"),
-            1
+            Language.getRoleName("negotiator"),
+            Language.getRoleDescription("negotiator"),
+            Side.GOOD
         );
-    }
-
-    @Override
-    public void reset() {
-        if (partner != null) {
-            setPartner(false);
-            getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("98"));
-        }
-        if (isPartner()) {
-            setPartner(false);
-            getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("98"));
-        }
-        super.reset();
     }
 
     @Override
@@ -39,20 +26,33 @@ public class Negotiator extends Role {
     }
 
     @Override
+    public void reset() {
+        if (partner != null) {
+            setPartner(false);
+            getPlayer().sendMessage(ChatColor.RED + Language.getString("partnershipEnded"));
+        }
+        if (isPartner()) {
+            setPartner(false);
+            getPlayer().sendMessage(ChatColor.RED + Language.getString("partnershipEnded"));
+        }
+        super.reset();
+    }
+
+    @Override
     public void onHit(EntityDamageByEntityEvent e, Role wwh) {
         if (!isActivated()) {
             if (!isDead()) { // If neither of them are dead...
                 if (wwh instanceof Immune){
-                    getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("2"));
-                    wwh.getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("99") + ", " + Language.getRoleString("1"));
+                    getPlayer().sendMessage(String.format(Language.getString("isImmune"), wwh.getPlayer().getName()));
+                    wwh.getPlayer().sendMessage(String.format(Language.getString("triedToPartnership"), wwh.getPlayer().getName()) + ", " + Language.getString("butImmune"));
                     return;
                 }
 
                 setPartner(true);
                 wwh.setPartner(true);
                 partner = wwh;
-                getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("100") + " " + wwh.getPlayerName() + "!");
-                wwh.getPlayer().sendMessage(ChatColor.GREEN + getPlayerName() + " " + Language.getRoleString("101"));
+                getPlayer().sendMessage(String.format(Language.getString("partnershipWith"), wwh.getPlayer().getName()));
+                wwh.getPlayer().sendMessage(String.format(Language.getString("partnershipWithYou"), getPlayer().getName()));
 
                 setActivated(true);
 

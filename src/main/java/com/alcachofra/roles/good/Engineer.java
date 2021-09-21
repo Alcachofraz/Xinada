@@ -1,10 +1,12 @@
 package com.alcachofra.roles.good;
 
+import com.alcachofra.roles.bad.Accomplice;
+import com.alcachofra.roles.bad.Murderer;
+import com.alcachofra.roles.bad.Traitor;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -16,10 +18,15 @@ public class Engineer extends Role {
     public Engineer(Player player) {
         super(
             player,
-            Language.getRolesName("engineer"),
-            Language.getRolesDescription("engineer"),
-            1
+            Language.getRoleName("engineer"),
+            Language.getRoleDescription("engineer"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -35,19 +42,43 @@ public class Engineer extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.COMPASS) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.COMPASS)) {
-                if ((a.equals(Action.RIGHT_CLICK_BLOCK) || a.equals(Action.RIGHT_CLICK_AIR)) && e.getHand() == EquipmentSlot.HAND) {
+                if ((action.equals(Action.RIGHT_CLICK_BLOCK) || action.equals(Action.RIGHT_CLICK_AIR)) && event.getHand() == EquipmentSlot.HAND) {
                     getPlayer().sendMessage(
-                        ChatColor.GRAY + Language.getRoleString("82") + " " +
-                        ChatColor.GOLD + (int) Xinada.getGame().getRound().getNearestAssassin(this).getPlayer().getLocation().distance(getPlayer().getLocation()) +
-                        ChatColor.GRAY + " " + Language.getRoleString("83")
+                        String.format(
+                                Language.getString("assassinCloseBy"),
+                                (int) findNearestAssassin().getPlayer().getLocation().distance(getPlayer().getLocation())
+                        )
                     );
                     Utils.soundLocation(getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG);
                 }
             }
         }
+    }
+
+    /**
+     * Get nearest assassin (i. e. all bad Roles that can kill), relative to the Player playing this Role.
+     * @return The nearest Assassin Role.
+     */
+    public Role findNearestAssassin() {
+        Role nearest = Xinada.getGame().getRound().getCurrentRole(Murderer.class);
+        Role aux;
+        if ((aux = Xinada.getGame().getRound().getCurrentRole(Accomplice.class)) != null) {
+            if (getPlayer().getLocation().distance(aux.getPlayer().getLocation())
+                    <
+                    getPlayer().getLocation().distance(nearest.getPlayer().getLocation())
+            ) nearest = aux;
+        }
+        if ((aux = Xinada.getGame().getRound().getCurrentRole(Traitor.class)) != null) {
+            if (getPlayer().getLocation().distance(aux.getPlayer().getLocation())
+                    <
+                    getPlayer().getLocation().distance(nearest.getPlayer().getLocation())
+            ) nearest = aux;
+        }
+        return nearest;
     }
 }

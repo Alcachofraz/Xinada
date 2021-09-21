@@ -8,7 +8,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 
 public class BreakBlocks implements Listener {
 	
-	public BreakBlocks(Xinada xinada) {}
+	public BreakBlocks() {}
 	
 	@EventHandler
     public void onBreakBlock(BlockBreakEvent event) {
@@ -16,6 +16,5 @@ public class BreakBlocks implements Listener {
 		if (Xinada.inGame() && Xinada.getGame().inRound()) {
 			Xinada.getGame().getRound().getCurrentRole(event.getPlayer()).onBreakBlock(event);
 		}
-		event.setCancelled(true);
     }
 }

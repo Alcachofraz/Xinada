@@ -1,9 +1,9 @@
 package com.alcachofra.roles.good;
 
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
-import org.bukkit.ChatColor;
+import com.alcachofra.utils.Config;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PotionSplashEvent;
@@ -17,10 +17,15 @@ public class Athlete extends Role {
     public Athlete(Player player) {
         super(
             player,
-            Language.getRolesName("athlete"),
-            Language.getRolesDescription("athlete"),
-            1
+            Language.getRoleName("athlete"),
+            Language.getRoleDescription("athlete"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -43,12 +48,12 @@ public class Athlete extends Role {
         return potion;
     }
 
-    public void onSplash(PotionSplashEvent e) {
+    public void onSplash(PotionSplashEvent event) {
         if (!isDead() && !isActivated()) {
             setActivated(true);
-            int athleteTime = Xinada.getPlugin().getConfig().getInt("game.athleteTime");
+            int athleteTime = Config.get(Xinada.GAME).getInt("game.athleteTime");
 
-            getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("74") + " " + athleteTime + " " + Language.getRoleString("75"));
+            getPlayer().sendMessage(String.format(Language.getString("pedalToTheMetal"), athleteTime));
 
             getPlayer().setWalkSpeed(0.8f);
 
@@ -59,6 +64,6 @@ public class Athlete extends Role {
                 }
             }.runTaskLater(Xinada.getPlugin(), 20*athleteTime); // 20 ticks = 1 second
         }
-        e.setCancelled(true);
+        event.setCancelled(true);
     }
 }

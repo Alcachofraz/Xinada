@@ -1,10 +1,10 @@
 package com.alcachofra.roles.good;
 
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -21,10 +21,15 @@ public class Illusionist extends Role {
     public Illusionist(Player player) {
         super(
             player,
-            Language.getRolesName("illusionist"),
-            Language.getRolesDescription("illusionist"),
-            1
+            Language.getRoleName("illusionist"),
+            Language.getRoleDescription("illusionist"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -40,31 +45,32 @@ public class Illusionist extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.SUGAR) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.SUGAR)) {
-                if (a.equals(Action.RIGHT_CLICK_BLOCK) && !isActivated()) {
-                    getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("93"));
+                if (action.equals(Action.RIGHT_CLICK_BLOCK) && !isActivated()) {
+                    getPlayer().sendMessage(Language.getString("usedSmokeBomb"));
                     Utils.soundLocation(getPlayer().getLocation(), Sound.ENTITY_BAT_TAKEOFF);
 
                     Utils.removeItem(getPlayer(), Material.SUGAR); // Subtract item in hand
 
-                    int radius = Xinada.getPlugin().getConfig().getInt("game.illusionistRange");
+                    int radius = Config.get(Xinada.GAME).getInt("game.illusionistRange");
                     Collection<Role> roles = Xinada.getGame().getRound().getCurrentRoles().values();
                     for (Role r : roles) {
-                        if ((r.getPlayer().getLocation().distance(Objects.requireNonNull(e.getClickedBlock()).getLocation()) <= radius) && !r.getPlayerName().equals(getPlayerName())) {
+                        if ((r.getPlayer().getLocation().distance(Objects.requireNonNull(event.getClickedBlock()).getLocation()) <= radius) && !r.getPlayer().getName().equals(getPlayer().getName())) {
                             if (r instanceof Immune) {
-                                r.getPlayer().sendMessage(ChatColor.GREEN + getPlayerName() + Language.getRoleString("94") + ", " + ChatColor.GREEN + Language.getRoleString("1"));
+                                r.getPlayer().sendMessage(String.format(Language.getString("triedToSmokeBombYou"), getPlayer().getName()) + ", " + Language.getString("butImmune"));
                                 continue;
                             }
                             r.getPlayer().setWalkSpeed(0.02f); // Player starts to walk slowly
                             r.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 250)); // Player whom was hit loses ability to jump
                             r.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 1)); // Player whom was hit loses ability to see
-                            r.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("95"));
+                            r.getPlayer().sendMessage(Language.getString("caughtInSmokeBomb"));
 
                             new BukkitRunnable() {
-                                private long secsRemaining = Xinada.getPlugin().getConfig().getInt("game.illusionistTime");
+                                private long secsRemaining = Config.get(Xinada.GAME).getInt("game.illusionistTime");
 
                                 public void run() {
                                     if (!Xinada.inGame() || !Xinada.getGame().inRound()) this.cancel();

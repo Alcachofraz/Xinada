@@ -7,6 +7,7 @@ import com.alcachofra.roles.neutral.*;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 public final class RoleManager {
@@ -18,6 +19,7 @@ public final class RoleManager {
      */
     public enum RoleDraw {
         ACCOMPLICE(Accomplice.class),
+        CANNIBAL(Cannibal.class),
         CUPID(Cupid.class),
         DEVIL(Devil.class),
         FLUTIST(Flutist.class),
@@ -41,6 +43,7 @@ public final class RoleManager {
         ILLUSIONIST(Illusionist.class),
         IMMUNE(Immune.class),
         INNOCENT(Innocent.class),
+        JESUS(Jesus.class),
         MAGICIAN(Magician.class),
         NEGOTIATOR(Negotiator.class),
         NINJA(Ninja.class),
@@ -73,7 +76,6 @@ public final class RoleManager {
         }
     }
 
-
     /**
      * Draw Roles. Almost every Role has the same chance of being drawn. But some don't. There are some restrictions.
      * <p>
@@ -89,8 +91,11 @@ public final class RoleManager {
      *
      * @param players Collection of Players to participate.
      * @return Map of Players and their Roles for the current round.
+     * @throws IllegalAccessException When an Instance of a Role can't be accessed.
+     * @throws InvocationTargetException When a Role Constructor can't be invoked.
+     * @throws InstantiationException When an Instance of a Role can't be created.
      */
-    public static Map<Player, Role> draw(Collection<Player> players) {
+    public static Map<Player, Role> draw(Collection<Player> players) throws IllegalAccessException, InvocationTargetException, InstantiationException {
         List<RoleDraw> pool = new ArrayList<>(EnumSet.allOf(RoleDraw.class)); // List of possible Roles.
         List<RoleDraw> roleDraws = new ArrayList<>(); // List of Drawn Roles for this round.
         Map<Player, Role> roles = new HashMap<>(); // Map of Players and their Roles for this round.
@@ -101,8 +106,6 @@ public final class RoleManager {
 
         roleDraws.add(RoleDraw.COP);
         roleDraws.add(RoleDraw.MURDERER);
-
-        roleDraws.add(RoleDraw.PHANTOM);
 
         // Add Innocents to pool (chance of Innocent is 1/4):
         for (int i = 0; i < (ROLES_NUM / 4) - 1; i++) {
@@ -126,23 +129,15 @@ public final class RoleManager {
                 case MURDERER:
                     break;
                 case PIRATE:
-                    if (players.size() > 3) { // If more than 3 players
-                        if (roleDraws.size() + 1 == players.size()) {// If last draw
-                            roleDraws.set(roleDraws.size() - 1, RoleDraw.PIRATE);
-                        } else {
-                            roleDraws.add(role);
-                        }
+                    if (roleDraws.size() + 1 < players.size()) {// If not last draw
+                        roleDraws.add(role);
                         roleDraws.add(role);
                     }
                     break;
                 case SHEEP:
                 case SHEPARD:
-                    if (players.size() > 3) { // If more than 3 players
-                        if (roleDraws.size() + 1 == players.size()) { // If last draw
-                            roleDraws.set(roleDraws.size() - 1, RoleDraw.SHEEP);
-                        } else {
-                            roleDraws.add(RoleDraw.SHEEP);
-                        }
+                    if (roleDraws.size() + 1 < players.size()) { // If last draw
+                        roleDraws.add(RoleDraw.SHEEP);
                         roleDraws.add(RoleDraw.SHEPARD);
                     }
                     break;
@@ -159,13 +154,7 @@ public final class RoleManager {
         Iterator<RoleDraw> iterator = roleDraws.iterator();
         for (Player player : players) {
             Constructor<? extends Role> constructor = iterator.next().getConstructor();
-            if (constructor == null) return null;
-            try {
-                roles.put(player, constructor.newInstance(player));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+            roles.put(player, Objects.requireNonNull(constructor).newInstance(player));
         }
 
         return roles;

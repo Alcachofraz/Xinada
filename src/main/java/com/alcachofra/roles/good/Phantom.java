@@ -2,15 +2,14 @@ package com.alcachofra.roles.good;
 
 import com.alcachofra.main.Xinada;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
-import org.bukkit.ChatColor;
+import org.bukkit.*;
 
-import org.bukkit.GameMode;
-import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -19,10 +18,15 @@ public class Phantom extends Role {
     public Phantom(Player player) {
         super(
             player,
-            Language.getRolesName("phantom"),
-            Language.getRolesDescription("phantom"),
-            1
+            Language.getRoleName("phantom"),
+            Language.getRoleDescription("phantom"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -48,12 +52,16 @@ public class Phantom extends Role {
         setHasBow(false);
         if (isMerged()) killMerged();
 
-        Utils.messageGlobal(ChatColor.GRAY + " > " + ChatColor.RED + getPlayer().getName() + " " + Language.getRoleString("16"));
+        Utils.messageGlobal(
+                String.format(
+                Language.getString("died"),
+                getPlayer().getName()
+        ));
         Utils.soundGlobal(Sound.ENTITY_LIGHTNING_BOLT_THUNDER);
         Utils.sendPopup(
                 getPlayer(),
-                ChatColor.RED + Language.getRoleString("17"),
-                ChatColor.RED + (Language.getRoleString("19"))
+                Language.getString("youDied"),
+                Language.getString("spectatorMode")
         );
 
         Xinada.getGame().updateTabList();
@@ -75,30 +83,48 @@ public class Phantom extends Role {
     }
 
     @Override
-    public void onMove(PlayerMoveEvent e) {
+    public void onMove(PlayerMoveEvent event) {
         if (isDead()) {
-            if (e.getTo() != null) {
-                if (e.getFrom().getX() != e.getTo().getX() || e.getFrom().getY() != e.getTo().getY() || e.getFrom().getZ() != e.getTo().getZ()) {
-                    e.setTo(e.getFrom());
+            if (event.getTo() != null) {
+                if (event.getFrom().getX() != event.getTo().getX() || event.getFrom().getY() != event.getTo().getY() || event.getFrom().getZ() != event.getTo().getZ()) {
+                    event.setTo(event.getFrom());
                 }
             }
         }
     }
 
     @Override
-    public void onSnowball(ProjectileHitEvent e, Role snowballed) {
-        if (isDead() && snowballed.isDead()) { // If both of them are dead...
-            System.out.println("Phantom");
-            if (snowballed instanceof Immune) { // If who was shot is the Immune...
-                snowballed.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("136") + ", " + ChatColor.GREEN + Language.getRoleString("1"));
-                getPlayer().sendMessage(ChatColor.RED + snowballed.getPlayerName() + " " + Language.getRoleString("2"));
-                return;
+    public void onSnowball(ProjectileHitEvent event) {
+        if (event.getHitBlock() == null) return;
+        attemptRevive(event.getHitBlock().getLocation());
+    }
+
+    @Override
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        if (event.getClickedBlock() == null) return;
+        super.onInteract(event, action);
+        attemptRevive(event.getClickedBlock().getLocation());
+    }
+
+    public void attemptRevive(Location hitBlock) {
+        for (Role role : Xinada.getGame().getRound().getCurrentRoles().values()) {
+            if (role.isDead() && role.getPotLocation() != null &&
+                    role.getPotLocation().getX() == hitBlock.getX() &&
+                    role.getPotLocation().getY() == hitBlock.getY() &&
+                    role.getPotLocation().getZ() == hitBlock.getZ()) {
+                if (isDead()) {
+                    if (role instanceof Immune) { // If who was shot is the Immune...
+                        role.getPlayer().sendMessage(String.format(Language.getString("triedToRevive"), getPlayer().getName()) + ", " + Language.getString("butImmune"));
+                        getPlayer().sendMessage(String.format(Language.getString("isImmune"), role.getPlayer().getName()));
+                        return;
+                    }
+                    role.revive();
+                    role.getPlayer().sendMessage(String.format(Language.getString("revivedYou"), getPlayer().getName()));
+                    getPlayer().sendMessage(String.format(Language.getString("youRevived"), role.getPlayer().getName()));
+                    setActivated(true);
+                    setPoints(1); // Give Phantom 1 point for healing someone
+                }
             }
-            snowballed.revive();
-            getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("12") + " " + snowballed.getPlayerName() + "!");
-            snowballed.getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("13"));
-            setActivated(true);
-            setPoints(1); // Give Phantom 1 point for healing someone
         }
     }
 }

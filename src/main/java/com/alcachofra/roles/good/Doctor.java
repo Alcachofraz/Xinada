@@ -1,23 +1,20 @@
 package com.alcachofra.roles.good;
 
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Doctor extends Role {
     public Doctor(Player player) {
         super(
             player,
-            Language.getRolesName("doctor"),
-            Language.getRolesDescription("doctor"),
-            1
+            Language.getRoleName("doctor"),
+            Language.getRoleDescription("doctor"),
+            Side.GOOD
         );
     }
 
@@ -27,27 +24,25 @@ public class Doctor extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
-        if (e.getClickedBlock() == null) return;
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        if (event.getClickedBlock() == null) return;
 
-        super.onInteract(e, a);
+        super.onInteract(event, action);
 
-        Location clicked = e.getClickedBlock().getLocation();
+        Location clicked = event.getClickedBlock().getLocation();
         for (Role role : Xinada.getGame().getRound().getCurrentRoles().values()) {
-            System.out.println(clicked);
-            System.out.println(role.getPotLocation());
             if (role.isDead() && role.getPotLocation() != null &&
                     role.getPotLocation().getX() == clicked.getX() &&
                     role.getPotLocation().getY() == clicked.getY() &&
                     role.getPotLocation().getZ() == clicked.getZ()) {
                 if (role instanceof Immune) {
-                    role.getPlayer().sendMessage(ChatColor.RED + getPlayerName() + " " + Language.getRoleString("78") + ", " + Language.getRoleString("1"));
-                    getPlayer().sendMessage(ChatColor.RED + role.getPlayerName() + " " + Language.getRoleString("2"));
+                    role.getPlayer().sendMessage(String.format(Language.getString("triedToRevive"), getPlayer().getName()) + ", " + Language.getString("butImmune"));
+                    getPlayer().sendMessage(String.format(Language.getString("isImmune"), role.getPlayer().getName()));
                 }
                 else {
                     role.revive();
-                    role.getPlayer().sendMessage(ChatColor.GREEN + getPlayerName() + " " + Language.getRoleString("79"));
-                    getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("12") + " " + role.getPlayerName() + "!");
+                    role.getPlayer().sendMessage(String.format(Language.getString("revivedYou"), getPlayer().getName()));
+                    getPlayer().sendMessage(String.format(Language.getString("youRevived"), role.getPlayer().getName()));
                     setPoints(1);
                 }
             }
