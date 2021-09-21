@@ -1,10 +1,10 @@
 package com.alcachofra.roles.good;
 
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -24,10 +24,15 @@ public class Pirate extends Role {
     public Pirate(Player player) {
         super(
             player,
-            Language.getRolesName("pirate"),
-            Language.getRolesDescription("pirate"),
-            1
+            Language.getRoleName("pirate"),
+            Language.getRoleDescription("pirate"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        addPoint(); // Add 1 point
     }
 
     public boolean foundTreasure() {
@@ -62,7 +67,7 @@ public class Pirate extends Role {
         Pirate other_pirate = null;
         Collection<Role> roles = Xinada.getGame().getRound().getCurrentRoles().values();
         for (Role r : roles) {
-            if ((r instanceof Pirate) && (!r.getPlayerName().equals(getPlayerName()))) {
+            if ((r instanceof Pirate) && (!r.getPlayer().getName().equals(getPlayer().getName()))) {
                 other_pirate = (Pirate) r;
             }
         }
@@ -72,15 +77,10 @@ public class Pirate extends Role {
             setPoints(0);
         }
         else {
-            getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("103") + ChatColor.GREEN + " " + Language.getRoleString("104"));
+            getPlayer().sendMessage(Language.getString("otherPirateFailed"));
             setPoints(1);
         }
         setActivated(false);
-    }
-
-    @Override
-    public void award() {
-        addPoint(); // Add 1 point
     }
 
     @Override
@@ -90,7 +90,7 @@ public class Pirate extends Role {
 
     public void countDown() {
         new BukkitRunnable() {
-            private final long pirateTime = Xinada.getPlugin().getConfig().getInt("game.pirateTime") + 1;
+            private final long pirateTime = Config.get(Xinada.GAME).getInt("game.pirateTime") + 1;
             private long secsRemaining = pirateTime;
 
             public void run() {
@@ -99,14 +99,16 @@ public class Pirate extends Role {
                 if (secsRemaining > 0) {
                     if (secsRemaining < pirateTime) { // Ignore first second (kind of buggy)
                         if (secsRemaining != 1) getPlayer().sendMessage(
-                            ChatColor.GRAY + Language.getRoleString("105") + " " +
-                            ChatColor.GOLD + secsRemaining +
-                            ChatColor.GRAY + " " + Language.getRoleString("106")
+                                String.format(
+                                        Language.getString("secondsToHideTreasure"),
+                                        secsRemaining
+                                )
                         );
                         else getPlayer().sendMessage(
-                            ChatColor.GRAY + Language.getRoleString("105") + " " +
-                            ChatColor.GOLD + secsRemaining +
-                            ChatColor.GRAY + " " + Language.getRoleString("107")
+                                String.format(
+                                        Language.getString("secondToHideTreasure"),
+                                        secsRemaining
+                                )
                         );
                         Utils.soundLocation(getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS);
                     }
@@ -114,28 +116,28 @@ public class Pirate extends Role {
                 }
                 else {
                     if (getTreasure() != null) { // If he has hidden his treasure...
-                        getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("108"));
+                        getPlayer().sendMessage(Language.getString("treasureHidden"));
 
                         // Find the other pirate:
                         Pirate other_pirate = null;
                         Collection<Role> roles = Xinada.getGame().getRound().getCurrentRoles().values();
                         for (Role r : roles) {
-                            if ((r instanceof Pirate) && (!r.getPlayerName().equals(getPlayerName()))) {
+                            if ((r instanceof Pirate) && (!r.getPlayer().getName().equals(getPlayer().getName()))) {
                                 other_pirate = (Pirate) r;
                             }
                         }
                         if (other_pirate == null) return; // ERROR Pirate not found
 
                         if (other_pirate.getTreasure() != null) {
-                            getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("109"));
+                            getPlayer().sendMessage(Language.getString("findOtherPirateTreasure"));
                         }
                         else {
-                            getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("103") + ChatColor.GREEN + " " + Language.getRoleString("104"));
+                            getPlayer().sendMessage(Language.getString("otherPirateFailed"));
                             setPoints(1);
                         }
                     }
                     else { // If he hasn't hidden his treasure...
-                        getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("110"));
+                        getPlayer().sendMessage(Language.getString("youAreCursed"));
                         Utils.removeItem(getPlayer(), Material.GOLD_BLOCK);
                         setCursed(true);
                     }
@@ -147,23 +149,24 @@ public class Pirate extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
-            if (a.equals(Action.LEFT_CLICK_BLOCK)) {
+            if (action.equals(Action.LEFT_CLICK_BLOCK)) {
                 if (!foundTreasure()) {
                     // Find the other pirate:
                     Pirate other_pirate = null;
                     Collection<Role> roles = Xinada.getGame().getRound().getCurrentRoles().values();
                     for (Role r : roles) {
-                        if ((r instanceof Pirate) && (!r.getPlayerName().equals(getPlayerName()))) {
+                        if ((r instanceof Pirate) && (!r.getPlayer().getName().equals(getPlayer().getName()))) {
                             other_pirate = (Pirate) r;
                         }
                     }
                     if (other_pirate == null) return;
                     if (other_pirate.getTreasure() == null) return;
-                    if (Objects.requireNonNull(e.getClickedBlock()).getLocation().equals(other_pirate.getTreasure())) {
+                    if (Objects.requireNonNull(event.getClickedBlock()).getLocation().equals(other_pirate.getTreasure())) {
                         setFoundTreasure(true);
-                        getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("111"));
+                        getPlayer().sendMessage(Language.getString("foundOtherPirateTreasure"));
                         setPoints(1);
                     }
                 }
@@ -172,11 +175,11 @@ public class Pirate extends Role {
     }
 
     @Override
-    public void onPlaceBlock(BlockPlaceEvent e) {
+    public void onPlaceBlock(BlockPlaceEvent event) {
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.GOLD_BLOCK) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.GOLD_BLOCK)) {
-                setTreasure(e.getBlock().getLocation());
+                setTreasure(event.getBlock().getLocation());
             }
         }
     }

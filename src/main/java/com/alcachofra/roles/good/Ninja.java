@@ -1,10 +1,10 @@
 package com.alcachofra.roles.good;
 
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Utils;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PotionSplashEvent;
@@ -14,16 +14,19 @@ import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Collection;
-
 public class Ninja extends Role {
     public Ninja(Player player) {
         super(
             player,
-            Language.getRolesName("ninja"),
-            Language.getRolesDescription("ninja"),
-            1
+            Language.getRoleName("ninja"),
+            Language.getRoleDescription("ninja"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -46,12 +49,12 @@ public class Ninja extends Role {
         return potion;
     }
 
-    public void onSplash(PotionSplashEvent e) {
+    public void onSplash(PotionSplashEvent event) {
         if (!isDead() && !isActivated()) {
             setActivated(true);
-            int ninjaTime = Xinada.getPlugin().getConfig().getInt("game.ninjaTime");
+            int ninjaTime = Config.get(Xinada.GAME).getInt("game.ninjaTime");
 
-            getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("102") + " " + ninjaTime + " " + Language.getRoleString("75"));
+            getPlayer().sendMessage(String.format(Language.getString("invisibleFor"), ninjaTime));
 
             Utils.setInvisible(getPlayer());
 
@@ -62,6 +65,6 @@ public class Ninja extends Role {
                 }
             }.runTaskLater(Xinada.getPlugin(), 20*ninjaTime); // 20 ticks = 1 second
         }
-        e.setCancelled(true);
+        event.setCancelled(true);
     }
 }

@@ -1,9 +1,8 @@
 package com.alcachofra.roles.good;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -17,10 +16,15 @@ public class Psychic extends Role {
     public Psychic(Player player) {
         super(
             player,
-            Language.getRolesName("psychic"),
-            Language.getRolesDescription("psychic"),
-            1
+            Language.getRoleName("psychic"),
+            Language.getRoleDescription("psychic"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     public Location getPsychicLocation() {
@@ -45,25 +49,26 @@ public class Psychic extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.SPIDER_EYE) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.SPIDER_EYE)) {
                 if (!isActivated()) {
-                    if (a.equals(Action.LEFT_CLICK_BLOCK) || a.equals(Action.LEFT_CLICK_AIR)) {
+                    if (action.equals(Action.LEFT_CLICK_BLOCK) || action.equals(Action.LEFT_CLICK_AIR)) {
                         setPsychicLocation(getPlayer().getLocation());
-                        getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("124"));
+                        getPlayer().sendMessage(Language.getString("locationSaved"));
                         Utils.soundLocation(getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG);
                     }
-                    if (a.equals(Action.RIGHT_CLICK_BLOCK) || a.equals(Action.RIGHT_CLICK_AIR)) {
+                    if (action.equals(Action.RIGHT_CLICK_BLOCK) || action.equals(Action.RIGHT_CLICK_AIR)) {
                         if (getPsychicLocation() == null) {
-                            getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("125"));
+                            getPlayer().sendMessage(Language.getString("mustSaveLocation"));
                             return;
                         }
                         getPlayer().teleport(getPsychicLocation());
                         setActivated(true);
 
-                        getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("126"));
+                        getPlayer().sendMessage(Language.getString("teleported"));
                         Utils.soundLocation(getPlayer().getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT);
 
                         // Remove eye from Psychic

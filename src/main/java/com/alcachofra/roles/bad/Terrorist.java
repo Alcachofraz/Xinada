@@ -1,8 +1,8 @@
 package com.alcachofra.roles.bad;
 
-import com.alcachofra.roles.good.Negotiator;
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import com.alcachofra.bomb.Puzzle;
@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,11 +24,14 @@ public class Terrorist extends Role {
     public Terrorist(Player player) {
         super(
             player,
-            Language.getRolesName("terrorist"),
-            Language.getRolesDescription("terrorist"),
-            -1
+            Language.getRoleName("terrorist"),
+            Language.getRoleDescription("terrorist"),
+            Side.BAD
         );
     }
+
+    @Override
+    public void award() {}
 
     public Location getBombLocation() {
         return bombLocation;
@@ -57,12 +59,12 @@ public class Terrorist extends Role {
 
     public void explode() {
         Utils.soundGlobal(Sound.ENTITY_DRAGON_FIREBALL_EXPLODE);
-        Utils.messageGlobal(ChatColor.RED + Language.getRoleString("67"));
+        Utils.messageGlobal(Language.getString("bombExploded"));
         Xinada.getGame().getRound().getCurrentRoles().forEach((player, role) -> {
             if (!(role instanceof Terrorist)) role.kill(getPlayer());
         });
         setExploded(true);
-        addPoint();
+        setPoints(2);
         Xinada.getGame().getRound().checkEnd();
     }
 
@@ -86,27 +88,22 @@ public class Terrorist extends Role {
     }
 
     @Override
-    public void award() {
-        addPoint();
-    }
-
-    @Override
     public void clean() {
         if (getBombLocation() != null) getBombLocation().getBlock().setType(Material.AIR);
     }
 
     @Override
-    public void onPlaceBlock(BlockPlaceEvent e) {
+    public void onPlaceBlock(BlockPlaceEvent event) {
         if (!isDead()) { // If dead
             setActivated(true);
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.TNT) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.TNT)) {
-                Utils.messageGlobal(ChatColor.RED + Language.getRoleString("68"));
-                Utils.sendPopupGlobal("", ChatColor.RED + Language.getRoleString("69"));
+                Utils.messageGlobal(Language.getString("disarmBomb"));
+                Utils.sendPopupGlobal("", Language.getString("disarmBombPopup"));
                 Utils.soundGlobal(Sound.ITEM_FLINTANDSTEEL_USE);
 
-                setBombLocation(e.getBlock().getLocation());
-                puzzle = new Puzzle(Language.getRoleString("70"), Xinada.getPlugin().getConfig().getInt("game.terroristRows"));
+                setBombLocation(event.getBlock().getLocation());
+                puzzle = new Puzzle(Language.getString("activateFuses"), Config.get(Xinada.GAME).getInt("game.terroristRows"));
                 puzzle.start();
                 getPlayer().openInventory(puzzle.getInventory());
             }
@@ -114,12 +111,12 @@ public class Terrorist extends Role {
     }
 
     @Override
-    public void onInventoryClick(InventoryClickEvent e) {
-        e.setCancelled(true);
+    public void onInventoryClick(InventoryClickEvent event) {
+        event.setCancelled(true);
         if (!isDead()) {
             if (puzzle != null) { // If a Puzzle's been created
-                if (Objects.equals(e.getClickedInventory(), puzzle.getInventory())) { // If it's the puzzle's inventory
-                    final ItemStack item = e.getCurrentItem(); // Item clicked
+                if (Objects.equals(event.getClickedInventory(), puzzle.getInventory())) { // If it's the puzzle's inventory
+                    final ItemStack item = event.getCurrentItem(); // Item clicked
 
                     if (item != null) {
                         item.setType(
@@ -139,11 +136,12 @@ public class Terrorist extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
-            if (a.equals(Action.LEFT_CLICK_BLOCK)) {
-                if (bombLocation != null && e.getClickedBlock() != null) {
-                    if (bombLocation.equals(e.getClickedBlock().getLocation())) {
+            if (action.equals(Action.LEFT_CLICK_BLOCK)) {
+                if (bombLocation != null && event.getClickedBlock() != null) {
+                    if (bombLocation.equals(event.getClickedBlock().getLocation())) {
                         getPlayer().openInventory(puzzle.getInventory());
                     }
                 }

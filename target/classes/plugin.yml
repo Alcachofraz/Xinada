@@ -6,9 +6,9 @@ api-version: 1.17
 commands:
   start:
     description: Start a new game.
-  role:
-    description: See description for your role.
   next:
     description: Jump to next round.
   end:
     description: End the current game.
+  role:
+    description: See description for your role (in-game).

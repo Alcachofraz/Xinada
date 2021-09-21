@@ -7,14 +7,16 @@ import org.bukkit.plugin.Plugin;
 import java.io.File;
 import java.util.ArrayList;
 
-public final class FileManager {
+public final class Config {
+
     private static final ArrayList<FileConfiguration> configs = new ArrayList<>();
 
     /**
-     * Initialise FileManager with Plugin instance and the File Configuration
-     * paths. Loads the Configuration Files
-     * Starts list "configs" (list of this Plugin's Configuration Files) that'll
-     * be used by many static methods.
+     * Initialise Config with Plugin instance and the File Configuration
+     * paths. Loads the Configuration Files. <br> <br>
+     * Starts a list of this Plugin's Configuration Files (paths). The order
+     * of the paths passed in this constructor is important, since the static
+     * method get() has an index parameter. The first path is treated as '0'.
      * @param plugin Plugin instance.
      */
     private static void init(Plugin plugin, String ...paths) {
@@ -35,6 +37,16 @@ public final class FileManager {
         return configs;
     }
 
+    /**
+     * Get a Configuration File. Order of paths passed in FileManager
+     * Constructor is important, and is used here.
+     * @param index Index of File Configuration wanted (refer to constructor).
+     * @return The Configuration File.
+     */
+    public static FileConfiguration get(int index) {
+        return configs.get(index);
+    }
+
     public static final class Builder {
         Plugin plugin;
         String[] paths;
@@ -44,7 +56,7 @@ public final class FileManager {
          * @param plugin The Plugin instance.
          * @return the Builder.
          */
-        public FileManager.Builder setPlugin(Plugin plugin) {
+        public Config.Builder setPlugin(Plugin plugin) {
             this.plugin = plugin;
             return this;
         }
@@ -54,7 +66,7 @@ public final class FileManager {
          * @param paths The Plugin instance.
          * @return the Builder.
          */
-        public FileManager.Builder setPaths(String ...paths) {
+        public Config.Builder setPaths(String ...paths) {
             this.paths = paths;
             return this;
         }
@@ -70,7 +82,7 @@ public final class FileManager {
             else if (paths == null)
                 throw new RuntimeException("Please, set the configuration files path before initializing FileManager.");
             else
-                FileManager.init(plugin, paths);
+                Config.init(plugin, paths);
         }
     }
 }

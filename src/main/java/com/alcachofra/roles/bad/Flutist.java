@@ -1,10 +1,9 @@
 package com.alcachofra.roles.bad;
 
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.roles.good.Immune;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -20,10 +19,15 @@ public class Flutist extends Role {
     public Flutist(Player player) {
         super(
             player,
-            Language.getRolesName("flutist"),
-            Language.getRolesDescription("flutist"),
-            -1
+            Language.getRoleName("flutist"),
+            Language.getRoleDescription("flutist"),
+            Side.BAD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -37,7 +41,7 @@ public class Flutist extends Role {
     public void reset() {
         setCanPickUp(false);
         for (Role a : attracted) {
-            a.getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("52"));
+            a.getPlayer().sendMessage(Language.getString("outOfTune"));
         }
         attracted.clear();
         Utils.addItem(getPlayer(), Material.STICK, 8, 1);
@@ -48,34 +52,37 @@ public class Flutist extends Role {
     public void onHit(EntityDamageByEntityEvent e, Role wwh) {
         if (!isDead() && !wwh.isDead()) {
             if (wwh instanceof Immune) {
-                getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("2"));
+                wwh.getPlayer().sendMessage(String.format(Language.getString("triedToEnchant"), getPlayer().getName()) + ", " + Language.getString("butImmune"));
+                getPlayer().sendMessage(String.format(Language.getString("isImmune"), wwh.getPlayer().getName()));
                 return;
             }
             for (Role a : attracted) { // Verify if player is not already selected
-                if (wwh.getPlayerName().equals(a.getPlayerName())) {
+                if (wwh.getPlayer().getName().equals(a.getPlayer().getName())) {
                     return;
                 }
             }
             attracted.add(wwh);
-            getPlayer().sendMessage(ChatColor.RED + wwh.getPlayerName() + " " + Language.getRoleString("53"));
+            getPlayer().sendMessage(String.format(Language.getString("enchanted"), wwh.getPlayer().getName()));
+            wwh.getPlayer().sendMessage(Language.getString("enchantedByFlutist"));
         }
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if(getPlayer().getInventory().getItemInMainHand().getType().equals(Material.STICK) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.STICK)) {
-                if (a.equals(Action.RIGHT_CLICK_BLOCK) || a.equals(Action.RIGHT_CLICK_AIR)) {
+                if (action.equals(Action.RIGHT_CLICK_BLOCK) || action.equals(Action.RIGHT_CLICK_AIR)) {
                     if (!isActivated()) {
                         if (attracted.size() == 0) {
-                            getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("54"));
+                            getPlayer().sendMessage(Language.getString("atLeastEnchantOne"));
                             return;
                         }
                         for (Role role : attracted) {
                             if (!role.isDead()) {
                                 role.getPlayer().teleport(getPlayer().getLocation());
-                                role.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("55"));
+                                role.getPlayer().sendMessage(Language.getString("summonedByFlutist"));
                                 Utils.soundLocation(getPlayer().getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT);
                             }
                         }
@@ -84,7 +91,7 @@ public class Flutist extends Role {
                         // Remove flute from Flutist
                         Utils.removeItem(getPlayer(),Material.STICK);
 
-                        getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("56"));
+                        getPlayer().sendMessage(Language.getString("youSummonedEnchanted"));
                     }
                 }
             }

@@ -1,15 +1,16 @@
-package com.alcachofra.utils;
+package com.alcachofra.main;
 
-import com.alcachofra.main.Language;
-import com.alcachofra.main.Xinada;
+import com.alcachofra.utils.Language;
+import com.alcachofra.utils.Utils;
 import org.bukkit.Sound;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-public class Countdown {
+public class RoundCountdown {
 
     private String firstMessage;
     private String message;
+    private final int roundID;
 
     private final BukkitRunnable runnable;
     private final int seconds;
@@ -23,12 +24,14 @@ public class Countdown {
      * @param seconds How many seconds to countdown.
      * @param period Countdown period (in seconds).
      * @param delay Initial Countdown delay (in seconds).
+     * @param roundID Round Identifier.
      * @param runnable run() will be called when countdown comes to an end.
      */
-    public Countdown(int seconds, int period, int delay, BukkitRunnable runnable) {
+    public RoundCountdown(int seconds, int period, int delay, int roundID, BukkitRunnable runnable) {
         this.seconds = seconds;
         this.period = period;
         this.delay = delay;
+        this.roundID = roundID;
         this.runnable = runnable;
     }
 
@@ -37,18 +40,23 @@ public class Countdown {
      * If firstMessage isn't set, nothing is output upon start() call.
      * @param firstMessage First Message.
      */
-    public Countdown setFirstMessage(String firstMessage) {
+    public RoundCountdown setFirstMessage(String firstMessage) {
         this.firstMessage = firstMessage;
         return this;
     }
 
     /**
-     * Set message. This message will be output every second. First "%s"
-     * will be replaced with remaining seconds. Second "%s" will be
-     * replaced with "minutes" or "seconds".
+     *     Set message. This message will be output every second. First "%s"
+     * will be replaced with the Round ID. Second "%s" will be replaced
+     * with remaining seconds. Third "%s" will be replaced with "minutes"
+     * or "seconds", according to what the remaining time is. <br> <br>
+     *     <b>This message will be output:</b> <br>
+     * - Every minute. <br>
+     * - At 30 and 10 seconds remaining. <br>
+     * - Last 5 seconds.
      * @param message Message.
      */
-    public Countdown setMessage(String message) {
+    public RoundCountdown setMessage(String message) {
         this.message = message;
         return this;
     }
@@ -65,14 +73,30 @@ public class Countdown {
                     if (secsRemaining > 60) {
                         if (secsRemaining % 60 == 0) {
                             if (message != null) {
-                                Utils.messageGlobal(String.format(message, secsRemaining/60, Language.getRoundString("minutes")));
+                                Utils.messageGlobal(
+                                        String.format(
+                                                message,
+                                                roundID,
+                                                secsRemaining/60,
+                                                Language.getString("minutes")
+                                        )
+                                );
                                 Utils.soundGlobal(Sound.ENTITY_EXPERIENCE_ORB_PICKUP);
                             }
                         }
                     }
                     else if (secsRemaining == 60 || secsRemaining == 30 || secsRemaining == 10 || secsRemaining <=5) {
                         if (message != null) {
-                            Utils.messageGlobal(String.format(message, secsRemaining, Language.getRoundString("seconds")));
+                            Utils.messageGlobal(
+                                    String.format(
+                                            message,
+                                            roundID,
+                                            secsRemaining,
+                                            (secsRemaining == 1) ?
+                                                    Language.getString("second") :
+                                                    Language.getString("seconds")
+                                    )
+                            );
                             Utils.soundGlobal(Sound.ENTITY_EXPERIENCE_ORB_PICKUP);
                         }
                     }

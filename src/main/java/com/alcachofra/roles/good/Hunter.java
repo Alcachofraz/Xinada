@@ -1,7 +1,8 @@
 package com.alcachofra.roles.good;
 
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import org.bukkit.*;
@@ -20,10 +21,15 @@ public class Hunter extends Role {
     public Hunter(Player player) {
         super(
             player,
-            Language.getRolesName("hunter"),
-            Language.getRolesDescription("hunter"),
-            1
+            Language.getRoleName("hunter"),
+            Language.getRoleDescription("hunter"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     public int getTrapNum() {
@@ -53,12 +59,13 @@ public class Hunter extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.COBWEB) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.COBWEB)) {
-                if (a.equals(Action.RIGHT_CLICK_BLOCK) && (getTrapNum() < Xinada.getPlugin().getConfig().getInt("game.trapNum"))) {
-                    Location loc = Objects.requireNonNull(e.getClickedBlock()).getLocation();
+                if (action.equals(Action.RIGHT_CLICK_BLOCK) && (getTrapNum() < Config.get(Xinada.GAME).getInt("game.trapNum"))) {
+                    Location loc = Objects.requireNonNull(event.getClickedBlock()).getLocation();
                     loc.setY(loc.getY() + 1); // Trap location is above selected block
 
                     if (loc.getBlock().getType().equals(Material.AIR)) { // Validate trap location
@@ -68,10 +75,9 @@ public class Hunter extends Role {
                         traps.add(loc);
                         setTrapNum(getTrapNum() + 1);
 
-                        getPlayer().sendMessage(ChatColor.GREEN + Language.getRoleString("91"));
                         Utils.soundLocation(loc, Sound.BLOCK_ANVIL_LAND);
                     }
-                    else getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("92"));
+                    else getPlayer().sendMessage(Language.getString("trapNotAllowedHere"));
                 }
             }
         }

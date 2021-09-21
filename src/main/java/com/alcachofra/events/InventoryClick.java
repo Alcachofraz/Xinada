@@ -8,14 +8,14 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class InventoryClick implements Listener {
 
-    public InventoryClick(Xinada xinada) {}
+    public InventoryClick() {}
 
     @EventHandler
-    public void onInventoryClick(InventoryClickEvent e) {
+    public void onInventoryClick(InventoryClickEvent event) {
         if (Xinada.inGame() && Xinada.getGame().inRound()) { // If a turn has already started...
-            if (e.getWhoClicked() instanceof Player) {
-                Player player = (Player) e.getWhoClicked();
-                Xinada.getGame().getRound().getCurrentRole(player).onInventoryClick(e);
+            if (event.getWhoClicked() instanceof Player) {
+                Player player = (Player) event.getWhoClicked();
+                Xinada.getGame().getRound().getCurrentRole(player).onInventoryClick(event);
             }
         }
     }

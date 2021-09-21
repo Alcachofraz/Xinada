@@ -1,13 +1,13 @@
 package com.alcachofra.roles.good;
 
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Utils;
-import com.alcachofra.main.Language;
+import com.alcachofra.utils.Language;
 import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import com.alcachofra.roles.bad.Accomplice;
 import com.alcachofra.roles.bad.Murderer;
 import com.alcachofra.roles.bad.Traitor;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -15,16 +15,19 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Random;
-
 public class Clown extends Role {
     public Clown(Player player) {
         super(
             player,
-            Language.getRolesName("clown"),
-            Language.getRolesDescription("clown"),
-            1
+            Language.getRoleName("clown"),
+            Language.getRoleDescription("clown"),
+            Side.GOOD
         );
+    }
+
+    @Override
+    public void award() {
+        setPoints(2);
     }
 
     @Override
@@ -40,15 +43,13 @@ public class Clown extends Role {
     }
 
     @Override
-    public void onInteract(PlayerInteractEvent e, Action a) {
+    public void onInteract(PlayerInteractEvent event, Action action) {
+        super.onInteract(event, action);
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.PAPER) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.PAPER)) {
-                if ((a.equals(Action.RIGHT_CLICK_BLOCK) || a.equals(Action.RIGHT_CLICK_AIR)) && !isActivated()) {
-                    Random rand = new Random();
-                    int jokeNum = rand.nextInt(Xinada.getJokesConfig().getInt("jokesNum") + 1);
-
-                    String joke = Xinada.getJokesConfig().getString("jokes." + jokeNum);
+                if ((action.equals(Action.RIGHT_CLICK_BLOCK) || action.equals(Action.RIGHT_CLICK_AIR)) && !isActivated()) {
+                    String joke = Language.getRandomJoke();
 
                     if (joke == null) return;
 
@@ -60,7 +61,7 @@ public class Clown extends Role {
                     new BukkitRunnable() { // Drop knife in
                         public void run() {
                             if (!Xinada.inGame() || !Xinada.getGame().inRound()) this.cancel();
-                            Utils.messageGlobal(ChatColor.GRAY + " > " + ChatColor.GREEN + Language.getRoleString("76"));
+                            Utils.messageGlobal(Language.getString("badGuysLaughing"));
 
                             // Murderer:
                             Murderer murderer = Xinada.getGame().getRound().getCurrentRole(Murderer.class); // Get Murderer
@@ -68,7 +69,7 @@ public class Clown extends Role {
                             if (murderer.isActivated()) { // See if it's activated
                                 murderer.dropSword();
                                 murderer.setActivated(false);
-                                murderer.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("77"));
+                                murderer.getPlayer().sendMessage(Language.getString("quicklyPickUpKnife"));
                                 Xinada.getGame().getRound().addSwordsDropped();
                             }
 
@@ -79,7 +80,7 @@ public class Clown extends Role {
                                 if (accomplice.isActivated()) { // See if there's an Accomplice and if it's activated
                                     murderer.dropSword();
                                     murderer.setActivated(false);
-                                    murderer.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("77"));
+                                    murderer.getPlayer().sendMessage(Language.getString("quicklyPickUpKnife"));
                                     Xinada.getGame().getRound().addSwordsDropped();
                                 }
                             }
@@ -91,7 +92,7 @@ public class Clown extends Role {
                                 if (traitor.isActivated()) { // See if there's an Accomplice and if it's activated
                                     traitor.dropSword();
                                     traitor.setActivated(false);
-                                    traitor.getPlayer().sendMessage(ChatColor.RED + Language.getRoleString("77"));
+                                    traitor.getPlayer().sendMessage(Language.getString("quicklyPickUpKnife"));
                                     Xinada.getGame().getRound().addSwordsDropped();
                                 }
                             }
@@ -104,7 +105,7 @@ public class Clown extends Role {
                                     if (traitor != null) traitor.setLaughing(false);
                                     this.cancel();
                                 }
-                            }.runTaskLater(Xinada.getPlugin(), 20*(Xinada.getPlugin().getConfig().getInt("game.clownTime"))); // 20 ticks = 1 second
+                            }.runTaskLater(Xinada.getPlugin(), 20*(Config.get(Xinada.GAME).getInt("game.clownTime"))); // 20 ticks = 1 second
                             this.cancel();
                         }
                     }.runTaskLater(Xinada.getPlugin(), 20); // 20 ticks = 1 second

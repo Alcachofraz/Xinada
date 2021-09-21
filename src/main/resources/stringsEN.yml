@@ -1,163 +1,467 @@
+# There are some conventions in this file you should be aware of:
+#
+# '&' stands for color code. Visit https://www.spigotmc.org/wiki/textcosmetics-colors-and-formats/
+# '%s' means that position in the String will be replaced by another String.
+# '%d' means that position in the String will be replaced by an Integer.
+# '%1$d' means this is the first argument. This is useful when the Same String has more than 1 argument.
+
 strings:
-  xinada:
-    gameAlreadyStarted: "A game has already started!"
-    gameNotStarted: "A game hasn't started yet!"
-    notEnoughPlayers: "Not enough players!"
-    notPartOfGame: "You are not part of the current game."
-    wait: "Wait a few seconds, and try again."
-  game:
-    gameStarting: "Game is starting..."
-    round: "Round"
-    starting: "starting in"
-    gameEnded: "The game ended!"
-    winner: "Winner"
-    draw: "Draw"
-  round:
-    ended: "ended."
-    map: "Map"
-    endingIn: "ending in"
-    minutes: "minutes"
-    seconds: "seconds"
-    points: "points"
-    errorOccurred: "An error has occurred."
-  role:
-    role: "Role"
-    description: "Description"
-    1: "but you're immune to his powers."
-    2: "is immune to your powers."
-    3: "but you're immortal."
-    4: "is immortal."
-    5: "You healed your partner!"
-    6: "Your partner healed you!"
-    7: "was the"
-    8: "was a good guy. You got demoted."
-    9: "Try not to shoot yourself"
-    10: "tried to fish you"
-    11: "tried to steal your heart"
-    12: "You healed"
-    13: "The Phantom healed you!"
-    14: "disarmed the bomb!"
-    15: "You died."
-    16: "died."
-    17: "You're dead."
-    18: "Crouch to come back to life!"
-    19: "Wait for the doctor to revive you."
-    20: "came back to life!"
-    21: "A gun has been dropped!"
-    22: "died, and your souls were merged by the Devil."
-    23: "died because of your dark spells!"
-    24: "is the Traitor!"
-    25: "The murderer killed you"
-    26: "but you are the Traitor!"
-    27: "You can't kill"
-    28: "He's a pal of yours!"
-    29: "tried to kill you, but you are his pal!"
-    30: "You returned the knife to the Murderer!"
-    31: "The Accomplice returned the knife"
-    32: "You are no longer in love!"
-    33: "You stole"
-    34: "'s heart!"
-    35: "The Cupid stole your heart"
-    36: "You already stole"
-    37: "You and"
-    38: "fell for each other!"
-    39: "and"
-    40: "You're in love! Stay close to your soul mate."
-    41: "Crouch to go back to normal."
-    42: "You stepped too far from your soul mate."
-    43: "couldn't live without each other."
-    44: "The Devil set your soul free!"
-    45: "tried to steal your soul"
-    46: "'s soul!"
-    47: "The Devil stole your soul"
-    48: "You merged"
-    49: "'s soul with"
-    50: "'s!"
-    51: "The Devil merged your soul with"
-    52: "The Flutist is out of tune!"
-    53: "likes the sound of your flute!"
-    54: "You have to select at least one player."
-    55: "Flutist's music attracted you!"
-    56: "The sound of your flute attracted all selected players!"
-    57: "is immortal. You got demoted"
-    58: "shot you"
-    59: "is the Accomplice!"
-    60: "There is no Accomplice."
-    61: "The Accomplice borrowed your knife."
-    62: "He may return it at any time."
-    63: "The Murderer lent you his knife."
-    64: "You may return it at any time."
-    65: "tried to kill you"
-    66: "The Accomplice is"
-    67: "Terrorist's bomb blew! Everyone died."
-    68: "The Terrorist planted a bomb. Break it before everyone dies!"
-    69: "Disarm the bomb!"
-    70: "Activate all fuses, quickly!"
-    71: "tried to analise you"
-    72: "killed himself!"
-    73: "was killed by"
-    74: "You fly with the wind for"
-    75: "seconds!"
-    76: "The bad guys cracked up in laughs!"
-    77: "Quickly! Pick up the knife!"
-    78: "tried to heal you"
-    79: "healed you!"
-    80: "You cut the power. All players are blind for the next few seconds."
-    81: "The Electrician cut power. You can't see for the next"
-    82: "There's a murderer"
-    83: "blocks away!"
-    84: "Guru has exposed you!"
-    85: "Crouch to go back to normal."
-    86: "is the"
-    87: "Be careful!"
-    88: "tried to expose you"
-    89: "does not have a knife."
-    90: "tried to expose you, but you don't have a knife."
-    91: "Trap is set!"
-    92: "You can't set the trap here."
-    93: "You used your smoke bomb!"
-    94: "tried to smoke bomb you"
-    95: "You got caught in the Illusionist's smoke bomb!"
-    96: "The Murderer's knife turned into an inoffensive rose!"
-    98: "Your partnership came to an end!"
-    99: "tried to partner up with you"
-    100: "You shook hands with"
-    101: "shook hands with you!"
-    102: "You are invisible for"
-    103: "The other pirate didn't hide his treasure."
-    104: "You got a free point!"
-    105: "You have"
-    106: "seconds to hide your treasure."
-    107: "second to hide your treasure."
-    108: "Your treasure is hidden!"
-    109: "Find the other Pirate's treasure!"
-    110: "You didn't hide your treasure. You've been cursed."
-    111: "You found the other Pirate's treasure!"
-    112: "tried to bless you"
-    113: "You blessed"
-    114: "blessed you!"
-    115: "You can't promote"
-    116: "He's with the bad guys!"
-    117: "tried to promote you to a Cop."
-    118: "He now knows you're one of the bad guys!"
-    119: "tried to promote you to cop"
-    120: "is already a Cop."
-    121: "promoted you, but you were already a cop!"
-    122: "promoted you to a Cop. You can still use your original ability."
-    123: "You promoted"
-    124: "Location saved."
-    125: "You have to right click first, in order to save a location!"
-    126: "You teleported!"
-    127: "is your lost sheep. You cut its wool!"
-    128: "cut your wool off!"
-    129: "tried to curse you"
-    130: "You cursed"
-    131: "cursed you!"
-    132: "You are now an"
-    133: "You are now a"
-    134: "You can't steal the Pirate's ability until he has hidden his treasure!"
-    135: "Fuse"
-    136: "tried to heal you"
+
+  # Thrown when a Player tries to start a Game, with a Game already running.
+  gameAlreadyStarted: "&7A game has already started!"
+
+  # Thrown when a Player tries a command that requires a Gameto be running.
+  gameNotStarted: "&7A game hasn't started yet!"
+
+  # Thrown when a Player starts a Game.
+  gameStarting: "&7Game is starting..."
+
+  # Thrown when Game ends.
+  gameEnded: "&7The game ended!"
+
+  # The 1st argument is the ID of the current Round. The 2nd is the time remaining.
+  roundStartingIn: "&7Round &5&l%1$d &r&7starting in &6%2$d&7..."
+
+  # The 1st argument is the ID of the current Round. The 2nd is the time remaining. The 3rd is either "seconds" or minutes".
+  roundEndingIn: "&7Round &5&l%1$d &r&7ending in &6%2$d&7 %3$s..."
+
+  # The 1st argument is the ID of the current Round.
+  roundEnded: "&7Round &5&l%d &r&7ended."
+
+  # Thrown when there are not enough players to start a Round.
+  notEnoughPlayers: "&7Not enough players!"
+
+  # Thrown when a Player who's not part of the game issues certain commands.
+  notPartOfGame: "&7You are not part of the current game."
+
+  # Thrown when Player issues commands in round intervals.
+  waitAndTryAgain: "&7Wait a few seconds, and try again."
+
+  # Thrown when an error occurs.
+  errorOccurred: "&7An error has occurred."
+
+  # Word 'Winner'.
+  winner: "Winner"
+
+  # Word 'Draw'.
+  draw: "Draw"
+
+  # Word 'Map'.
+  map: "Map"
+
+  # Word 'minutes'.
+  minutes: "minutes"
+
+  # Word 'minute'.
+  minute: "minute"
+
+  # Word 'seconds'.
+  seconds: "seconds"
+
+  # Word 'second'.
+  second: "second"
+
+  # Word 'points'.
+  points: "points"
+
+  # The 1st argument is the Role name.
+  sendRole: "&7 > Role: &r%s"
+
+  # The 1st argument is the Role description.
+  sendDescription: "&7 > Description: &r%s"
+
+  # Thrown when a Player tries to use ability on Immune
+  butImmune: "&abut you're immune to such powers."
+
+  # Thrown when a Player tries to use ability on Immune
+  isImmune: "&c%s is immune to your powers."
+
+  # Thrown when a Player tries to kill the Monster
+  butImmortal: "&abut you're immortal."
+
+  # Thrown when a Player tries to kill the Monster
+  isImmortal: "&c%s is immortal."
+
+  # Thrown when Player revives his partner.
+  youRevivedPartner: "&aYou healed your partner!"
+
+  # Thrown when partner revives Player.
+  partnerRevivedYou: "&aYour partner healed you!"
+
+  # The 1st argument is the Player name, and the 2nd is his Role
+  wasThe: "&a%1$s was the %2$s."
+
+  # The 1st argument is the name of the 'good' Player.
+  wasGood: "&c%s was a good guy. You got demoted."
+
+  # Thrown when Player accidentally shoots himself.
+  selfShot: "&cTry not to shoot yourself. :)"
+
+  # The 1st argument is the name of the Player who tried to steal a heart.
+  triedStealHeart: "&c%s tried to steal your heart"
+
+  # Thrown when someone dies, in chat. 1st argument is the dead Player.
+  died: "&7 > &c%s kicked the bucket."
+
+  # Thrown when Player dies.
+  youDied: "You died."
+
+  # Thrown when Survivor dies the first time.
+  crouchToRevive: "&aCrouch to come back to life!"
+
+  # Thrown when someone dies.
+  spectatorMode: "&aYou are in spectator mode."
+
+  # Thrown when someone is revived, in chat. 1st argument is the revived Player.
+  revived: "&7 > &a%s came back to life!"
+
+  # Thrown when a weapon is dropped on the floor.
+  weaponDropped: "&7 > &9A gun has been dropped on the floor!"
+
+  # 1st argument is the dead merged Player.
+  diedMerged: "&c%s died, and your souls were merged by the Devil."
+
+  # 1st argument is the to be dead merged Player.
+  diedOfYourSorcery: "&a%s died because of your dark spells!"
+
+  # 1st argument is the name of the Traitor.
+  isTraitor: "&a%s is the Traitor!"
+
+  # Thrown when Traitor is murdered.
+  murderedButTraitor: "&cThe murderer killed you, &abut you are the Traitor!"
+
+  # 1st argument is the name of the Player who was targeted.
+  cannotMurderPal: "&cYou can't kill %s. He's a pal of yours!"
+
+  # 1st argument is the name of the Player who tried to murder.
+  triedMurderPal: "&c%s tried to kill you, &abut you are his pal!"
+
+  # Thrown when knife is returned to the Murderer.
+  knifeReturnedToMurderer: "&aYou returned the knife to the Murderer!"
+
+  # Thrown when knife is returned from Accomplice.
+  accompliceReturnedKnife: "&aThe Accomplice returned the knife!"
+
+  # Thrown when a Player is no longer in love.
+  noLongerInLove: "&aYou are no longer in love!"
+
+  # The 1st argument is the name of the Player whose heart was stolen.
+  youStoleHeart: "&aYou stole %s's heart!"
+
+  # Thrown when Cupid steals a Player's heart.
+  cupidStoleHeart: "&cThe Cupid has stolen your heart."
+
+  # The 1st argument is the name of the Player whose heart was already stolen.
+  alreadyStoleHeart: "&cYou already stole %s's heart."
+
+  # The 1st argument is the other Player in love.
+  youAreInLove: "&cYou and %s fell for each other!"
+
+  # The 1st argument is a Player in love. The 2nd is the other.
+  theyAreInLove: "&a%1$s and %2$s fell for each other!"
+
+  # Thrown when Players are in love.
+  keepCloseToLoved: "&cYou're in love! Stay close to your soul mate."
+
+  # Thrown when Players are in love.
+  crouchToNormal: "&cCrouch to go back to normal."
+
+  # Thrown when Players in love step too far from each other.
+  tooFarFromLoved: "&cYou stepped too far from your soul mate."
+
+  # Thrown when Players in love step too far from each other (global).
+  couldNotLiveWithout: "&a%1$s and %2$s couldn't live without each other."
+
+  # Thrown when devil frees Player's soul.
+  devilFreedSoul: "&aThe Devil set your soul free!"
+
+  # The 1st argument is the name of the Devil.
+  triedStealSoul: "&c%s tried to steal your soul"
+
+  # The 1st argument is the name of the Player whose soul was stolen.
+  youStoleSoul: "&aYou stole %s's soul!"
+
+  # Thrown when Devil steals a Player's soul.
+  devilStoleSoul: "&cThe Devil has stolen your soul"
+
+  # The 1st argument is the name of the Player whose heart was already stolen.
+  alreadyStoleSoul: "&cYou already stole %s's soul."
+
+  # The 1st argument is the name of one Player merged. The 2nd is the other.
+  soulsMerged: "&aYou merged %1$s's soul with %2$s's!"
+
+  # The 1st argument is the name of the other Player merged.
+  yourSoulMergedWith: "&cThe Devil merged your soul with %s's!"
+
+  # Thrown when the flutist is reset.
+  outOfTune: "&aThe Flutist is out of tune!"
+
+  # The 1st argument is the name of the Flutist.
+  triedToEnchant: "&c%s tried to enchant you"
+
+  # Thrown when the flutist enchants another Player.
+  enchantedByFlutist: "&cFlutist has enchanted you."
+
+  # Thrown when Flutist enchants a Player.
+  enchanted: "&a%s likes the sound of your flute!"
+
+  # Thrown when Flutist summons zero players.
+  atLeastEnchantOne: "&cYou have to select at least one player."
+
+  # Thrown when a Player is summoned by the Flutist's music..
+  summonedByFlutist: "&cFlutist's music attracted you!"
+
+  # Thrown when Flutist summons Players.
+  youSummonedEnchanted: "&aThe sound of your flute attracted all selected players!"
+
+  # The 1st argument is the name of the Monster.
+  immortalYouAreDemoted: "&c%s is immortal. You got demoted."
+
+  # The 1st argument is the name of the shooter.
+  triedToShootYou: "&c%s shot you"
+
+  # The 1st argument is the name of the Accomplice.
+  isAccomplice: "&c%s is the Accomplice!"
+
+  # Thrown when there is no Accomplice.
+  noAccomplice: "There is no Accomplice."
+
+  # Thrown when knife is returned to the Accomplice.
+  knifeReturnedToAccomplice: "&aThe Accomplice borrowed your knife. He may return it at any time."
+
+  # Thrown when knife is borrowed from Murderer.
+  borrowedMurdererKnife: "&aThe Murderer lent you his knife. You may return it at any time."
+
+  # The 1st argument is the name of the Accomplice.
+  accompliceIs: "&7The Accomplice is &c%s&7!"
+
+  # The 1st argument is the name of the Player who disarmed the bomb.
+  bombDisarmed: "%s disarmed the bomb! Terrorism is no more!"
+
+  # Thrown when bom explodes.
+  bombExploded: "&cTerrorist's bomb blew! Everyone died."
+
+  # Thrown when Terrorist sets up the bomb.
+  disarmBomb: "&cThe Terrorist planted a bomb. Break it before everyone dies!"
+
+  # Thrown when Terrorist sets up the bomb (Popup).
+  disarmBombPopup: "&cDisarm the bomb!"
+
+  # Thrown when Terrorist sets up the bomb. Tells him to activate the fuses.
+  activateFuses: "Activate all fuses, quickly!"
+
+  # The name of the fuses.
+  fuse: "Fuse"
+
+  # The 1st argument is the name of the Analyst.
+  triedToAnalyseYou: "&c%s tried to analise you"
+
+  # The 1st argument is the name of the Player that killed himself.
+  killedHimself: "&c%s killed himself!"
+
+  # The 1st argument is the name of the killed. The 2nd is the name of the killer.
+  wasKilledBy: "&c%1$s was killed by %2$s!"
+
+  # The 1st argument is the amount of seconds Athlete has the speed effect.
+  pedalToTheMetal: "&aYou fly with the wind for %d seconds!"
+
+  # Thrown when Clown tells a joke.
+  badGuysLaughing: "&7> &aThe bad guys cracked up in laughs!"
+
+  # Thrown to Assassins when Clown tells a joke.
+  quicklyPickUpKnife: "&cQuickly! Pick up the knife!"
+
+  # The 1st argument is the name of the Player that tried to revive.
+  triedToRevive: "&c%s tried to heal you"
+
+  # The 1st argument is the name of the revived Player.
+  youRevived: "&aYou brought %s back to life!"
+
+  # The 1st argument is the name of Player that revived another.
+  revivedYou: "&a%s brought you back to life!"
+
+  # Thrown when Electrician cuts power.
+  youCutPower: "&aYou cut the power. All players are blind for the next few seconds."
+
+  # Thrown when Electrician cuts power (global).
+  electricianCutPower: "&cThe Electrician cut power. You can't see for the next %d seconds."
+
+  # The 1st argument is the distant from the closest assassin.
+  assassinCloseBy: "&7There's a murderer &6%d &7blocks away!"
+
+  # The 1st argument is the Fisherman name.
+  triedToFishYou: "&c%s tried to fish you"
+
+  # Thrown when Guru exposes a Player.
+  guruExposedYou: "&cGuru has exposed your wickedness!"
+
+  # The 1st argument is the Player name. 2nd is his Role.
+  isAssassin: "&a%1$s is the %2$s. &cBe careful!"
+
+  # The 1st argument is the Guru's name.
+  triedToExposeYou: "&c%s tried to expose you"
+
+  # The 1st argument is the name of the Player Guru tried to expose.
+  noKnife: "&c%s does not have a knife."
+
+  # The 1st argument is the Guru's name.
+  exposedButNoKnife: "&a%s tried to expose you, but you don't have a knife."
+
+  # Thrown when the Hunter tries to place a trap in a non-empty block.
+  trapNotAllowedHere: "&cYou can't set the trap here."
+
+  # Thrown when Illusionist uses the smoke bomb.
+  usedSmokeBomb: "&aYou used your smoke bomb!"
+
+  # The 1st argument is the name of the Illusionist.
+  triedToSmokeBombYou: "&a%s tried to smoke bomb you"
+
+  # Thrown when Player is caught in the smoke bomb.
+  caughtInSmokeBomb: "&cYou got caught in the Illusionist's smoke bomb!"
+
+  # Thrown when the knife is turned into a rose.
+  knifeTurnedIntoRose: "&aThe Murderer's knife turned into an inoffensive rose!"
+
+  # Thrown when partners end partnership.
+  partnershipEnded: "&cYour partnership came to an end!"
+
+  # Thrown when Negotiator tries to create a partnership.
+  triedToPartnership: "&c%s tried to partner up with you"
+
+  # Thrown when Negotiator creates a partnership.
+  partnershipWith: "&aYou shook hands with %s!"
+
+  # The 1st argument is the name of the Negotiator.
+  partnershipWithYou: "&a%s shook hands with you!"
+
+  # The 1st argument is the time remaining (seconds).
+  invisibleFor: "&aYou are invisible for %d seconds!"
+
+  # Thrown when the other Pirate wasn't able to hide his treasure, in the given time.
+  otherPirateFailed: "&cThe other pirate didn't hide his treasure. &aYou got a free point!"
+
+  # The 1st argument is the time remaining for the Pirate to hide his treasure (> 1 second).
+  secondsToHideTreasure: "&7You have &6%d &7seconds to hide your treasure."
+
+  # The 1st argument is the time remaining for the Pirate to hide his treasure (= 1 second).
+  secondToHideTreasure: "&7You have &6%d &7second to hide your treasure."
+
+  # Thrown when Pirate hides his treasure.
+  treasureHidden: "&aYour treasure is hidden!"
+
+  # Thrown when Pirate needs to find the other Pirate's treasure.
+  findOtherPirateTreasure: "&aFind the other Pirate's treasure!"
+
+  # Thrown when Pirate couldn't hide his treasure and is now cursed.
+  youAreCursed: "&cYou didn't hide your treasure. You've been cursed."
+
+  # Thrown when Pirate finds the other Pirate's treasure.
+  foundOtherPirateTreasure: "&aYou found the other Pirate's treasure!"
+
+  # The 1st argument is the name of the Priest.
+  triedToBlessYou: "&c%s tried to bless you"
+
+  # The 1st argument is the name of the blessed Player.
+  blessed: "&aYou blessed %s!"
+
+  # The 1st argument is the name of the Priest.
+  blessedYou: "&a%s blessed you!"
+
+  # The 1st argument is the name of the Bad Guy.
+  cannotPromote: "&9You can't promote %s. &cHe's with the bad guys!"
+
+  # The 1st argument is the name of the Promoter.
+  triedToPromoteYouButBadGuy: "&9%s tried to promote you to a Cop. &cHe now knows you're one of the bad guys!"
+
+  # The 1st argument is the name of the Promoter.
+  triedToPromoteYou: "&c%s tried to promote you to Cop"
+
+  # The 1st argument is the name of the Player that's already a Cop.
+  alreadyPromoted: "&c%s is already a Cop."
+
+  # The 1st argument is the name of the Promoter.
+  promotedButAlreadyPromoted: "&9%s promoted you, but you were already a cop!"
+
+  # The 1st argument is the name of the Promoter.
+  promotedYou: "&9%s promoted you to a Cop. You can still use your original ability."
+
+  # The 1st argument is the name of the promoted Player.
+  youPromoted: "&9You promoted %s!"
+
+  # Thrown when Psychic saves Location.
+  locationSaved: "&aLocation saved."
+
+  # Thrown when Psychic tries to teleport without saving a Location..
+  mustSaveLocation: "&cYou have to right click first, in order to save a location!"
+
+  # Thrown when Psychic teleports.
+  teleported: "&aYou teleported!"
+
+  # The 1st argument is the name of the Lost Sheep.
+  foundSheep: "&a%s was your lost sheep. You got its wool!"
+
+  # The 1st argument is the name of the Shepard.
+  cutWool: "&c%s cut your wool off!"
+
+  # The 1st argument is the name of the Witch.
+  triedToCurseYou: "&c%s tried to curse you"
+
+  # The 1st argument is the name of the cursed Player.
+  youCursed: "&aYou cursed %s!"
+
+  # The 1st argument is the name of the Witch.
+  cursedYou: "&c%s cursed you!"
+
+  # The 1st argument is the Gravedigger/Thief's new Role.
+  youAreNowA: "&cYou are now an %s!"
+
+  # The 1st argument is the stolen Player new Role (probably Innocent).
+  youAreNowThe: "&aYou are now the %s!"
+
+  # Thrown when the Thief tries to steal the Pirate without the treasure being hidden yet.
+  cannotStealPirate: "&cYou can't steal the Pirate's ability until he has hidden his treasure!"
+
+  # Thrown when Christ takes a leg from a Player.
+  christStoleYourLeg: "&cJesus Christ took your leg away for your sins. Type &lamen &r&cin the chat!"
+
+  # Thrown when Christ takes a leg from a Player (Popup).
+  legStolen: "&cYou lost a leg!"
+
+  # Thrown when Player has to type "amen" (Popup).
+  typeAmen: "&cType &lamen&r&c."
+
+  # Thrown when Christ takes a leg from all Players.
+  youStoleLegs: "&aYou stole a leg from everyone. They now move slowly."
+
+jokes:
+  - "How do you throw a space party? You planet!"
+  - "Want to hear a construction joke? Oh never mind, I'm still working on that one."
+  - "Why don't scientists trust atoms? Because they make up everything!"
+  - "I hate Russian dolls… they're so full of themselves!"
+  - "Talk is cheap? Have you ever talked to a lawyer?"
+  - "Why did the gym close down? It just didn't work out!"
+  - "Two artists had an art contest. It ended in a draw!"
+  - "What do you call a boomerang that doesn't come back? A stick!"
+  - "You know what I saw today? Everything I looked at."
+  - "If we shouldn't eat at night, why do they put a light in the fridge?"
+  - "Have you ever tried eating a clock? It's really time-consuming."
+  - "Why are ghosts such bad liars? Because we can see through them."
+  - "What did one plate say to his friend? Tonight, dinner's on me!"
+  - "I tried to sue the airport for misplacing my luggage. I lost my case."
+  - "Why did the M&M go to school? He wanted to be a Smartie."
+  - "What did one traffic light say to the other? Stop looking! I am changing!"
+  - "What do you call bears with no ears? B."
+  - "What's red and moves up and down? A tomato in an elevator!"
+  - "Why doesn't the sun go to college? Because it has a million degrees!"
+  - "I was wondering why the frisbee was getting bigger, then it hit me."
+  - "I have many jokes about unemployed people, sadly none of them work."
+  - "What do you call a singing laptop? A Dell!"
+  - "Why was six afraid of seven? Because seven ate nine."
+  - "Why are skeletons so calm? Because nothing gets under their skin."
+  - "How do trees get online? They just log on!"
+  - "Some people think prison is one word… but to robbers it's the whole sentence!"
+  - "What did 0 say to 8? Nice belt!"
+
 roles:
   cop:
     name: "Cop"
@@ -270,3 +574,9 @@ roles:
   pyrotechnic:
     name: "Pyrotechnic"
     description: "Use the firework the expose the Cop's identity!"
+  cannibal:
+    name: "Cannibal"
+    description: "Feed on other players before you starve to death! Fed players become slower."
+  jesus:
+    name: "Jesus"
+    description: "Light a candle and all Bad Players must type \"amen\" in the chat, before they can move again."

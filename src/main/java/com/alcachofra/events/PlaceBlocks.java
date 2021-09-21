@@ -8,13 +8,13 @@ import org.bukkit.event.block.BlockPlaceEvent;
 
 public class PlaceBlocks implements Listener {
 	
-	public PlaceBlocks(Xinada xinada) {}
+	public PlaceBlocks() {}
 	
 	@EventHandler
-    public void onPlaceBlock(BlockPlaceEvent e) {
-		if (e.getPlayer().getGameMode() == GameMode.CREATIVE) return;
+    public void onPlaceBlock(BlockPlaceEvent event) {
+		if (event.getPlayer().getGameMode() == GameMode.CREATIVE) return;
         if (Xinada.inGame() && Xinada.getGame().inRound()) {
-        	Xinada.getGame().getRound().getCurrentRole(e.getPlayer()).onPlaceBlock(e);
+        	Xinada.getGame().getRound().getCurrentRole(event.getPlayer()).onPlaceBlock(event);
         }
     }
 }
