@@ -3,20 +3,11 @@
 | Papel         | Lado          | Pontos | Descrição
 |:-------------:|:-------------:|:-----|:-------
 | Polícia | Bonzinho | Sobrevive (2P) | Identifica o Assassino e mata-o!
-| Assassino | Mauzão | Sobrevive (2P) | Mata tudo e todos!
-
-PRINCIPAIS		
-		
-		
-Polícia	Sobrevive (2P)	Identifica o Assassino e mata-o!
-Assassino	Sobrevive (2P)	Mata tudo e todos!
-BONZINHOS		
-		
-		
-Inocente	Sobrevive (2P)	É só isso.
-Médico	Sobrevive (1P) & Cura um jogador (1P)	Clica com o lado direito para reviver um jogador morto!
-Fantasma	Sobrevive (2P)	Quando morreres, podes atirar bolas de neve para reviver outro jogador!
-Guru	Sobrevive (1P) & Expõe o Assassino (1P)	Clica com o lado esquerdo num jogador vivo. Se acertares no Assassino, ele levanta a faca!
+| Assassino | Mauzão | Sobrevive (2P) | Mata tudo e todos!		
+| Inocente | Bonzinho | Sobrevive (2P) | É só isso.
+| Médico | Bonzinho | Sobrevive (1P) & Cura um jogador (1P) | Clica com o lado direito para reviver um jogador morto!
+|Fantasma | Bonzinho | Sobrevive (2P) | Quando morreres, podes atirar bolas de neve para reviver outro jogador!
+| Guru | Bonzinho | Sobrevive (1P) & Expõe o Assassino (1P) | Clica com o lado esquerdo num jogador vivo. Se acertares no Assassino, ele levanta a faca!
 Bruxa	Sobrevive (2P)	Clica com o lado esquerdo num jogador para o amaldiçoares. Independentemente do que fizer, ele ganhará 0 pontos!
 Padre	Sobrevive (1P) & Abençoa um jogador (1P)	Clica com o lado esquerdo num jogador para o abençoares. Independentemente do que fizer, ele ganhará 3 pontos!
 Caçador	Sobrevive (2P)	Põe até 3 armadilhas, para atrasares outros jogadores!
