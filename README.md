@@ -21,14 +21,14 @@
 | Engenheiro | Bonzinho | Sobrevive (2P) | Usa a bússula para detetar o Assassino mais próximo!
 | Eletricista | Bonzinho | Sobrevive (2P) | Usa o carvão para rebentar com o quadro da luz.
 | Psíquico | Bonzinho | Sobrevive (2P) | Clica com o lado esquerdo no olho para salvares a tua localização (podes fazê-lo as vezes que quiseres). Clica com o lado direito no olho para te teletransportares para a localização salva (só podes fazê-lo 1 vez)!
-| Imune	Sobrevive (2P)	És imune às habilidades dos outros jogadores!
-| Pescador | Bonzinho | Sobrevive (2P)	Usa a cana de pesca para afastares outros jogadores!
-| Mágico | Bonzinho | Sobrevive (2P)	Usa a flor para transformares a faca do Assassino numa inofensiva rosa, durante alguns segundos!
-| Palhaço | Bonzinho | Sobrevive (2P)	Usa o papel para contares um piada e desconcentrar o Assassino!
-| Atleta | Bonzinho | Sobrevive (2P)	Tens uma poção de velocidade que dura alguns segundos!
-| Ovelha | Bonzinho | Sobrevive (1P) & Foge ao Pastor (1P)	O pastor vai tentar cortar a tua lã. Mantem-te afastado dele.
-| Pastor | Bonzinho | Sobrevive (1P) & Corta a lã à ovelha (1P)	Encontra a tua ovelha perdida e corta-lhe a lã.
-| Jesus	| Bonzinho | Sobrevive (2P)	Acende uma vela e todos os mauzões têm de digitar "amen" para voltarem a conseguir mexer-se.				
+| Imune | Bonzinho | Sobrevive (2P) | És imune às habilidades dos outros jogadores!
+| Pescador | Bonzinho | Sobrevive (2P) | Usa a cana de pesca para afastares outros jogadores!
+| Mágico | Bonzinho | Sobrevive (2P) | Usa a flor para transformares a faca do Assassino numa inofensiva rosa, durante alguns segundos!
+| Palhaço | Bonzinho | Sobrevive (2P) | Usa o papel para contares um piada e desconcentrar o Assassino!
+| Atleta | Bonzinho | Sobrevive (2P) | Tens uma poção de velocidade que dura alguns segundos!
+| Ovelha | Bonzinho | Sobrevive (1P) & Foge ao Pastor (1P) | O pastor vai tentar cortar a tua lã. Mantem-te afastado dele.
+| Pastor | Bonzinho | Sobrevive (1P) & Corta a lã à ovelha (1P) | Encontra a tua ovelha perdida e corta-lhe a lã.
+| Jesus	| Bonzinho | Sobrevive (2P) | Acende uma vela e todos os mauzões têm de digitar "amen" para voltarem a conseguir mexer-se.				
 | Traidor | Mauzão | Sobrevive (2P) | Se o Assassino te matar, transformas-te num segundo Assassino!
 | Cúmplice | Mauzão | Sobrevive (2P) | O Assassino sabe quem tu és e pode emprestar-te a faca!
 | Diabo	| Mauzão | Sobrevive (1P) & As almas fundidas morrem (1P) | Clica com o lado esquerdo em dois jogadores vivos diferentes para fundir as suas almas. Quando um deles morrer, o outro também morre!
