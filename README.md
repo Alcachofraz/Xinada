@@ -67,17 +67,17 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 
 | Paper | Side | Points | Description
 |:-------------:|:------------:|:-----|:-------
-| Police | Good | Survive (2P) | Identify the Assassin and kill him!
+| Cop | Good | Survive (2P) | Identify the Assassin and kill him!
 | Assassin | Bad | Survive (2P) | Kill everything and everyone!
 | Innocent | Good | Survive (2P) | That's it.
 | Doctor | Good | Survive (1P) & Heal a Player (1P) | Right click to revive a dead player!
 | Ghost | Good | Survive (2P) | When you die, you can throw snowballs to revive another player!
 | Guru | Good | Survive (1P) & Expose the Assassin (1P) | Left click on a live player. If you hit the Assassin, he raises the knife!
 | Witch | Good | Survive (2P) | Left click on a player to curse him. No matter what you do, he will earn 0 points!
-| Father | Good | Survive (1P) & Bless a Player (1P) | Left click on a player to bless him. No matter what you do, he will earn 3 points!
+| Priest | Good | Survive (1P) & Bless a Player (1P) | Left click on a player to bless him. No matter what you do, he will earn 3 points!
 | Hunter | Good | Survive (2P) | Set up to 3 traps to delay other players!
 | Illusionist | Good | Survive (2P) | Right click on the floor to use a smoke bomb. All players around you will be blinded and delayed!
-| Matulão | Good | Survive (2P) | When you die, you get a second chance!
+| Survivor | Good | Survive (2P) | When you die, you get a second chance!
 | Promoter | Good | Survive (2P) | Left click on a live player to promote him to the Police!
 | Negotiator | Good | Survive (1P) & Heal Each Other (1P) | Left click on a player to become a partner. From there, they can revive each other!
 | Ninja | Good | Survive (2P) |You have an invisibility potion that lasts a few seconds!
@@ -99,8 +99,8 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 | Devil | Bad | Survive (1P) & Fused Souls Die (1P) | Left click on two different live players to merge their souls. When one of them dies, the other dies too!
 | Monster | Bad | Demote a Police (2P) | You are immortal. Your mission is to demote Police!
 | Cupid | Bad | Survive (1P) & Passionate Players Die (1P) | Left click on two different live players to fall in love with them. From then on, they can't get away from each other, or they die!
-| Pied Piper | Bad | Survive (2P) | Use the stick to select the players you want. Right click to teleport for you!
-| Cheat | Bad | Survive (2P) | Use the skull to inform other players of your (false) death!
+| Flutist | Bad | Survive (2P) | Use the stick to select the players you want. Right click to teleport for you!
+| Cheater | Bad | Survive (2P) | Use the skull to inform other players of your (false) death!
 | Terrorist | Bad | Explode with the bomb (2P) | Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
 | Pyrotechnic | Bad | Survive (2P) | Use the rocket to expose the policeman's location.
 | Thief | Neutral | Score accordingly | Left click on a live player to steal his skill!
