@@ -23,13 +23,13 @@ This video serves a purpose of simply displaying the plugin's functionality. [He
 
 ## Shortcuts
 
-[Introduction](#1. introduction)  
+[Introduction](#introduction)  
 [Setup](#setup)  
 [Configuration](#configuration)  
 [Commands](#commands)  
 [Roles](#roles)  
 
-## 1. Introduction
+## <a name="introduction"></a>1. Introduction
 
 The Xinada Project consists of a plugin for the **Minecraft** game. The plugin organizes and starts rounds of a mini-game based on the well-known **Murder Mystery**.
 For those unfamiliar with the **Murder Mystery** game, here's a brief explanation: At least 3 players are required and there are 3 different roles. The **Police**, the **Assassin** and the **Innocent**. The **Assassin** must wipe all players out, while the **Police** must identify and arrest the Assassin before he achieves his goal. The **Innocent** will be just watching and trying to survive. In case there are 5 players, for example, 3 of them would be **Innocent**.
