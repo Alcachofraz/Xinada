@@ -151,6 +151,8 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 | Thief | Neutral | Score accordingly | Left click on an alive player to steal his ability!
 | Gravedigger | Neutral | Score accordingly | Left click on a dead player to steal his ability!
 
+![Untitled](https://user-images.githubusercontent.com/75852333/136673959-cb93af2c-f474-495d-90b4-e77edaf396ce.png)
+
 ----------
 
 ## <a name="atalhos"></a>Atalhos
