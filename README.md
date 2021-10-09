@@ -1,20 +1,17 @@
 # Xinada
 
-[Português](#portuguese)
+Idioms:
+[Português](#introdução)
+[English](#introduction)
 
-[English](#english)
-
-## Portuguese
-
-### Introdução
+## Introdução
 
 O Projeto Xinada consiste num plugin para o jogo **Minecraft**. O plugin organiza e inicia rondas de um mini-jogo baseado no conhecido **Murder Mystery**.
 Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: São necessários pelo menos 3 jogadores e existem 3 papéis diferentes. O papel de **Polícia**, o papel de **Assassino** e o papel de **Inocente**. O **Assassino** tem de limpar o sebo a todos os jogadores, e o **Polícia** tem de identificar e prender o Assassino antes que este atinja o seu objetivo. O **Inocente** fica apenas a observar e a tentar sobreviver. No caso de haverem 5 jogadores, por exemplo, 3 deles seriam **Inocentes**.
 
 O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos os **Inocentes** tivessem uma habilidade única? E se além de **Inocentes**, existissem outros papéis cujo objetivo consiste em ajudar o **Assassino**? É aí que entra o plugin Xinada! Com mais de 30 habilidades diferentes, o Xinada oferece um mini-jogo com grande rejogabilidade! São necessários pelo menos 3 jogadores, sendo que quantos mais, melhor (máximo de 10).
 
-
-### Papéis
+## Papéis
 
 | Papel         | Lado          | Pontos | Descrição
 |:-------------:|:-------------:|:-----|:-------
@@ -57,16 +54,16 @@ O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos
 | Ladrão | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador vivo, para lhe roubares a habilidade!
 | Coveiro | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador morto, para lhe roubares a habilidade!
 
-## English
 
-### Introduction
+## Introduction
 
 The Xinada Project consists of a plugin for the **Minecraft** game. The plugin organizes and starts rounds of a mini-game based on the well-known **Murder Mystery**.
 For those unfamiliar with the **Murder Mystery** game, here's a brief explanation: At least 3 players are required and there are 3 different roles. The **Police**, the **Assassin** and the **Innocent**. The **Assassin** must wipe all players out, while the **Police** must identify and arrest the Assassin before he achieves his goal. The **Innocent** will be just watching and trying to survive. In case there are 5 players, for example, 3 of them would be **Innocent**.
 
 The **Murder Mystery** game is already quite fun in itself. But what if all **Innocents** had a unique ability? What if in addition to **Innocents**, there were other roles that may help or frame the **Assassin**? That's where the Xinada plugin comes in! With over 30 different aroles, Xinada offers a mini-game with great replayability! At least 3 players are required, the more the better (maximum 10).
 
-### Roles
+
+## Roles
 
 | Paper | Side | Points | Description
 |:-------------:|:------------:|:-----|:-------
