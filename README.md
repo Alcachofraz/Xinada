@@ -1,7 +1,7 @@
 # Xinada
 
 Idioms:  
-[English](#introduction)
+[English](#introduction)  
 [Português](#introdução)
 
 
@@ -12,6 +12,10 @@ For those unfamiliar with the **Murder Mystery** game, here's a brief explanatio
 
 The **Murder Mystery** game is already quite fun in itself. But what if all **Innocents** had a unique ability? What if in addition to **Innocents**, there were other roles that may help or frame the **Assassin**? That's where the Xinada plugin comes in! With over 30 different aroles, Xinada offers a mini-game with great replayability! At least 3 players are required, the more the better (maximum 10).
 
+
+## Setup
+
+To set the plugin up
 
 ## Roles
 
