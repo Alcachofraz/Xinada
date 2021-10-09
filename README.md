@@ -15,21 +15,21 @@ This video serves a purpose of simply displaying the plugin's functionality. [He
 
 ## Idioms
 
-[English](#introduction)  
+[English](#shortcuts)  
   
-[Português](#introdução)  
+[Português](#atalhos)  
 
 ---------
 
 ## Shortcuts
 
 [Introduction](#introduction)  
-[Setup](#setup)
-[Configuration](#commands)
-[Commands](#commands)
-[Roles](#roles)
+[Setup](#setup)  
+[Configuration](#configuration)  
+[Commands](#commands)  
+[Roles](#roles)  
 
-## Introduction
+## 1. Introduction
 
 The Xinada Project consists of a plugin for the **Minecraft** game. The plugin organizes and starts rounds of a mini-game based on the well-known **Murder Mystery**.
 For those unfamiliar with the **Murder Mystery** game, here's a brief explanation: At least 3 players are required and there are 3 different roles. The **Police**, the **Assassin** and the **Innocent**. The **Assassin** must wipe all players out, while the **Police** must identify and arrest the Assassin before he achieves his goal. The **Innocent** will be just watching and trying to survive. In case there are 5 players, for example, 3 of them would be **Innocent**.
@@ -37,7 +37,7 @@ For those unfamiliar with the **Murder Mystery** game, here's a brief explanatio
 The **Murder Mystery** game is already quite fun in itself. But what if all **Innocents** had a unique ability? What if in addition to **Innocents**, there were other roles that may help or frame the **Assassin**? That's where the Xinada plugin comes in! With over 30 different aroles, Xinada offers a mini-game with great replayability! At least 3 players are required, the more the better (maximum 10).
 
 
-## Setup
+## 2. Setup
 
 To properly setup the plugin follow these steps:
 
@@ -54,17 +54,17 @@ To properly setup the plugin follow these steps:
 If you run into any issues, feel free to contact me.
 
 
-## Configuration
+## 3. Configuration
 
-#### 1. Game Configuration
+#### 3.1. Game Configuration
 
 In the **game.yml** file, you may adjust some game related flags.
 
-#### 2. World Configuration
+#### 3.2. World Configuration
 
 These are the world configurations. In the **world.yml** file is where you may change the name of the default world Xinada will use. You can also adjust lobby coordinates. These are the coordinates to which the players will be teleported when they join and when a Xinada game ends. It's the lobby in its essence.
 
-#### 3. Maps Configuration
+#### 3.3. Maps Configuration
 
 The **maps.yml** file is where you setup and add your maps. All maps must be contained inside the same minecraft world (this easier to achieve using [mcedit](https://www.mcedit.net/)). The template in **maps.yml** is really easy to follow. Just add the name of the map (whatever you like) and 10 different spawn points where players may spawn in the beggining of a Xinada round. Example of a map:
 
@@ -81,11 +81,11 @@ whatever_name_i_like:
     z: 847.5  
 ~~~~~~~~~~~~~~~~~~~~~  
 
-#### 4. Strings Configuration
+#### 3.4. Strings Configuration
 
 Unless you don't want to play the plugin in english or portuguese, you won't need to mess with the **stringsXX.yml** files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to **game.yml** and change **language: "EN"** to **language: "IT"**.
 
-## Commands
+## 4. Commands
 
 1. Use **/start** to start a game with the players that are in the server. A game starts in 5 seconds.  
 2. Use **/end** to end the current game.  
@@ -93,7 +93,7 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 4. Use **/role** to see your role and objective, if you forgot.  
 
 
-## Roles
+## 5. Roles
 
 | Paper | Side | Points | Description
 |:-------------:|:------------:|:-----|:-------
@@ -138,7 +138,15 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 
 ----------
 
-## Introdução
+## Atalhos
+
+[Introdução](#introdução)  
+[Preparação](#preparação)  
+[Configuração](#configuração)  
+[Comandos](#comandos)  
+[Papéis](#papéis)  
+
+## 1. Introdução
 
 O Projeto Xinada consiste num plugin para o jogo **Minecraft**. O plugin organiza e inicia rondas de um mini-jogo baseado no conhecido **Murder Mystery**.
 Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: São necessários pelo menos 3 jogadores e existem 3 papéis diferentes. O papel de **Polícia**, o papel de **Assassino** e o papel de **Inocente**. O **Assassino** tem de limpar o sebo a todos os jogadores, e o **Polícia** tem de identificar e prender o Assassino antes que este atinja o seu objetivo. O **Inocente** fica apenas a observar e a tentar sobreviver. No caso de haverem 5 jogadores, por exemplo, 3 deles seriam **Inocentes**.
@@ -146,7 +154,7 @@ Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: S�
 O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos os **Inocentes** tivessem uma habilidade única? E se além de **Inocentes**, existissem outros papéis cujo objetivo consiste em ajudar o **Assassino**? É aí que entra o plugin Xinada! Com mais de 30 habilidades diferentes, o Xinada oferece um mini-jogo com grande rejogabilidade! São necessários pelo menos 3 jogadores, sendo que quantos mais, melhor (máximo de 10).
 
 
-## Preparação
+## 2. Preparação
 
 Para preparar o plugin corretamente, segue estas etapas:
 
@@ -163,17 +171,17 @@ Para preparar o plugin corretamente, segue estas etapas:
 Se surgir algum problema, sinta-se à vontade para entrar em contato comigo.
 
 
-## Configuração
+## 3. Configuração
 
-#### 1. Configuração do jogo
+#### 3.1. Configuração do jogo
 
 No ficheiro **game.yml**, poderás ajustar alguns campos relacionados com o jogo.
 
-#### 2. Configuração do mundo minecraft
+#### 3.2. Configuração do mundo minecraft
 
 Estas são as configurações do mundo minecraft. O ficheiro **world.yml** é onde poderás alterar o nome do mundo padrão que o Xinada utilizará. Também podes ajustar as coordenadas do lobby. Estas são as coordenadas para as quais os jogadores serão teletransportados quando se juntarem e quando um jogo do Xinada terminar. É o lobby na sua essência.
 
-#### 3. Configuração de mapas
+#### 3.3. Configuração de mapas
 
 O ficheiro **maps.yml** é onde irás configurar e adicionar os teus mapas. Todos os mapas devem estar contidos no mesmo mundo minecraft (mais fácil com a ajuda do software [mcedit] (https://www.mcedit.net/)). O exemplo em **maps.yml** é muito fácil de seguir. Basta adicionar o nome do mapa (o que quiseres) e 10 pontos de spawn diferentes onde os jogadores poderão nascer no início de uma rodada do Xinada. Exemplo de mapa:
 
@@ -190,12 +198,12 @@ o_nome_que_me_apetecer:
     z: 847.5  
 ~~~~~~~~~~~~~~~~~~~~~  
 
-#### 4. Configuração das strings
+#### 3.4. Configuração das strings
 
 A menos que não queiras jogar o plugin em inglês ou português, não precisarás mexer nos arquivos **stringsXX.yml**. Se fores, digamos, italiano e quiseres jogar ao Xinada em italiano, precisarás de gerar as tuas próprias strings. Basta criar um arquivo **stringsIT.yml** com o mesmo conteúdo dos outros arquivos **stringsXX.yml**, mas em italiano. Em seguida, vais ao ficheiro **game.yml** e alteras **language: "EN"** para **language: "IT"**.
 
 
-## Comandos
+## 4. Comandos
 
 1. Utiliza **/start** para iniciar um jogo com os jogadores que estão no servidor. Um jogo começará em 5 segundos.
 2. Utiliza **/end** para encerrar o jogo atual.
@@ -203,7 +211,7 @@ A menos que não queiras jogar o plugin em inglês ou português, não precisar�
 4. Utiliza **/role** para veres o teu papel e objetivo, caso te tenhas esquecido.  
 
 
-## Papéis
+## 5. Papéis
 
 | Papel         | Lado          | Pontos | Descrição
 |:-------------:|:-------------:|:-----|:-------
