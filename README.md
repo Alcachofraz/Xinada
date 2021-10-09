@@ -110,47 +110,6 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 
 ## <a name="roles"></a>5. Roles
 
-| Paper | Side | Points | Description
-|:-------------:|:------------:|:-----|:-------
-| Cop | Good | Survive (2P) | Identify the Assassin and kill him!
-| Assassin | Bad | Survive (2P) | Kill everything and everyone!
-| Innocent | Good | Survive (2P) | That's it.
-| Doctor | Good | Survive (1P) & Heal a Player (1P) | Right click to revive a dead player!
-| Ghost | Good | Survive (2P) | When you die, you can throw snowballs to revive another player!
-| Guru | Good | Survive (1P) & Expose the Assassin (1P) | Left click on an alive player. If you hit the Assassin, he raises the knife!
-| Witch | Good | Survive (2P) | Left click on a player to curse him. No matter what he does, he will earn 0 points!
-| Priest | Good | Survive (1P) & Bless a Player (1P) | Left click on a player to bless him. No matter what he does, he will earn 3 points!
-| Hunter | Good | Survive (2P) | Set up to 3 traps to slow down other players!
-| Illusionist | Good | Survive (2P) | Right click on the floor to use a smoke bomb. All players around you will be blinded and slowed down!
-| Survivor | Good | Survive (2P) | When you die, you get a second chance!
-| Promoter | Good | Survive (2P) | Left click on an alive player to promote him to a Cop!
-| Negotiator | Good | Survive (1P) & Heal Each Other (1P) | Left click on a player to become partners. From there on, you can revive each other!
-| Ninja | Good | Survive (2P) | You have an invisibility potion that lasts a few seconds!
-| Pirate | Good | Survive (1P) & Find the other Pirate's Treasure (1P) | Hide your treasure, and find the other Pirate's one!
-| Analyst | Good | Survive (2P) | Left click on a dead player to find out who killed him!
-| Engineer | Good | Survive (2P) | Use the compass to spot the closest Assassin!
-| Electrician | Good | Survive (2P) | Use the charcoal to switch off the lights.
-| Psychic | Good | Survive (2P) | Left click on the eye to save your location (you can do this as often as you like). Right click on the eye to teleport to the saved location (you can only do this 1 time)!
-| Immune | Good | Survive (2P) | You are immune to the other players' abilities!
-| Fisherman | Good | Survive (2P) | Use the fishing rod to throw other players away!
-| Magician | Good | Survive (2P) | Use the flower to turn the Assassin's knife into a harmless tulip for a few seconds!
-| Clown | Good | Survive (2P) | Use the paper to tell a joke and distract the Assassins!
-| Athlete | Good | Survive (2P) | You have a speed potion that lasts a few seconds!
-| Sheep | Good | Survive (1P) & Flee the Shepherd (1P) | The Shepherd will try to cut your wool. Stay away from him.
-| Shepherd | Good | Survive (1P) & Cut the Sheep Wool (1P) | Find your lost sheep and cut its wool.
-| Jesus | Good | Survive (2P) | Light a candle and all ba guys have to type "amen" to be able to move again.
-| Traitor | Bad | Survive (2P) | If the Assassin kills you, you become a second Assassin!
-| Accomplice | Bad | Survive (2P) | The Assassin knows who you are and can lend you the knife!
-| Devil | Bad | Survive (1P) & Fused Souls Die (1P) | Left click on two different alive players to merge their souls. When one of them dies, the other dies as well!
-| Monster | Bad | Demote a Police (2P) | You are immortal. Your mission is to demote the Cop!
-| Cupid | Bad | Survive (1P) & Passionate Players Die (1P) | Left click on two different alive players so they fall in love. From there on, they can't get away from each other, or they die!
-| Flutist | Bad | Survive (2P) | Use the stick to select the players you want. Right click to teleport them to you!
-| Cheater | Bad | Survive (2P) | Use the skull to inform other players of your (fake) death!
-| Terrorist | Bad | Explode the bomb (2P) & Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
-| Pyrotechnic | Bad | Survive (2P) | Use the rocket to expose the Cop's location.
-| Thief | Neutral | Score accordingly | Left click on an alive player to steal his ability!
-| Gravedigger | Neutral | Score accordingly | Left click on a dead player to steal his ability!
-
 ![Untitled](https://user-images.githubusercontent.com/75852333/136673959-cb93af2c-f474-495d-90b4-e77edaf396ce.png)
 
 ----------
@@ -245,43 +204,5 @@ A menos que não queiras jogar o plugin em inglês ou português, não precisar�
 
 ## <a name="papéis"></a>5. Papéis
 
-| Papel         | Lado          | Pontos | Descrição
-|:-------------:|:-------------:|:-----|:-------
-| Polícia | Bonzinho | Sobrevive (2P) | Identifica o Assassino e mata-o!
-| Assassino | Mauzão | Sobrevive (2P) | Mata tudo e todos!		
-| Inocente | Bonzinho | Sobrevive (2P) | É só isso.
-| Médico | Bonzinho | Sobrevive (1P) & Cura um jogador (1P) | Clica com o lado direito para reviver um jogador morto!
-| Fantasma | Bonzinho | Sobrevive (2P) | Quando morreres, podes atirar bolas de neve para reviver outro jogador!
-| Guru | Bonzinho | Sobrevive (1P) & Expõe o Assassino (1P) | Clica com o lado esquerdo num jogador vivo. Se acertares no Assassino, ele levanta a faca!
-| Bruxa | Bonzinho | Sobrevive (2P) | Clica com o lado esquerdo num jogador para o amaldiçoares. Independentemente do que fizer, ele ganhará 0 pontos!
-| Padre | Bonzinho | Sobrevive (1P) & Abençoa um jogador (1P) | Clica com o lado esquerdo num jogador para o abençoares. Independentemente do que fizer, ele ganhará 3 pontos!
-| Caçador | Bonzinho | Sobrevive (2P) | Põe até 3 armadilhas, para atrasares outros jogadores!
-| Ilusionista | Bonzinho | Sobrevive (2P) | Clica com o lado direito no chão para usares uma bomba de fumo. Todos os jogadores à tua volta serão cegados e atrasados!
-| Matulão | Bonzinho | Sobrevive (2P) | Quando morres, recebes uma segunda oportunidade!
-| Promotor | Bonzinho | Sobrevive (2P) | Clica com o lado esquerdo num jogador vivo para o promoveres a Polícia!
-| Negociador | Bonzinho | Sobrevive (1P) & Curam-se um ao outro (1P) | Clica com o lado esquerdo num jogador para se tornarem sócios. A partir daí, podem reviver-se um ao outro!
-| Ninja	 | Bonzinho | Sobrevive (2P) | Tens uma poção de invisibilidade que dura alguns segundos!
-| Pirata | Bonzinho | Sobrevive (1P) & Encontra o tesouro do outro Pirata (1P) | Esconde o teu tesouro, e encontra o do outro Pirata!
-| Analista | Bonzinho | Sobrevive (2P) | Clica com o lado esquerdo num jogador morto para saberes quem o matou!
-| Engenheiro | Bonzinho | Sobrevive (2P) | Usa a bússula para detetar o Assassino mais próximo!
-| Eletricista | Bonzinho | Sobrevive (2P) | Usa o carvão para rebentar com o quadro da luz.
-| Psíquico | Bonzinho | Sobrevive (2P) | Clica com o lado esquerdo no olho para salvares a tua localização (podes fazê-lo as vezes que quiseres). Clica com o lado direito no olho para te teletransportares para a localização salva (só podes fazê-lo 1 vez)!
-| Imune | Bonzinho | Sobrevive (2P) | És imune às habilidades dos outros jogadores!
-| Pescador | Bonzinho | Sobrevive (2P) | Usa a cana de pesca para afastares outros jogadores!
-| Mágico | Bonzinho | Sobrevive (2P) | Usa a flor para transformares a faca do Assassino numa inofensiva rosa, durante alguns segundos!
-| Palhaço | Bonzinho | Sobrevive (2P) | Usa o papel para contares um piada e desconcentrar o Assassino!
-| Atleta | Bonzinho | Sobrevive (2P) | Tens uma poção de velocidade que dura alguns segundos!
-| Ovelha | Bonzinho | Sobrevive (1P) & Foge ao Pastor (1P) | O pastor vai tentar cortar a tua lã. Mantem-te afastado dele.
-| Pastor | Bonzinho | Sobrevive (1P) & Corta a lã à ovelha (1P) | Encontra a tua ovelha perdida e corta-lhe a lã.
-| Jesus	| Bonzinho | Sobrevive (2P) | Acende uma vela e todos os mauzões têm de digitar "amen" para voltarem a conseguir mexer-se.				
-| Traidor | Mauzão | Sobrevive (2P) | Se o Assassino te matar, transformas-te num segundo Assassino!
-| Cúmplice | Mauzão | Sobrevive (2P) | O Assassino sabe quem tu és e pode emprestar-te a faca!
-| Diabo	| Mauzão | Sobrevive (1P) & As almas fundidas morrem (1P) | Clica com o lado esquerdo em dois jogadores vivos diferentes para fundir as suas almas. Quando um deles morrer, o outro também morre!
-| Monstro | Mauzão | Despromove um Polícia (2P) | És imortal. A tua missão é despromover Polícias!
-| Cupido | Mauzão | Sobrevive (1P) & Jogadores apaixonados morrem (1P) | Clica com o lado esquerdo em dois jogadores vivos diferentes para os apaixonares. A partir daí, eles não se podem afastar um do outro, senão morrem!
-| Flautista | Mauzão | Sobrevive (2P) | Usa o pau para selecionares os jogadores que quiseres. Clica com o lado direito para os teletransportares para ti!
-| Batoteiro | Mauzão | Sobrevive (2P) | Usa a caveira para informar os outros jogadores da tua (falsa) morte!
-| Terrorista | Mauzão | Explode com a bomba (2P) & Sobrevive (1P) | Usa a bomba para explodir com tudo e todos. Ativa todos os fusíveis antes que outro jogador te impeça!
-| Pirotécnico | Mauzão | Sobrevive (2P) | Usa o foguete para expor a localização do polícia.			
-| Ladrão | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador vivo, para lhe roubares a habilidade!
-| Coveiro | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador morto, para lhe roubares a habilidade!
+![Untitled1](https://user-images.githubusercontent.com/75852333/136674060-a28b8699-09c2-4c78-9f2d-0e273df6b4e6.png)
+
