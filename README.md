@@ -47,7 +47,7 @@ To properly setup the plugin follow these steps:
 <img src="https://user-images.githubusercontent.com/75852333/136671649-419dca9b-2b24-49ee-a497-df9386cfcf0b.png" width="720px">
 
 3. Run the server once. When the server loads up, you should see somewhere in the console: **"[Xinada] Enabling Xinada vX.X"**, **X.X** being the version of the plugin;
-<img src="https://user-images.githubusercontent.com/75852333/136671838-12ff3eb0-1f75-4122-acda-58f50901de54.pn" width="720px">
+<img src="https://user-images.githubusercontent.com/75852333/136671838-12ff3eb0-1f75-4122-acda-58f50901de54.png" width="720px">
 
 4. Close the server;  
 
@@ -179,7 +179,7 @@ Para preparar o plugin corretamente, segue estas etapas:
 <img src="https://user-images.githubusercontent.com/75852333/136671649-419dca9b-2b24-49ee-a497-df9386cfcf0b.png" width="720px">
 
 3. Executa o servidor uma vez. Quando o servidor carregar, deverás conseguir ver algures na consola: **"[Xinada] Ativando Xinada vX.X"**, sendo **X.X** a versão do plugin;
-<img src="https://user-images.githubusercontent.com/75852333/136671838-12ff3eb0-1f75-4122-acda-58f50901de54.pn" width="720px">
+<img src="https://user-images.githubusercontent.com/75852333/136671838-12ff3eb0-1f75-4122-acda-58f50901de54.png" width="720px">
 
 4. Termina o servidor;  
 
