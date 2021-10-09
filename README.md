@@ -6,10 +6,12 @@ My plugin is free for everyone to use, but feel free to donate, if you feel like
 
 ---------
 
-## Demonstration Video (Portuguese)
+## Demonstration Videos (Portuguese)
 
-This is an old video of an old version of the plugin, and there were some bugs. There still are, surely. I just haven't found them yet :)  
-This video serves a purpose of simply displaying the plugin's functionality. [Here](https://www.youtube.com/watch?v=jDewPIYbnOs&list=PLqYULEfN6pGFgyhM-wHbFiRz8Ev3cCu2b&index=1&ab_channel=PedroGon%C3%A7alves) it is.
+These are old videos of an old version of the plugin, and there were some bugs. There still are, surely. I just haven't found them yet :)  
+These videos serve a purpose of simply displaying the plugin's functionality.
+
+[![Xinada](https://img.youtube.com/vi/jDewPIYbnOs/0.jpg)](https://www.youtube.com/watch?v=jDewPIYbnOs)
 
 ---------
 
