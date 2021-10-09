@@ -55,7 +55,7 @@ public class Fisherman extends Role {
                         .subtract(hook.getLocation().toVector())
                         .setY(0)
                         .normalize()
-                        .multiply(Config.get(Xinada.GAME).getInt("game.fisherKnockback"))
+                        .multiply(Config.get(Xinada.GAME).getInt("fisherKnockback"))
                         .setY(0.2);
 
                 fished.getPlayer().setVelocity(v);
@@ -65,7 +65,7 @@ public class Fisherman extends Role {
                 if (!getPlayer().getInventory().getItemInMainHand().getType().equals(Material.AIR)) rod = getPlayer().getInventory().getItemInMainHand();
                 else rod = getPlayer().getInventory().getItemInOffHand();
 
-                rod.setDurability((short) (rod.getDurability() + Material.FISHING_ROD.getMaxDurability() / Config.get(Xinada.GAME).getInt("game.fisherTimes")));
+                rod.setDurability((short) (rod.getDurability() + Material.FISHING_ROD.getMaxDurability() / Config.get(Xinada.GAME).getInt("fisherTimes")));
                 if (rod.getDurability() > Material.FISHING_ROD.getMaxDurability()) {
                     Utils.soundIndividual(getPlayer(), Sound.ENTITY_ITEM_BREAK);
                     Utils.removeItem(getPlayer(), Material.FISHING_ROD);

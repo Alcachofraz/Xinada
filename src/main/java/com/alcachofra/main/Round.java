@@ -23,6 +23,8 @@ public class Round {
 
     private int swordsDropped = 0;
 
+    private final int SPAWN_POINT_NUMBER = 10;
+
     /**
      * Enum EndCause. Indicates what caused a Round to end.
      */
@@ -96,7 +98,7 @@ public class Round {
      */
     public void roundCountdown(int round) {
         roundCountdown = new RoundCountdown(
-                Config.get(GAME).getInt("game.roundTime") * 60,
+                Config.get(GAME).getInt("roundTime") * 60,
                 1,
                 0,
                 round,
@@ -201,7 +203,7 @@ public class Round {
         // Spawn players:
         for (Player player : players) {
             do { // Generate random numbers without repeating
-                spawnLocation = rand.nextInt(Config.get(MAPS).getInt(map + ".spawnsNum")) + 1; // From 1 to 10
+                spawnLocation = rand.nextInt(SPAWN_POINT_NUMBER) + 1; // From 1 to 10
             } while (used[spawnLocation-1] == 1);
             used[spawnLocation-1] = 1;
 

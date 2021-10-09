@@ -52,7 +52,7 @@ public class Ninja extends Role {
     public void onSplash(PotionSplashEvent event) {
         if (!isDead() && !isActivated()) {
             setActivated(true);
-            int ninjaTime = Config.get(Xinada.GAME).getInt("game.ninjaTime");
+            int ninjaTime = Config.get(Xinada.GAME).getInt("ninjaTime");
 
             getPlayer().sendMessage(String.format(Language.getString("invisibleFor"), ninjaTime));
 

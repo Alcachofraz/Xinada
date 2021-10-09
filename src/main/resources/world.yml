@@ -1,0 +1,8 @@
+# Name of the world folder where maps are contained:
+name: "Xinada"
+
+# Lobby coordinates (where players should be teleported when a game hasn't started):
+lobby:
+  x: 570.5
+  y: 54
+  z: 943.5

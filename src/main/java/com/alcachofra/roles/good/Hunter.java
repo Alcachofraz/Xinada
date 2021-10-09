@@ -65,7 +65,7 @@ public class Hunter extends Role {
         if (!isDead()) {
             if (getPlayer().getInventory().getItemInMainHand().getType().equals(Material.COBWEB) ||
                     getPlayer().getInventory().getItemInOffHand().getType().equals(Material.COBWEB)) {
-                if (action.equals(Action.RIGHT_CLICK_BLOCK) && (getTrapNum() < Config.get(Xinada.GAME).getInt("game.trapNum"))) {
+                if (action.equals(Action.RIGHT_CLICK_BLOCK) && (getTrapNum() < Config.get(Xinada.GAME).getInt("trapNum"))) {
                     Location loc = Objects.requireNonNull(event.getClickedBlock()).getLocation();
                     loc.setY(loc.getY() + 1); // Trap location is above selected block
 

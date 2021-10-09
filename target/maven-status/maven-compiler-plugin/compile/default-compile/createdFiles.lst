@@ -87,6 +87,7 @@ com\alcachofra\events\Projectile.class
 com\alcachofra\roles\bad\Cannibal.class
 com\alcachofra\roles\good\Magician$1.class
 com\alcachofra\roles\bad\Flutist.class
+com\alcachofra\events\FallDamage.class
 com\alcachofra\utils\Language$Builder.class
 com\alcachofra\roles\bad\Cupid.class
 com\alcachofra\roles\bad\Terrorist.class

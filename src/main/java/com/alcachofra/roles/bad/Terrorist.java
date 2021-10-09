@@ -104,7 +104,7 @@ public class Terrorist extends Role {
                 Utils.soundGlobal(Sound.ITEM_FLINTANDSTEEL_USE);
 
                 setBombLocation(event.getBlock().getLocation());
-                puzzle = new Puzzle(Language.getString("activateFuses"), Config.get(Xinada.GAME).getInt("game.terroristRows"));
+                puzzle = new Puzzle(Language.getString("activateFuses"), Config.get(Xinada.GAME).getInt("terroristRows"));
                 puzzle.start();
                 getPlayer().openInventory(puzzle.getInventory());
             }

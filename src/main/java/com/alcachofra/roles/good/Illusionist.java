@@ -56,7 +56,7 @@ public class Illusionist extends Role {
 
                     Utils.removeItem(getPlayer(), Material.SUGAR); // Subtract item in hand
 
-                    int radius = Config.get(Xinada.GAME).getInt("game.illusionistRange");
+                    int radius = Config.get(Xinada.GAME).getInt("illusionistRange");
                     Collection<Role> roles = Xinada.getGame().getRound().getCurrentRoles().values();
                     for (Role r : roles) {
                         if ((r.getPlayer().getLocation().distance(Objects.requireNonNull(event.getClickedBlock()).getLocation()) <= radius) && !r.getPlayer().getName().equals(getPlayer().getName())) {
@@ -70,7 +70,7 @@ public class Illusionist extends Role {
                             r.getPlayer().sendMessage(Language.getString("caughtInSmokeBomb"));
 
                             new BukkitRunnable() {
-                                private long secsRemaining = Config.get(Xinada.GAME).getInt("game.illusionistTime");
+                                private long secsRemaining = Config.get(Xinada.GAME).getInt("illusionistTime");
 
                                 public void run() {
                                     if (!Xinada.inGame() || !Xinada.getGame().inRound()) this.cancel();

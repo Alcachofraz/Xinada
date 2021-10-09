@@ -1,5 +1,4 @@
 Stalingrad:
-  spawnsNum: 10
   location1:
     x: 1023.5
     y: 68
@@ -41,7 +40,6 @@ Stalingrad:
     y: 58
     z: 24.5
 Headquarters:
-  spawnsNum: 10
   location1:
     x: 287.5
     y: 56
@@ -83,7 +81,6 @@ Headquarters:
     y: 61
     z: 823
 Crashsite:
-  spawnsNum: 10
   location1:
     x: 580
     y: 60
@@ -125,7 +122,6 @@ Crashsite:
     y: 56
     z: 735.5
 Towers:
-  spawnsNum: 10
   location1:
     x: 762.5
     y: 44
@@ -167,7 +163,6 @@ Towers:
     y: 31.5
     z: 954.5
 Cargoship:
-  spawnsNum: 10
   location1:
     x: 1168.5
     y: 75
@@ -209,7 +204,6 @@ Cargoship:
     y: 71
     z: 961.5
 Destroyer:
-  spawnsNum: 10
   location1:
     x: 1169.5
     y: 79
@@ -251,7 +245,6 @@ Destroyer:
     y: 63
     z: 1547.5
 Skyscrapper:
-  spawnsNum: 10
   location1:
     x: 587.5
     y: 126
@@ -293,7 +286,6 @@ Skyscrapper:
     y: 110
     z: 1527.5
 Office:
-  spawnsNum: 10
   location1:
     x: 470.5
     y: 52
@@ -335,7 +327,6 @@ Office:
     y: 52
     z: 2003
 Aztec:
-  spawnsNum: 10
   location1:
     x: 70
     y: 58
@@ -377,7 +368,6 @@ Aztec:
     y: 58
     z: 1502.5
 Herbatic:
-  spawnsNum: 10
   location1:
     x: 39.5
     y: 56
@@ -419,7 +409,6 @@ Herbatic:
     y: 56
     z: 1130.5
 Ascaland:
-  spawnsNum: 10
   location1:
     x: 16.5
     y: 100
@@ -461,7 +450,6 @@ Ascaland:
     y: 102
     z: 834.5
 Nuketown:
-  spawnsNum: 10
   location1:
     x: 106.5
     y: 62
@@ -503,7 +491,6 @@ Nuketown:
     y: 62
     z: 360.5
 Ship:
-  spawnsNum: 10
   location1:
     x: 561.5
     y: 60
@@ -545,7 +532,6 @@ Ship:
     y: 51
     z: 369.5
 Sandyland:
-  spawnsNum: 10
   location1:
     x: 341.5
     y: 57
@@ -587,7 +573,6 @@ Sandyland:
     y: 56
     z: 1176.5
 Plaza:
-  spawnsNum: 10
   location1:
     x: 1282.5
     y: 61

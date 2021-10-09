@@ -5,15 +5,16 @@ C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Innocent.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\utils\Utils.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\Splash.java
+C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\FallDamage.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Doctor.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Magician.java
+C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\Chat.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\neutral\Gravedigger.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Phantom.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\bad\Pyrotechnic.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Fisherman.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\bad\Devil.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\PlaceBlocks.java
-C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\utils\Countdown.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\main\Round.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Witch.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Guru.java
@@ -23,6 +24,7 @@ C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\Consumables.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Priest.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Analyst.java
+C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\main\RoundCountdown.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Illusionist.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Promoter.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Shepard.java
@@ -45,6 +47,7 @@ C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\main\Role.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\Crouch.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Psychic.java
+C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Jesus.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\neutral\Thief.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\utils\WorldManager.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\Interact.java
@@ -57,6 +60,7 @@ C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\bad\Monster.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\InteractEntity.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\events\Projectile.java
+C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\bad\Cannibal.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\main\RoleManager.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\good\Electrician.java
 C:\Users\pedro\Desktop\Projetos\Minecraft\Minecraft Plugins\Xinada\src\main\java\com\alcachofra\roles\bad\Murderer.java

@@ -51,7 +51,7 @@ public class Athlete extends Role {
     public void onSplash(PotionSplashEvent event) {
         if (!isDead() && !isActivated()) {
             setActivated(true);
-            int athleteTime = Config.get(Xinada.GAME).getInt("game.athleteTime");
+            int athleteTime = Config.get(Xinada.GAME).getInt("athleteTime");
 
             getPlayer().sendMessage(String.format(Language.getString("pedalToTheMetal"), athleteTime));
 
