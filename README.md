@@ -1,6 +1,6 @@
 # Xinada
 
-My plugin is free for everyone to use. Feel free to donate, though ;)  
+My plugin is free for everyone to use, but feel free to donate, if you feel like it ;)  
   
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=LR9UAGCU57HWG)
 
