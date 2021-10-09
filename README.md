@@ -68,7 +68,7 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 | Paper | Side | Points | Description
 |:-------------:|:------------:|:-----|:-------
 | Police | Good | Survive (2P) | Identify the Assassin and kill him!
-| Assassin | Mauzão | Survive (2P) | Kill everything and everyone!
+| Assassin | Bad | Survive (2P) | Kill everything and everyone!
 | Innocent | Good | Survive (2P) | That's it.
 | Doctor | Good | Survive (1P) & Heal a Player (1P) | Right click to revive a dead player!
 | Ghost | Good | Survive (2P) | When you die, you can throw snowballs to revive another player!
@@ -95,13 +95,13 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 | Shepherd | Good | Survive (1P) & Cut the Sheep Wool (1P) | Find your lost sheep and cut its wool.
 | Jesus | Good | Survive (2P) | Light a candle and all baddies have to type "amen" to be able to move again.
 | Traitor | Bad | Survive (2P) | If the Assassin kills you, you become a second Assassin!
-| Accomplice | Mauzão | Survive (2P) | The Assassin knows who you are and can lend you the knife!
-| Devil | Mauzão | Survive (1P) & Fused Souls Die (1P) | Left click on two different live players to merge their souls. When one of them dies, the other dies too!
-| Monster | Mauzão | Demote a Police (2P) | You are immortal. Your mission is to demote Police!
-| Cupid | Mauzão | Survive (1P) & Passionate Players Die (1P) | Left click on two different live players to fall in love with them. From then on, they can't get away from each other, or they die!
-| Pied Piper | Mauzão | Survive (2P) | Use the stick to select the players you want. Right click to teleport for you!
-| Cheat | Mauzão | Survive (2P) | Use the skull to inform other players of your (false) death!
-| Terrorist | Mauzão | Explode with the bomb (2P) | Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
-| Pyrotechnic | Mauzão | Survive (2P) | Use the rocket to expose the policeman's location.
+| Accomplice | Bad | Survive (2P) | The Assassin knows who you are and can lend you the knife!
+| Devil | Bad | Survive (1P) & Fused Souls Die (1P) | Left click on two different live players to merge their souls. When one of them dies, the other dies too!
+| Monster | Bad | Demote a Police (2P) | You are immortal. Your mission is to demote Police!
+| Cupid | Bad | Survive (1P) & Passionate Players Die (1P) | Left click on two different live players to fall in love with them. From then on, they can't get away from each other, or they die!
+| Pied Piper | Bad | Survive (2P) | Use the stick to select the players you want. Right click to teleport for you!
+| Cheat | Bad | Survive (2P) | Use the skull to inform other players of your (false) death!
+| Terrorist | Bad | Explode with the bomb (2P) | Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
+| Pyrotechnic | Bad | Survive (2P) | Use the rocket to expose the policeman's location.
 | Thief | Neutral | Score accordingly | Left click on a live player to steal his skill!
 | Gravedigger | Neutral | Score accordingly | Left click on a dead player to steal his skill!
