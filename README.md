@@ -114,7 +114,7 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 | Thief | Neutral | Score accordingly | Left click on a live player to steal his skill!
 | Gravedigger | Neutral | Score accordingly | Left click on a dead player to steal his skill!
 
-#################################################################################################################################################################################
+----------
 
 ## Introdução
 
