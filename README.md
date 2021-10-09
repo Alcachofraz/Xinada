@@ -15,7 +15,57 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 
 ## Setup
 
-To set the plugin up
+To setup the plugin follow the steps:
+
+1. Make sure you're using the **1.17** version of Minecraft;
+2. Put **xinada.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
+3. Run the server once. When the server loads up, you should see somewhere in the console: **"[Xinada] Enabling Xinada vX.X"**, **X.X** being the version of the plugin;
+4. Close the server;
+5. Back in your server folder, you'll see the plugin created the world **Xinada**, as well as **Xinada_nether** and **Xinada_the_end**. This happened because the default world for this plugin is called **Xinada**. This can be changed in the plugin's config files (more on that [here](#configuration));
+6. Also, inside the plugins folder, you'll see a new folder called **Xinada**. This folder has important config files inside. They all have flags you can mess with, except for the stringsXX.yml files. You don't want to mess with those, since they contain translations of Xinada's used strings. Click [here](#configuration) to learn more about Xinada **Configuration Files**.
+7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/projects/?keywords=murder+mystery+map), but you can add whatever maps you like.
+8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration).
+9. That's it! Now use the [commands](#commands) to start playing! Enjoy!
+
+If you run into any issues, feel free to contact me.
+
+
+## Configuration
+
+### Game Configuration
+
+In the **game.yml** file, you may adjust some game related flags.
+
+### World Configuration
+
+These are the world configurations. This is where you may change the name of the default world Xinada will use. You can also adjust lobby coordinates. These are the coordinates to which the players will be teleported when they join and when a Xinada game ends. It's the lobby in its essence.
+
+### Maps COnfiguration
+
+This is where you setup and add your maps. All maps must be contained inside the same minecraft world (this easier to achieve using [mcedit](https://www.mcedit.net/)). The template in **maps.yml** is really easy to follow. Just add the name of the map (whatever you like) and 10 different spawn points where players may spawn in the beggining of a Xinada round. Example of a map:
+
+**whatever_name_i_like:
+  location1:
+    x: 287.5
+    y: 56
+    z: 857.5
+  ...
+  location10:
+    x: 331.5
+    y: 56
+    z: 847.5**
+    
+### Strings Configuration
+
+Unless you don't want to play the plugin in english or portuguese, you won't need to mess with these files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to game.yml and change **language: "EN"** to **language: "IT"**.
+
+## Commands
+
+Use **/start** to start a game with the players that are in the server. A game starts in 5 seconds.
+Use **/end** to end the current game.
+Use **/next** to jump to the next round. No points are assigned to any players.
+Use **/role** to see your role and objective, if you forgot.
+
 
 ## Roles
 
