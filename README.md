@@ -1,7 +1,8 @@
 # Xinada
 
-[here](#portuguese)
-[here](#english)
+[Português](#portuguese)
+
+[English](#english)
 
 ## Portuguese
 
@@ -57,3 +58,53 @@ O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos
 | Coveiro | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador morto, para lhe roubares a habilidade!
 
 ## English
+
+### Introduction
+
+The Xinada Project consists of a plugin for the **Minecraft** game. The plugin organizes and starts rounds of a mini-game based on the well-known **Murder Mystery**.
+For those unfamiliar with the **Murder Mystery** game, here's a brief explanation: At least 3 players are required and there are 3 different roles. The **Police**, the **Assassin** and the **Innocent**. The **Assassin** must wipe all players out, while the **Police** must identify and arrest the Assassin before he achieves his goal. The **Innocent** will be just watching and trying to survive. In case there are 5 players, for example, 3 of them would be **Innocent**.
+
+The **Murder Mystery** game is already quite fun in itself. But what if all **Innocents** had a unique ability? What if in addition to **Innocents**, there were other roles that may help or frame the **Assassin**? That's where the Xinada plugin comes in! With over 30 different aroles, Xinada offers a mini-game with great replayability! At least 3 players are required, the more the better (maximum 10).
+
+### Roles
+
+| Paper | Side | Points | Description
+|:-------------:|:------------:|:-----|:-------
+| Police | Nice | Survive (2P) | Identify the Assassin and kill him!
+| Assassin | Mauzão | Survive (2P) | Kill everything and everyone!
+| Innocent | Nice | Survive (2P) | That's it.
+| Doctor | Nice | Survive (1P) & Heal a Player (1P) | Right click to revive a dead player!
+| Ghost | Nice | Survive (2P) | When you die, you can throw snowballs to revive another player!
+| Guru | Nice | Survive (1P) & Expose the Assassin (1P) | Left click on a live player. If you hit the Assassin, he raises the knife!
+| Witch | Nice | Survive (2P) | Left click on a player to curse him. No matter what you do, he will earn 0 points!
+| Father | Nice | Survive (1P) & Bless a Player (1P) | Left click on a player to bless him. No matter what you do, he will earn 3 points!
+| Hunter | Nice | Survive (2P) | Set up to 3 traps to delay other players!
+| Illusionist | Nice | Survive (2P) | Right click on the floor to use a smoke bomb. All players around you will be blinded and delayed!
+| Matulão | Nice | Survive (2P) | When you die, you get a second chance!
+| Promoter | Nice | Survive (2P) | Left click on a live player to promote him to the Police!
+| Negotiator | Nice | Survive (1P) & Heal Each Other (1P) | Left click on a player to become a partner. From there, they can revive each other!
+| Ninja | Nice | Survive (2P) |You have an invisibility potion that lasts a few seconds!
+| Pirate | Nice | Survive (1P) & Find another Pirate's Treasure (1P) | Hide your treasure, and find the other Pirate's!
+| Analyst | Nice | Survive (2P) | Left click on a dead player to find out who killed him!
+| Engineer | Nice | Survive (2P) | Use the compass to spot the closest Assassin!
+| Electrician | Nice | Survive (2P) | Use charcoal to blow up the light frame.
+| Psychic | Nice | Survive (2P) | Left click on the eye to save your location (you can do this as often as you like). Right click on the eye to teleport to the saved location (you can only do this 1 time)!
+| Immune | Nice | Survive (2P) | You are immune to other players' abilities!
+| Fisherman | Nice | Survive (2P) | Use the fishing rod to fend off other players!
+| Magician | Nice | Survive (2P) | Use the flower to turn the Assassin's knife into a harmless pink for a few seconds!
+| Clown | Nice | Survive (2P) | Use the paper to tell a joke and deconcentrate the Assassin!
+| Athlete | Nice | Survive (2P) | You have a speed potion that lasts a few seconds!
+| Sheep | Nice | Survive (1P) & Flee the Shepherd (1P) | The shepherd will try to cut your wool. Stay away from him.
+| Shepherd | Nice | Survive (1P) & Cut the Sheep Wool (1P) | Find your lost sheep and cut its wool.
+| Jesus | Nice | Survive (2P) | Light a candle and all baddies have to type "amen" to be able to move again.
+| Traitor | Mauzão | Survive (2P) | If the Assassin kills you, you become a second Assassin!
+| Accomplice | Mauzão | Survive (2P) | The Assassin knows who you are and can lend you the knife!
+| Devil | Mauzão | Survive (1P) & Fused Souls Die (1P) | Left click on two different live players to merge their souls. When one of them dies, the other dies too!
+| Monster | Mauzão | Demote a Police (2P) | You are immortal. Your mission is to demote Police!
+| Cupid | Mauzão | Survive (1P) & Passionate Players Die (1P) | Left click on two different live players to fall in love with them. From then on, they can't get away from each other, or they die!
+| Pied Piper | Mauzão | Survive (2P) | Use the stick to select the players you want. Right click to teleport for you!
+| Cheat | Mauzão | Survive (2P) | Use the skull to inform other players of your (false) death!
+| Terrorist | Mauzão | Explode with the bomb (2P) | Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
+| Pyrotechnic | Mauzão | Survive (2P) | Use the rocket to expose the policeman's location.
+| Thief | Neutral | Score accordingly | Left click on a live player to steal his skill!
+| Gravedigger | Neutral | Score accordingly | Left click on a dead player to steal his skill!
