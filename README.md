@@ -1,6 +1,7 @@
 # Xinada
 
 Idioms:  
+[English](#introduction)
 [Português](#introdução)
 
 
