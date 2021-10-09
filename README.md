@@ -44,6 +44,7 @@ To properly setup the plugin follow these steps:
 1. Make sure you're using the **1.17** version of Minecraft;
 2. Put **xinada-X.X.X.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
 <img src="https://user-images.githubusercontent.com/75852333/136671649-419dca9b-2b24-49ee-a497-df9386cfcf0b.png" width="640px">
+
 3. Run the server once. When the server loads up, you should see somewhere in the console: **"[Xinada] Enabling Xinada vX.X"**, **X.X** being the version of the plugin;
 4. Close the server;
 5. Back in your server folder, you'll see the plugin created the world **Xinada**, as well as **Xinada_nether** and **Xinada_the_end**. This happened because the default world for this plugin is called **Xinada**. This can be changed in the plugin's config files (more on that [here](#configuration));
