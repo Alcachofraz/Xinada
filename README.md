@@ -23,11 +23,11 @@ This video serves a purpose of simply displaying the plugin's functionality. [He
 
 ## <a name="shortcuts"></a>Shortcuts
 
-[Introduction](#introduction)  
-[Setup](#setup)  
-[Configuration](#configuration)  
-[Commands](#commands)  
-[Roles](#roles)  
+1. [Introduction](#introduction)  
+2. [Setup](#setup)  
+3. [Configuration](#configuration)  
+4. [Commands](#commands)  
+5. [Roles](#roles)  
 
 ## <a name="introduction"></a>1. Introduction
 
@@ -140,11 +140,11 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 
 ## <a name="atalhos"></a>Atalhos
 
-[Introdução](#introdução)  
-[Preparação](#preparação)  
-[Configuração](#configuração)  
-[Comandos](#comandos)  
-[Papéis](#papéis)  
+1. [Introdução](#introdução)  
+2. [Preparação](#preparação)  
+3. [Configuração](#configuração)  
+4. [Comandos](#comandos)  
+5. [Papéis](#papéis)  
 
 ## <a name="introdução"></a>1. Introdução
 
