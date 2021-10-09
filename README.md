@@ -41,19 +41,29 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 
 To properly setup the plugin follow these steps:
 
-1. Make sure you're using the **1.17** version of Minecraft;
+1. Make sure you're using the **1.17** version of Minecraft;  
+
 2. Put **xinada-X.X.X.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
 <img src="https://user-images.githubusercontent.com/75852333/136671649-419dca9b-2b24-49ee-a497-df9386cfcf0b.png" width="720px">
 
 3. Run the server once. When the server loads up, you should see somewhere in the console: **"[Xinada] Enabling Xinada vX.X"**, **X.X** being the version of the plugin;
-<img src="https://user-images.githubusercontent.com/75852333/136671776-4285829a-b9eb-4c1c-9e21-9aa01427b381.png" width="720px">
+<img src="https://user-images.githubusercontent.com/75852333/136671838-12ff3eb0-1f75-4122-acda-58f50901de54.pn" width="720px">
 
-4. Close the server;
+4. Close the server;  
+
 5. Back in your server folder, you'll see the plugin created the world **Xinada**, as well as **Xinada_nether** and **Xinada_the_end**. This happened because the default world for this plugin is called **Xinada**. This can be changed in the plugin's config files (more on that [here](#configuration));
+<img src="https://user-images.githubusercontent.com/75852333/136671877-cf2f3ee0-ea89-4edb-9b50-d2d8f5843ffa.png" width="720px">
+
+
 6. Also, inside the plugins folder, you'll see a new folder called **Xinada**. This folder has important config files inside. They all have flags you can mess with, except for the stringsXX.yml files. You don't want to mess with those, since they contain translations of Xinada's supported idioms. Click [here](#configuration) to learn more about Xinada **Configuration Files**.
-7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/)). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/), if you search for something in the lines of **"Murder Mystery map"** or **"TTT map"** or **"Call of Duty map"**. You can add whatever maps you like. Just make sure players won't be able to walk out of them in-game.
-8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration).
-9. That's it! Now use the [commands](#commands) to start playing! Enjoy!
+<img src="https://user-images.githubusercontent.com/75852333/136671909-1c4a721e-9012-4d41-a3f3-d85807e074df.png" width="720px">
+
+7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/)). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/), if you search for something in the lines of **"Murder Mystery map"** or **"TTT map"** or **"Call of Duty map"**. You can add whatever maps you like. Just make sure players won't be able to walk out of them in-game. You can use [this](https://www.dropbox.com/s/ttzofengrb4glcs/Xinada.zip?dl=1) dropbox link to download the world compatible with the default **maps.yml** the plugin generated.  
+
+8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration). You don't need to do this if you are using the world provided by the last step's dropbox link.  
+
+9. That's it! Now use the [commands](#commands) to start playing! Enjoy!  
+
 10. For a better experience, use the [NoNameTag](https://www.spigotmc.org/resources/no-name-tag.70128/) plugin to prevent players from seeing name tags through walls.
 
 If you run into any issues, feel free to contact me.
@@ -163,16 +173,30 @@ O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos
 
 Para preparar o plugin corretamente, segue estas etapas:
 
-1. Certifica-te que estás a usar a versão **1.17** do Minecraft;
+1. Certifica-te que estás a usar a versão **1.17** do Minecraft;  
+
 2. Coloca **xinada-X.X.X.jar** na pasta de plugins do teu servidor Spigot (**.../server_folder/plugins/**);
+<img src="https://user-images.githubusercontent.com/75852333/136671649-419dca9b-2b24-49ee-a497-df9386cfcf0b.png" width="720px">
+
 3. Executa o servidor uma vez. Quando o servidor carregar, deverás conseguir ver algures na consola: **"[Xinada] Ativando Xinada vX.X"**, sendo **X.X** a versão do plugin;
-4. Termina o servidor;
+<img src="https://user-images.githubusercontent.com/75852333/136671838-12ff3eb0-1f75-4122-acda-58f50901de54.pn" width="720px">
+
+4. Termina o servidor;  
+
 5. De volta à pasta do servidor, verás que o plugin criou o mundo **Xinada**, bem como **Xinada_nether** e **Xinada_the_end**. Isso aconteceu porque o mundo padrão para este plugin chama-se **Xinada**. Isso pode ser alterado nos ficheiros de configuração do plugin (mais sobre isso [aqui](#configuração));
+<img src="https://user-images.githubusercontent.com/75852333/136671877-cf2f3ee0-ea89-4edb-9b50-d2d8f5843ffa.png" width="720px">
+
 6. Além disso, dentro da pasta plugins, você verá uma nova pasta chamada **Xinada**. Esta pasta contém ficheiros de configuração importantes. Todos eles têm campos que podem ser alterados consoante as preferências de cada um, exceto os ficheiros stringsXX.yml. Não deves mexer nesses porque contêm as traduções para os idiomas suportados pelo Xinada. Clica [aqui](#configuração) para saberes mais sobre os **ficheiross de configuração** do Xinada.
-7. Agora que sabes usar os **ficheiros de configuração**, tudo o que resta é adicionar mapas a **maps.yml**. Tudo que você precisa fazer é criar um mundo (mundo minecraft) contendo vários pequenos mapas (o software [mcedit](https://www.mcedit.net/) facilita imenso este passo). Poderás encontrar vários mapas adequados em [planetminecraft.com](https://www.planetminecraft.com/), se pesquisares algo nas linhas de **"Murder Mystery map"** ou **"mapa TTT"** ou **"Mapa do Call of Duty"**. Podes adicionar os mapas que bem te apetecerem. Apenas certifica-te de que os jogadores não conseguem sair deles durante o jogo.
+<img src="https://user-images.githubusercontent.com/75852333/136671909-1c4a721e-9012-4d41-a3f3-d85807e074df.png" width="720px">
+
+7. Agora que sabes usar os **ficheiros de configuração**, tudo o que resta é adicionar mapas a **maps.yml**. Tudo que você precisa fazer é criar um mundo (mundo minecraft) contendo vários pequenos mapas (o software [mcedit](https://www.mcedit.net/) facilita imenso este passo). Poderás encontrar vários mapas adequados em [planetminecraft.com](https://www.planetminecraft.com/), se pesquisares algo nas linhas de **"Murder Mystery map"** ou **"mapa TTT"** ou **"Mapa do Call of Duty"**. Podes adicionar os mapas que bem te apetecerem. Apenas certifica-te de que os jogadores não conseguem sair deles durante o jogo. Podes usar [este](https://www.dropbox.com/s/ttzofengrb4glcs/Xinada.zip?dl=1) link da Dropbox para fazer download de um mundo minecraft compatível com o ficheiro **maps.yml** gerado pelo plugin.  
+
+
 8. Por fim, terás de escolher 10 pontos de spawn para cada mapa e preencher **maps.yml** com essa informação. Podes ver como fazê-lo [aqui](#configuração).
-9. É isso mesmo! Agora usa os [comandos](#comandos) para começar a jogar! Diverte-te!
-10. Para uma melhor experiência, utiliza o plugin [NoNameTag](https://www.spigotmc.org/resources/no-name-tag.70128/) para que não se consiga ver nomes de outros jogadores através das paredes.
+
+9. É isso mesmo! Agora usa os [comandos](#comandos) para começar a jogar! Diverte-te!  
+
+10. Para uma melhor experiência, utiliza o plugin [NoNameTag](https://www.spigotmc.org/resources/no-name-tag.70128/) para que não se consiga ver nomes de outros jogadores através das paredes.  
 
 Se surgir algum problema, sinta-se à vontade para entrar em contato comigo.
 
