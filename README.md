@@ -44,16 +44,16 @@ These are the world configurations. In the **world.yml** file is where you may c
 
 The **maps.yml** file is where you setup and add your maps. All maps must be contained inside the same minecraft world (this easier to achieve using [mcedit](https://www.mcedit.net/)). The template in **maps.yml** is really easy to follow. Just add the name of the map (whatever you like) and 10 different spawn points where players may spawn in the beggining of a Xinada round. Example of a map:
 
-**whatever_name_i_like:
-  location1:
-    x: 287.5
-    y: 56
-    z: 857.5
-  ...
-  location10:
-    x: 331.5
-    y: 56
-    z: 847.5**
+**whatever_name_i_like:  
+  location1:  
+    x: 287.5  
+    y: 56  
+    z: 857.5  
+  ...  
+  location10:  
+    x: 331.5  
+    y: 56  
+    z: 847.5**  
     
 #### 4. Strings Configuration
 
