@@ -32,15 +32,15 @@ If you run into any issues, feel free to contact me.
 
 ## Configuration
 
-### Game Configuration
+#### 1. Game Configuration
 
 In the **game.yml** file, you may adjust some game related flags.
 
-### World Configuration
+#### 2. World Configuration
 
 These are the world configurations. This is where you may change the name of the default world Xinada will use. You can also adjust lobby coordinates. These are the coordinates to which the players will be teleported when they join and when a Xinada game ends. It's the lobby in its essence.
 
-### Maps COnfiguration
+#### 3. Maps Configuration
 
 This is where you setup and add your maps. All maps must be contained inside the same minecraft world (this easier to achieve using [mcedit](https://www.mcedit.net/)). The template in **maps.yml** is really easy to follow. Just add the name of the map (whatever you like) and 10 different spawn points where players may spawn in the beggining of a Xinada round. Example of a map:
 
@@ -55,7 +55,7 @@ This is where you setup and add your maps. All maps must be contained inside the
     y: 56
     z: 847.5**
     
-### Strings Configuration
+#### 4. Strings Configuration
 
 Unless you don't want to play the plugin in english or portuguese, you won't need to mess with these files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to game.yml and change **language: "EN"** to **language: "IT"**.
 
