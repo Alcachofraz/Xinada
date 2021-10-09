@@ -6,6 +6,7 @@
   
 [Português](#introdução)  
 
+---------
 
 ## Introduction
 
@@ -61,7 +62,7 @@ whatever_name_i_like:
 
 #### 4. Strings Configuration
 
-Unless you don't want to play the plugin in english or portuguese, you won't need to mess with the **stringsXX.yml** files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to game.yml and change **language: "EN"** to **language: "IT"**.
+Unless you don't want to play the plugin in english or portuguese, you won't need to mess with the **stringsXX.yml** files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to **game.yml** and change **language: "EN"** to **language: "IT"**.
 
 ## Commands
 
@@ -124,39 +125,39 @@ Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: S�
 O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos os **Inocentes** tivessem uma habilidade única? E se além de **Inocentes**, existissem outros papéis cujo objetivo consiste em ajudar o **Assassino**? É aí que entra o plugin Xinada! Com mais de 30 habilidades diferentes, o Xinada oferece um mini-jogo com grande rejogabilidade! São necessários pelo menos 3 jogadores, sendo que quantos mais, melhor (máximo de 10).
 
 
-## Setup
+## Preparação
 
-To properly setup the plugin follow these steps:
+Para preparar o plugin corretamente, segue estas etapas:
 
-1. Make sure you're using the **1.17** version of Minecraft;
-2. Put **xinada.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
-3. Run the server once. When the server loads up, you should see somewhere in the console: **"[Xinada] Enabling Xinada vX.X"**, **X.X** being the version of the plugin;
-4. Close the server;
-5. Back in your server folder, you'll see the plugin created the world **Xinada**, as well as **Xinada_nether** and **Xinada_the_end**. This happened because the default world for this plugin is called **Xinada**. This can be changed in the plugin's config files (more on that [here](#configuration));
-6. Also, inside the plugins folder, you'll see a new folder called **Xinada**. This folder has important config files inside. They all have flags you can mess with, except for the stringsXX.yml files. You don't want to mess with those, since they contain translations of Xinada's supported idioms. Click [here](#configuration) to learn more about Xinada **Configuration Files**.
-7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/)). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/), if you search for something in the lines of **"Murder Mystery map"** or **"TTT map"** or **"Call of Duty map"**. You can add whatever maps you like. Just make sure players won't be able to walk out of them in-game.
-8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration).
-9. That's it! Now use the [commands](#commands) to start playing! Enjoy!
+1. Certifica-te que estás a usar a versão **1.17** do Minecraft;
+2. Coloca **xinada.jar** na pasta de plugins do teu servidor Spigot (**.../server_folder/plugins/**);
+3. Executa o servidor uma vez. Quando o servidor carregar, deverás conseguir ver algures na consola: **"[Xinada] Ativando Xinada vX.X"**, sendo **X.X** a versão do plugin;
+4. Termina o servidor;
+5. De volta à pasta do servidor, verás que o plugin criou o mundo **Xinada**, bem como **Xinada_nether** e **Xinada_the_end**. Isso aconteceu porque o mundo padrão para este plugin chama-se **Xinada**. Isso pode ser alterado nos ficheiros de configuração do plugin (mais sobre isso [aqui](#configuração));
+6. Além disso, dentro da pasta plugins, você verá uma nova pasta chamada **Xinada**. Esta pasta contém ficheiros de configuração importantes. Todos eles têm campos que podem ser alterados consoante as preferências de cada um, exceto os ficheiros stringsXX.yml. Não deves mexer nesses porque contêm as traduções para os idiomas suportados pelo Xinada. Clica [aqui](#configuração) para saberes mais sobre os **ficheiross de configuração** do Xinada.
+7. Agora que sabes usar os **ficheiros de configuração**, tudo o que resta é adicionar mapas a **maps.yml**. Tudo que você precisa fazer é criar um mundo (mundo minecraft) contendo vários pequenos mapas (o software [mcedit](https://www.mcedit.net/) facilita imenso este passo). Poderás encontrar vários mapas adequados em [planetminecraft.com](https://www.planetminecraft.com/), se pesquisares algo nas linhas de **"Murder Mystery map"** ou **"mapa TTT"** ou **"Mapa do Call of Duty"**. Podes adicionar os mapas que bem te apetecerem. Apenas certifica-te de que os jogadores não conseguem sair deles durante o jogo.
+8. Por fim, terás de escolher 10 pontos de spawn para cada mapa e preencher **maps.yml** com essa informação. Podes ver como fazê-lo [aqui](#configuração).
+9. É isso mesmo! Agora usa os [comandos](#comandos) para começar a jogar! Diverte-te!
 
-If you run into any issues, feel free to contact me.
+Se surgir algum problema, sinta-se à vontade para entrar em contato comigo.
 
 
-## Configuration
+## Configuração
 
-#### 1. Game Configuration
+#### 1. Configuração do jogo
 
-In the **game.yml** file, you may adjust some game related flags.
+No ficheiro **game.yml**, poderás ajustar alguns campos relacionados com o jogo.
 
-#### 2. World Configuration
+#### 2. Configuração do mundo minecraft
 
-These are the world configurations. In the **world.yml** file is where you may change the name of the default world Xinada will use. You can also adjust lobby coordinates. These are the coordinates to which the players will be teleported when they join and when a Xinada game ends. It's the lobby in its essence.
+Estas são as configurações do mundo minecraft. O ficheiro **world.yml** é onde poderás alterar o nome do mundo padrão que o Xinada utilizará. Também podes ajustar as coordenadas do lobby. Estas são as coordenadas para as quais os jogadores serão teletransportados quando se juntarem e quando um jogo do Xinada terminar. É o lobby na sua essência.
 
-#### 3. Maps Configuration
+#### 3. Configuração de mapas
 
-The **maps.yml** file is where you setup and add your maps. All maps must be contained inside the same minecraft world (this easier to achieve using [mcedit](https://www.mcedit.net/)). The template in **maps.yml** is really easy to follow. Just add the name of the map (whatever you like) and 10 different spawn points where players may spawn in the beggining of a Xinada round. Example of a map:
+O ficheiro **maps.yml** é onde irás configurar e adicionar os teus mapas. Todos os mapas devem estar contidos no mesmo mundo minecraft (mais fácil com a ajuda do software [mcedit] (https://www.mcedit.net/)). O exemplo em **maps.yml** é muito fácil de seguir. Basta adicionar o nome do mapa (o que quiseres) e 10 pontos de spawn diferentes onde os jogadores poderão nascer no início de uma rodada do Xinada. Exemplo de mapa:
 
 ~~~~~~~~~~~~~~~~~~~~~  
-whatever_name_i_like:  
+o_nome_que_me_apetecer:  
   location1:  
     x: 287.5  
     y: 56  
@@ -168,16 +169,17 @@ whatever_name_i_like:
     z: 847.5  
 ~~~~~~~~~~~~~~~~~~~~~  
 
-#### 4. Strings Configuration
+#### 4. Configuração das strings
 
-Unless you don't want to play the plugin in english or portuguese, you won't need to mess with the **stringsXX.yml** files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to game.yml and change **language: "EN"** to **language: "IT"**.
+A menos que não queiras jogar o plugin em inglês ou português, não precisarás mexer nos arquivos **stringsXX.yml**. Se fores, digamos, italiano e quiseres jogar ao Xinada em italiano, precisarás de gerar as tuas próprias strings. Basta criar um arquivo **stringsIT.yml** com o mesmo conteúdo dos outros arquivos **stringsXX.yml**, mas em italiano. Em seguida, vais ao ficheiro **game.yml** e alteras **language: "EN"** para **language: "IT"**.
 
-## Commands
 
-1. Use **/start** to start a game with the players that are in the server. A game starts in 5 seconds.  
-2. Use **/end** to end the current game.  
-3. Use **/next** to jump to the next round. No points are assigned to any players.  
-4. Use **/role** to see your role and objective, if you forgot.  
+## Comandos
+
+1. Utiliza **/start** para iniciar um jogo com os jogadores que estão no servidor. Um jogo começará em 5 segundos.
+2. Utiliza **/end** para encerrar o jogo atual.
+3. Utiliza **/next** para pular para a próxima ronda. Nenhum ponto é atribuído a qualquer jogador.
+4. Utiliza **/role** para veres o teu papel e objetivo, caso te tenhas esquecido.  
 
 
 ## Papéis
