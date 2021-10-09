@@ -58,9 +58,9 @@ To properly setup the plugin follow these steps:
 6. Also, inside the plugins folder, you'll see a new folder called **Xinada**. This folder has important config files inside. They all have flags you can mess with, except for the stringsXX.yml files. You don't want to mess with those, since they contain translations of Xinada's supported idioms. Click [here](#configuration) to learn more about Xinada **Configuration Files**.
 <img src="https://user-images.githubusercontent.com/75852333/136671909-1c4a721e-9012-4d41-a3f3-d85807e074df.png" width="720px">
 
-7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/)). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/), if you search for something in the lines of **"Murder Mystery map"** or **"TTT map"** or **"Call of Duty map"**. You can add whatever maps you like. Just make sure players won't be able to walk out of them in-game. You can use [this](https://www.dropbox.com/s/ttzofengrb4glcs/Xinada.zip?dl=1) dropbox link to download the world compatible with the default **maps.yml** the plugin generated.  
+7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/)). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/), if you search for something in the lines of **"Murder Mystery map"** or **"TTT map"** or **"Call of Duty map"**. You can add whatever maps you like. Just make sure players won't be able to walk out of them in-game. You can use [this](https://www.dropbox.com/s/ttzofengrb4glcs/Xinada.zip?dl=1) Dropbox link to download the world compatible with the default **maps.yml** the plugin generated.  
 
-8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration). You don't need to do this if you are using the world provided by the last step's dropbox link.  
+8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration). You don't need to do this if you are using the world provided by the last step's Dropbox link.  
 
 9. That's it! Now use the [commands](#commands) to start playing! Enjoy!  
 
@@ -192,7 +192,7 @@ Para preparar o plugin corretamente, segue estas etapas:
 7. Agora que sabes usar os **ficheiros de configuração**, tudo o que resta é adicionar mapas a **maps.yml**. Tudo que você precisa fazer é criar um mundo (mundo minecraft) contendo vários pequenos mapas (o software [mcedit](https://www.mcedit.net/) facilita imenso este passo). Poderás encontrar vários mapas adequados em [planetminecraft.com](https://www.planetminecraft.com/), se pesquisares algo nas linhas de **"Murder Mystery map"** ou **"mapa TTT"** ou **"Mapa do Call of Duty"**. Podes adicionar os mapas que bem te apetecerem. Apenas certifica-te de que os jogadores não conseguem sair deles durante o jogo. Podes usar [este](https://www.dropbox.com/s/ttzofengrb4glcs/Xinada.zip?dl=1) link da Dropbox para fazer download de um mundo minecraft compatível com o ficheiro **maps.yml** gerado pelo plugin.  
 
 
-8. Por fim, terás de escolher 10 pontos de spawn para cada mapa e preencher **maps.yml** com essa informação. Podes ver como fazê-lo [aqui](#configuração).
+8. Por fim, terás de escolher 10 pontos de spawn para cada mapa e preencher **maps.yml** com essa informação. Podes ver como fazê-lo [aqui](#configuração). Se estás a utilizar o mundo minecraft fornecido pelo link Dropbox do passo anterior, não precisas de fazer isto.
 
 9. É isso mesmo! Agora usa os [comandos](#comandos) para começar a jogar! Diverte-te!  
 
