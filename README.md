@@ -12,6 +12,7 @@ These are old videos of an old version of the plugin, and there were some bugs. 
 These videos serve a purpose of simply displaying the plugin's functionality.
 
 [![Xinada](https://img.youtube.com/vi/jDewPIYbnOs/0.jpg)](https://www.youtube.com/watch?v=jDewPIYbnOs)
+[![Xinada](https://img.youtube.com/vi/CZZL_ss1xug/0.jpg)](https://www.youtube.com/watch?v=CZZL_ss1xug)
 
 ---------
 
