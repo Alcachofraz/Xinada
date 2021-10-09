@@ -12,7 +12,7 @@ import java.util.*;
 
 public final class RoleManager {
 
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     /**
      * Possible Role draws. All available Roles.
@@ -103,7 +103,6 @@ public final class RoleManager {
         final int ROLES_NUM = pool.size();
 
         // Add Cop and Murderer (required):
-
         roleDraws.add(RoleDraw.COP);
         roleDraws.add(RoleDraw.MURDERER);
 

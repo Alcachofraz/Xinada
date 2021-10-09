@@ -4,14 +4,18 @@ import com.alcachofra.main.Role;
 import com.alcachofra.main.Xinada;
 import com.alcachofra.utils.Language;
 import com.alcachofra.utils.Utils;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class Jesus extends Role {
+
+    private Location candle;
 
     public Jesus(Player player) {
         super(
@@ -37,8 +41,17 @@ public class Jesus extends Role {
 
     @Override
     public void reset() {
+        candle = null;
         setCanPickUp(false);
+        Utils.addItem(getPlayer(), Material.CANDLE, 8, 1);
+        Utils.addItem(getPlayer(), Material.FLINT_AND_STEEL, 7, 1);
         super.reset();
+    }
+
+    @Override
+    public void clean() {
+        candle.getBlock().setType(Material.AIR);
+        super.clean();
     }
 
     @Override
@@ -52,12 +65,20 @@ public class Jesus extends Role {
                         if (r.getRoleSide() == Side.BAD) {
                             p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 3));
                             p.sendMessage(Language.getString("christStoleYourLeg"));
-                            Utils.sendPopup(p, Language.getString("legStolen"), Language.getString("typeAmen"));
+                            Utils.sendPopup(p, "", Language.getString("typeAmen"));
                         }
                     });
                     getPlayer().sendMessage(Language.getString("youStoleLegs"));
                 }
             }
         }
+    }
+
+    @Override
+    public void onPlaceBlock(BlockPlaceEvent event) {
+        if (event.getBlock().getType() == Material.CANDLE) {
+            candle = event.getBlock().getLocation();
+        }
+        else event.setCancelled(true);
     }
 }

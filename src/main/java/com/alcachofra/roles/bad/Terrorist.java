@@ -90,6 +90,7 @@ public class Terrorist extends Role {
     @Override
     public void clean() {
         if (getBombLocation() != null) getBombLocation().getBlock().setType(Material.AIR);
+        super.clean();
     }
 
     @Override

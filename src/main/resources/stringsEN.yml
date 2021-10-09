@@ -424,9 +424,6 @@ strings:
   # Thrown when Christ takes a leg from a Player.
   christStoleYourLeg: "&cJesus Christ took your leg away for your sins. Type &lamen &r&cin the chat!"
 
-  # Thrown when Christ takes a leg from a Player (Popup).
-  legStolen: "&cYou lost a leg!"
-
   # Thrown when Player has to type "amen" (Popup).
   typeAmen: "&cType &lamen&r&c."
 
@@ -579,4 +576,4 @@ roles:
     description: "Feed on other players before you starve to death! Fed players become slower."
   jesus:
     name: "Jesus"
-    description: "Light a candle and all Bad Players must type \"amen\" in the chat, before they can move again."
+    description: "Light a candle and all the bad guys must type \"amen\" in the chat, before they can move again."

@@ -86,6 +86,7 @@ public class Pirate extends Role {
     @Override
     public void clean() {
         if (treasure != null) treasure.getBlock().setType(Material.AIR);
+        super.clean();
     }
 
     public void countDown() {

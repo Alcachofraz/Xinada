@@ -450,13 +450,17 @@ public abstract class Role {
      * OnCommand Event. Called when Player issues command in-game.
      * @param event Event.
      */
-    public void onMessage(AsyncPlayerChatEvent event) {
-        Collator instance = Collator.getInstance();
-        instance.setStrength(Collator.NO_DECOMPOSITION);
+    public void onChat(AsyncPlayerChatEvent event) {
+        // AsyncPlayerChatEvent is async and removePotionEffect() has to be
+        // called from the main thread. Gotta use Schedulers.
+        Bukkit.getScheduler().runTask(Xinada.getPlugin(), () -> {
+            Collator instance = Collator.getInstance();
+            instance.setStrength(Collator.NO_DECOMPOSITION);
 
-        if (instance.compare(event.getMessage(), "amen") == 0) {
-            getPlayer().removePotionEffect(PotionEffectType.SLOW);
-        }
+            if (instance.compare(event.getMessage(), "amen") == 0) {
+                getPlayer().removePotionEffect(PotionEffectType.SLOW);
+            }
+        });
     }
 
     /**
