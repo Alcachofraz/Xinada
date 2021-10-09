@@ -146,7 +146,7 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 | Cupid | Bad | Survive (1P) & Passionate Players Die (1P) | Left click on two different alive players so they fall in love. From there on, they can't get away from each other, or they die!
 | Flutist | Bad | Survive (2P) | Use the stick to select the players you want. Right click to teleport them to you!
 | Cheater | Bad | Survive (2P) | Use the skull to inform other players of your (fake) death!
-| Terrorist | Bad | Explode the bomb (2P) | Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
+| Terrorist | Bad | Explode the bomb (2P) & Survive (1P) | Use the bomb to explode everything and everyone. Activate all fuses before another player stops you!
 | Pyrotechnic | Bad | Survive (2P) | Use the rocket to expose the Cop's location.
 | Thief | Neutral | Score accordingly | Left click on an alive player to steal his ability!
 | Gravedigger | Neutral | Score accordingly | Left click on a dead player to steal his ability!
@@ -279,7 +279,7 @@ A menos que não queiras jogar o plugin em inglês ou português, não precisar�
 | Cupido | Mauzão | Sobrevive (1P) & Jogadores apaixonados morrem (1P) | Clica com o lado esquerdo em dois jogadores vivos diferentes para os apaixonares. A partir daí, eles não se podem afastar um do outro, senão morrem!
 | Flautista | Mauzão | Sobrevive (2P) | Usa o pau para selecionares os jogadores que quiseres. Clica com o lado direito para os teletransportares para ti!
 | Batoteiro | Mauzão | Sobrevive (2P) | Usa a caveira para informar os outros jogadores da tua (falsa) morte!
-| Terrorista | Mauzão | Explode com a bomba (2P) | Sobrevive (1P) | Usa a bomba para explodir com tudo e todos. Ativa todos os fusíveis antes que outro jogador te impeça!
+| Terrorista | Mauzão | Explode com a bomba (2P) & Sobrevive (1P) | Usa a bomba para explodir com tudo e todos. Ativa todos os fusíveis antes que outro jogador te impeça!
 | Pirotécnico | Mauzão | Sobrevive (2P) | Usa o foguete para expor a localização do polícia.			
 | Ladrão | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador vivo, para lhe roubares a habilidade!
 | Coveiro | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador morto, para lhe roubares a habilidade!
