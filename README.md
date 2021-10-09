@@ -15,7 +15,7 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 
 ## Setup
 
-To setup the plugin follow the steps:
+To properly setup the plugin follow these steps:
 
 1. Make sure you're using the **1.17** version of Minecraft;
 2. Put **xinada.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
