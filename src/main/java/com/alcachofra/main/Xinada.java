@@ -52,6 +52,7 @@ public class Xinada extends JavaPlugin implements Listener {
 
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new BreakBlocks(), this);
+        pm.registerEvents(new Chat(), this);
         pm.registerEvents(new Consumables(), this);
         pm.registerEvents(new Crouch(), this);
         pm.registerEvents(new Damage(), this);

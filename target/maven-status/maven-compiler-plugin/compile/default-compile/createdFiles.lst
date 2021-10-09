@@ -34,13 +34,13 @@ com\alcachofra\events\Hunger.class
 com\alcachofra\roles\good\Psychic.class
 com\alcachofra\events\Join.class
 com\alcachofra\main\RoleManager$RoleDraw.class
-com\alcachofra\events\Messages.class
 com\alcachofra\main\Role$Side.class
 com\alcachofra\roles\good\Magician.class
 com\alcachofra\roles\good\Clown$1$1.class
 com\alcachofra\roles\good\Priest.class
 com\alcachofra\events\Splash.class
 com\alcachofra\bomb\Puzzle$1.class
+com\alcachofra\events\Chat.class
 com\alcachofra\events\BreakBlocks.class
 com\alcachofra\main\Round$EndCause.class
 com\alcachofra\roles\bad\Monster.class

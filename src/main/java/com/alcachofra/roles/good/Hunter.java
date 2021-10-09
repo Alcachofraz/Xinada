@@ -56,6 +56,7 @@ public class Hunter extends Role {
     @Override
     public void clean() {
         for (Location l : traps) l.getBlock().setType(Material.AIR);
+        super.clean();
     }
 
     @Override

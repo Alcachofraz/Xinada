@@ -424,9 +424,6 @@ strings:
   # Thrown when Christ takes a leg from a Player.
   christStoleYourLeg: "&cJesus Cristo levou-te uma perna pelos teus pecados. Digita &lamen &r&cno chat, para a recuperares!"
 
-  # Thrown when Christ takes a leg from a Player (Popup).
-  legStolen: "&cFicaste sem uma perna!"
-
   # Thrown when Player has to type "amen" (Popup).
   typeAmen: "&cDigita &lamen &r&c."
 
@@ -579,4 +576,4 @@ roles:
     description: "Alimenta-te de outros jogadores antes que morras à fome. Eles tornar-se-ão mais lentos."
   jesus:
     name: "Jesus"
-    description: "Acende uma vela e todos os jogadores mauzões terão de digitar \"amen\" para se conseguirem mover novamente."
+    description: "Acende uma vela e todos os mauzões terão de digitar \"amen\" para se conseguirem mover novamente."
