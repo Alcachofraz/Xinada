@@ -1,10 +1,11 @@
 # Xinada
 
-Idioms:  
+## Idioms
+
 [English](#introduction)  
-[Português](#introdução)
-
-
+  
+[Português](#introdução)  
+  
 ## Introduction
 
 The Xinada Project consists of a plugin for the **Minecraft** game. The plugin organizes and starts rounds of a mini-game based on the well-known **Murder Mystery**.
