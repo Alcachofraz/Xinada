@@ -28,7 +28,7 @@ The **Murder Mystery** game is already quite fun in itself. But what if all **In
 To properly setup the plugin follow these steps:
 
 1. Make sure you're using the **1.17** version of Minecraft;
-2. Put **xinada.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
+2. Put **xinada-X.X.X.jar** in your Spigot server plugins folder (**.../server_folder/plugins/**);
 3. Run the server once. When the server loads up, you should see somewhere in the console: **"[Xinada] Enabling Xinada vX.X"**, **X.X** being the version of the plugin;
 4. Close the server;
 5. Back in your server folder, you'll see the plugin created the world **Xinada**, as well as **Xinada_nether** and **Xinada_the_end**. This happened because the default world for this plugin is called **Xinada**. This can be changed in the plugin's config files (more on that [here](#configuration));
@@ -137,7 +137,7 @@ O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos
 Para preparar o plugin corretamente, segue estas etapas:
 
 1. Certifica-te que estás a usar a versão **1.17** do Minecraft;
-2. Coloca **xinada.jar** na pasta de plugins do teu servidor Spigot (**.../server_folder/plugins/**);
+2. Coloca **xinada-X.X.X.jar** na pasta de plugins do teu servidor Spigot (**.../server_folder/plugins/**);
 3. Executa o servidor uma vez. Quando o servidor carregar, deverás conseguir ver algures na consola: **"[Xinada] Ativando Xinada vX.X"**, sendo **X.X** a versão do plugin;
 4. Termina o servidor;
 5. De volta à pasta do servidor, verás que o plugin criou o mundo **Xinada**, bem como **Xinada_nether** e **Xinada_the_end**. Isso aconteceu porque o mundo padrão para este plugin chama-se **Xinada**. Isso pode ser alterado nos ficheiros de configuração do plugin (mais sobre isso [aqui](#configuração));
