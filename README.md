@@ -23,7 +23,7 @@ This video serves a purpose of simply displaying the plugin's functionality. [He
 
 ## Shortcuts
 
-[Introduction](#1.introduction)  
+[Introduction](#1. introduction)  
 [Setup](#setup)  
 [Configuration](#configuration)  
 [Commands](#commands)  
