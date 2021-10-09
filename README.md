@@ -50,6 +50,7 @@ To properly setup the plugin follow these steps:
 7. Now that you know how to use the **Configuration Files**, all that's left is add maps to **maps.yml**. All you have to do is create a world containing various different small maps (this would be easier with [mcedit](https://www.mcedit.net/)). You can find lots of small maps on [planetminecraft.com](https://www.planetminecraft.com/), if you search for something in the lines of **"Murder Mystery map"** or **"TTT map"** or **"Call of Duty map"**. You can add whatever maps you like. Just make sure players won't be able to walk out of them in-game.
 8. Then, you'll have to choose 10 spawn points for each small map and fill **maps.yml** with that information. You can see how [here](#configuration).
 9. That's it! Now use the [commands](#commands) to start playing! Enjoy!
+10. For a better experience, use the [NoNameTag](https://www.spigotmc.org/resources/no-name-tag.70128/) plugin to prevent players from seeing name tags through walls.
 
 If you run into any issues, feel free to contact me.
 
@@ -167,6 +168,7 @@ Para preparar o plugin corretamente, segue estas etapas:
 7. Agora que sabes usar os **ficheiros de configuração**, tudo o que resta é adicionar mapas a **maps.yml**. Tudo que você precisa fazer é criar um mundo (mundo minecraft) contendo vários pequenos mapas (o software [mcedit](https://www.mcedit.net/) facilita imenso este passo). Poderás encontrar vários mapas adequados em [planetminecraft.com](https://www.planetminecraft.com/), se pesquisares algo nas linhas de **"Murder Mystery map"** ou **"mapa TTT"** ou **"Mapa do Call of Duty"**. Podes adicionar os mapas que bem te apetecerem. Apenas certifica-te de que os jogadores não conseguem sair deles durante o jogo.
 8. Por fim, terás de escolher 10 pontos de spawn para cada mapa e preencher **maps.yml** com essa informação. Podes ver como fazê-lo [aqui](#configuração).
 9. É isso mesmo! Agora usa os [comandos](#comandos) para começar a jogar! Diverte-te!
+10. Para uma melhor experiência, utiliza o plugin [NoNameTag](https://www.spigotmc.org/resources/no-name-tag.70128/) para que não se consiga ver nomes de outros jogadores através das paredes.
 
 Se surgir algum problema, sinta-se à vontade para entrar em contato comigo.
 
