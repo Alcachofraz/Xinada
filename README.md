@@ -1,6 +1,11 @@
 # Xinada
 
-## Introdução
+[here](#portuguese)
+[here](#english)
+
+## Portuguese
+
+### Introdução
 
 O Projeto Xinada consiste num plugin para o jogo **Minecraft**. O plugin organiza e inicia rondas de um mini-jogo baseado no conhecido **Murder Mystery**.
 Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: São necessários pelo menos 3 jogadores e existem 3 papéis diferentes. O papel de **Polícia**, o papel de **Assassino** e o papel de **Inocente**. O **Assassino** tem de limpar o sebo a todos os jogadores, e o **Polícia** tem de identificar e prender o Assassino antes que este atinja o seu objetivo. O **Inocente** fica apenas a observar e a tentar sobreviver. No caso de haverem 5 jogadores, por exemplo, 3 deles seriam **Inocentes**.
@@ -8,7 +13,7 @@ Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: S�
 O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos os **Inocentes** tivessem uma habilidade única? E se além de **Inocentes**, existissem outros papéis cujo objetivo consiste em ajudar o **Assassino**? É aí que entra o plugin Xinada! Com mais de 30 habilidades diferentes, o Xinada oferece um mini-jogo com grande rejogabilidade! São necessários pelo menos 3 jogadores, sendo que quantos mais, melhor (máximo de 10).
 
 
-## Papéis
+### Papéis
 
 | Papel         | Lado          | Pontos | Descrição
 |:-------------:|:-------------:|:-----|:-------
@@ -50,3 +55,5 @@ O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos
 | Pirotécnico | Mauzão | Sobrevive (2P) | Usa o foguete para expor a localização do polícia.			
 | Ladrão | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador vivo, para lhe roubares a habilidade!
 | Coveiro | Neutro | Pontua conforme | Clica com o lado esquerdo num jogador morto, para lhe roubares a habilidade!
+
+## English
