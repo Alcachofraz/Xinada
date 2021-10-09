@@ -104,7 +104,7 @@ public class Cupid extends Role {
                     heart.setExposed(true);
                 }
 
-                int cupidDistance = Config.get(Xinada.GAME).getInt("game.cupidDistance");
+                int cupidDistance = Config.get(Xinada.GAME).getInt("cupidDistance");
                 new BukkitRunnable() {
                     public void run() {
                         if (!Xinada.inGame() || !Xinada.getGame().inRound()) this.cancel();

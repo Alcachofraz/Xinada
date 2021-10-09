@@ -494,7 +494,7 @@ public abstract class Role {
     public void onHit(EntityDamageByEntityEvent event, Role wwh) {}
 
     /**
-     * OnShot. Called when this Player is shot at.
+     * OnShot Event. Called when this Player is shot at.
      * @param event Event.
      * @param whoShot Role of the Player who shot.
      */
@@ -532,14 +532,25 @@ public abstract class Role {
     }
 
     /**
-     * OnDrop. Called when a Player drops an item.
+     * OnDrop Event. Called when a Player drops an item.
      * @param event Event.
      */
     public void onDropItem(PlayerDropItemEvent event) {
         event.setCancelled(true);
     }
 
+    /**
+     * OnFallDamage Event. Called when a Player suffers from fall damage.
+     * @param event Event.
+     */
+    public void onFallDamage(EntityDamageEvent event) {
+        event.setCancelled(true);
+    }
 
+    /**
+     * OnHungerDeplete Event. Called upon hunger deplete.
+     * @param event Event.
+     */
     public void onHungerDeplete(FoodLevelChangeEvent event) {
         getPlayer().setFoodLevel(20);
         event.setCancelled(true);

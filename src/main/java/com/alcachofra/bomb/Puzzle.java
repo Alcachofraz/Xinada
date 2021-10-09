@@ -44,7 +44,7 @@ public class Puzzle implements Listener {
     }
 
     public void start() {
-        int rate = Config.get(Xinada.GAME).getInt("game.terroristFuseRate");
+        int rate = Config.get(Xinada.GAME).getInt("terroristFuseRate");
         Random rand = new Random();
         task = new BukkitRunnable() {
             public void run() {

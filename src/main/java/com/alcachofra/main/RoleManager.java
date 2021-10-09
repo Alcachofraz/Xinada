@@ -12,7 +12,7 @@ import java.util.*;
 
 public final class RoleManager {
 
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
 
     /**
      * Possible Role draws. All available Roles.

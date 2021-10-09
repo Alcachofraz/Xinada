@@ -13,8 +13,7 @@ public class Damage implements Listener {
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent event) {
-        if ((event.getEntity() instanceof Player) && (event.getCause() == EntityDamageEvent.DamageCause.FALL)) event.setCancelled(true);
-        else if (Xinada.inGame() && Xinada.getGame().inRound()) { // If a turn is playing...
+        if (Xinada.inGame() && Xinada.getGame().inRound()) { // If a turn is playing...
             event.setCancelled(true); // Player doesn't get hit
             if ((event.getEntity() instanceof Player) && (event.getDamager() instanceof Player)) { // If a player hits another player...
                 Player whoWasHit = (Player) event.getEntity(); // Gets the player who was hit

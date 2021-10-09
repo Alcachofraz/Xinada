@@ -57,7 +57,7 @@ public class Electrician extends Role {
                         getPlayer().sendMessage(Language.getString("youCutPower"));
                         Utils.soundIndividual(getPlayer(), Sound.BLOCK_FIRE_EXTINGUISH);
 
-                        int electricianTime = Config.get(Xinada.GAME).getInt("game.electricianTime");
+                        int electricianTime = Config.get(Xinada.GAME).getInt("electricianTime");
                         for (Role role : Xinada.getGame().getRound().getCurrentRoles().values()) {
                             if (!getPlayer().equals(role.getPlayer()) && !(role instanceof Immune)) {
                                 role.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 250));

@@ -105,7 +105,7 @@ public class Clown extends Role {
                                     if (traitor != null) traitor.setLaughing(false);
                                     this.cancel();
                                 }
-                            }.runTaskLater(Xinada.getPlugin(), 20*(Config.get(Xinada.GAME).getInt("game.clownTime"))); // 20 ticks = 1 second
+                            }.runTaskLater(Xinada.getPlugin(), 20*(Config.get(Xinada.GAME).getInt("clownTime"))); // 20 ticks = 1 second
                             this.cancel();
                         }
                     }.runTaskLater(Xinada.getPlugin(), 20); // 20 ticks = 1 second

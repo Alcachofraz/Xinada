@@ -22,25 +22,27 @@ public class Xinada extends JavaPlugin implements Listener {
     private static Game game;
 
     public static int GAME = 0;
-    public static int STRINGS = 1;
+    public static int WORLD = 1;
     public static int MAPS = 2;
+    public static int STRINGS = 3;
 
     @Override
     public void onEnable() {
-        this.saveDefaultConfig();
         plugin = this;
 
         new Config.Builder()
                 .setPlugin(this)
                 .setPaths(
                         "game.yml",
-                        "strings" + getConfig().getString("game.language") + ".yml",
+                        "world.yml",
                         "maps.yml"
                 ).build();
 
+        Config.addConfig("strings" + Config.get(GAME).getString("language") + ".yml");
+
         new WorldManager.Builder()
                 .setPlugin(this)
-                .setWorldName(getConfig().getString("world.name"))
+                .setWorldName(Config.get(WORLD).getString("name"))
                 .build();
 
         new Language.Builder()
@@ -57,6 +59,7 @@ public class Xinada extends JavaPlugin implements Listener {
         pm.registerEvents(new Crouch(), this);
         pm.registerEvents(new Damage(), this);
         pm.registerEvents(new Drop(), this);
+        pm.registerEvents(new FallDamage(), this);
         pm.registerEvents(new Hunger(), this);
         pm.registerEvents(new Interact(), this);
         pm.registerEvents(new InteractEntity(), this);
@@ -119,7 +122,7 @@ public class Xinada extends JavaPlugin implements Listener {
     public boolean startGame() {
             HashSet<Player> players = Utils.getOnlinePlayers();
             if (RoleManager.DEBUG || (players.size() > 2 && players.size() <= 10)) {
-                game = new Game(players, Config.get(GAME).getInt("game.rounds"));
+                game = new Game(players, Config.get(GAME).getInt("rounds"));
                 game.start(); // Start game
                 return true;
             }

@@ -45,9 +45,9 @@ public final class WorldManager {
         player.teleport(
                 new Location(
                         player.getWorld(),
-                        Config.get(Xinada.GAME).getDouble("world.lobby.x"),
-                        Config.get(Xinada.GAME).getDouble("world.lobby.y"),
-                        Config.get(Xinada.GAME).getDouble("world.lobby.z")
+                        Config.get(Xinada.WORLD).getDouble("lobby.x"),
+                        Config.get(Xinada.WORLD).getDouble("lobby.y"),
+                        Config.get(Xinada.WORLD).getDouble("lobby.z")
                 )
         );
     }

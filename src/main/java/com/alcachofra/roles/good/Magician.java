@@ -64,7 +64,7 @@ public class Magician extends Role {
                             m.addSword();
                             this.cancel();
                         }
-                    }.runTaskLater(Xinada.getPlugin(), 20*(Config.get(Xinada.GAME).getInt("game.magicianTime"))); // 20 ticks = 1 second
+                    }.runTaskLater(Xinada.getPlugin(), 20*(Config.get(Xinada.GAME).getInt("magicianTime"))); // 20 ticks = 1 second
                 }
             }
         }

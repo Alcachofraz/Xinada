@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public final class Config {
 
     private static final ArrayList<FileConfiguration> configs = new ArrayList<>();
+    private static Plugin plugin;
 
     /**
      * Initialise Config with Plugin instance and the File Configuration
@@ -20,6 +21,12 @@ public final class Config {
      * @param plugin Plugin instance.
      */
     private static void init(Plugin plugin, String ...paths) {
+        Config.plugin = plugin;
+
+        addConfig(paths);
+    }
+
+    public static void addConfig(String ...paths) {
         File aux;
 
         for (String path : paths) {

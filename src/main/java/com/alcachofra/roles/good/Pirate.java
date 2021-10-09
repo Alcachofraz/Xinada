@@ -91,7 +91,7 @@ public class Pirate extends Role {
 
     public void countDown() {
         new BukkitRunnable() {
-            private final long pirateTime = Config.get(Xinada.GAME).getInt("game.pirateTime") + 1;
+            private final long pirateTime = Config.get(Xinada.GAME).getInt("pirateTime") + 1;
             private long secsRemaining = pirateTime;
 
             public void run() {
