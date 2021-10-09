@@ -21,7 +21,7 @@ This video serves a purpose of simply displaying the plugin's functionality. [He
 
 ---------
 
-## Shortcuts
+## <a name="shortcuts"></a>Shortcuts
 
 [Introduction](#introduction)  
 [Setup](#setup)  
@@ -37,7 +37,7 @@ For those unfamiliar with the **Murder Mystery** game, here's a brief explanatio
 The **Murder Mystery** game is already quite fun in itself. But what if all **Innocents** had a unique ability? What if in addition to **Innocents**, there were other roles that may help or frame the **Assassin**? That's where the Xinada plugin comes in! With over 30 different aroles, Xinada offers a mini-game with great replayability! At least 3 players are required, the more the better (maximum 10).
 
 
-## 2. Setup
+## <a name="setup"></a>2. Setup
 
 To properly setup the plugin follow these steps:
 
@@ -54,7 +54,7 @@ To properly setup the plugin follow these steps:
 If you run into any issues, feel free to contact me.
 
 
-## 3. Configuration
+## <a name="configuration"></a>3. Configuration
 
 #### 3.1. Game Configuration
 
@@ -85,7 +85,7 @@ whatever_name_i_like:
 
 Unless you don't want to play the plugin in english or portuguese, you won't need to mess with the **stringsXX.yml** files. If you are, let's say, italian and want to play Xinada in italian, you'll need to generate your own strings. Just create a **stringsIT.yml** file with the same content as the others **stringsXX.yml** files, but in italian. Then, go to **game.yml** and change **language: "EN"** to **language: "IT"**.
 
-## 4. Commands
+## <a name="commands"></a>4. Commands
 
 1. Use **/start** to start a game with the players that are in the server. A game starts in 5 seconds.  
 2. Use **/end** to end the current game.  
@@ -93,7 +93,7 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 4. Use **/role** to see your role and objective, if you forgot.  
 
 
-## 5. Roles
+## <a name="roles"></a>5. Roles
 
 | Paper | Side | Points | Description
 |:-------------:|:------------:|:-----|:-------
@@ -138,7 +138,7 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 
 ----------
 
-## Atalhos
+## <a name="atalhos"></a>Atalhos
 
 [Introdução](#introdução)  
 [Preparação](#preparação)  
@@ -146,7 +146,7 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 [Comandos](#comandos)  
 [Papéis](#papéis)  
 
-## 1. Introdução
+## <a name="introdução"></a>1. Introdução
 
 O Projeto Xinada consiste num plugin para o jogo **Minecraft**. O plugin organiza e inicia rondas de um mini-jogo baseado no conhecido **Murder Mystery**.
 Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: São necessários pelo menos 3 jogadores e existem 3 papéis diferentes. O papel de **Polícia**, o papel de **Assassino** e o papel de **Inocente**. O **Assassino** tem de limpar o sebo a todos os jogadores, e o **Polícia** tem de identificar e prender o Assassino antes que este atinja o seu objetivo. O **Inocente** fica apenas a observar e a tentar sobreviver. No caso de haverem 5 jogadores, por exemplo, 3 deles seriam **Inocentes**.
@@ -154,7 +154,7 @@ Para quem não conhece o jogo **Murder Mystery**, eis uma breve explicação: S�
 O jogo **Murder Mystery** é já bastante divertido por si mesmo. Mas e se todos os **Inocentes** tivessem uma habilidade única? E se além de **Inocentes**, existissem outros papéis cujo objetivo consiste em ajudar o **Assassino**? É aí que entra o plugin Xinada! Com mais de 30 habilidades diferentes, o Xinada oferece um mini-jogo com grande rejogabilidade! São necessários pelo menos 3 jogadores, sendo que quantos mais, melhor (máximo de 10).
 
 
-## 2. Preparação
+## <a name="preparação"></a>2. Preparação
 
 Para preparar o plugin corretamente, segue estas etapas:
 
@@ -171,7 +171,7 @@ Para preparar o plugin corretamente, segue estas etapas:
 Se surgir algum problema, sinta-se à vontade para entrar em contato comigo.
 
 
-## 3. Configuração
+## <a name="configuração"></a>3. Configuração
 
 #### 3.1. Configuração do jogo
 
@@ -203,7 +203,7 @@ o_nome_que_me_apetecer:
 A menos que não queiras jogar o plugin em inglês ou português, não precisarás mexer nos arquivos **stringsXX.yml**. Se fores, digamos, italiano e quiseres jogar ao Xinada em italiano, precisarás de gerar as tuas próprias strings. Basta criar um arquivo **stringsIT.yml** com o mesmo conteúdo dos outros arquivos **stringsXX.yml**, mas em italiano. Em seguida, vais ao ficheiro **game.yml** e alteras **language: "EN"** para **language: "IT"**.
 
 
-## 4. Comandos
+## <a name="comandos"></a>4. Comandos
 
 1. Utiliza **/start** para iniciar um jogo com os jogadores que estão no servidor. Um jogo começará em 5 segundos.
 2. Utiliza **/end** para encerrar o jogo atual.
@@ -211,7 +211,7 @@ A menos que não queiras jogar o plugin em inglês ou português, não precisar�
 4. Utiliza **/role** para veres o teu papel e objetivo, caso te tenhas esquecido.  
 
 
-## 5. Papéis
+## <a name="papéis"></a>5. Papéis
 
 | Papel         | Lado          | Pontos | Descrição
 |:-------------:|:-------------:|:-----|:-------
