@@ -63,10 +63,10 @@ Unless you don't want to play the plugin in english or portuguese, you won't nee
 
 ## Commands
 
-Use **/start** to start a game with the players that are in the server. A game starts in 5 seconds.
-Use **/end** to end the current game.
-Use **/next** to jump to the next round. No points are assigned to any players.
-Use **/role** to see your role and objective, if you forgot.
+1. Use **/start** to start a game with the players that are in the server. A game starts in 5 seconds.  
+2. Use **/end** to end the current game.  
+3. Use **/next** to jump to the next round. No points are assigned to any players.  
+4. Use **/role** to see your role and objective, if you forgot.  
 
 
 ## Roles
