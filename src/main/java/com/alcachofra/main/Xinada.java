@@ -8,23 +8,24 @@ import com.alcachofra.utils.WorldManager;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
 public class Xinada extends JavaPlugin implements Listener {
+    public static final boolean DEBUG = false;
+
     private static Plugin plugin;
     private static Game game;
 
     public static int GAME = 0;
     public static int WORLD = 1;
     public static int MAPS = 2;
-    public static int STRINGS = 3;
 
     @Override
     public void onEnable() {
@@ -38,7 +39,12 @@ public class Xinada extends JavaPlugin implements Listener {
                         "maps.yml"
                 ).build();
 
-        Config.addConfig("strings" + Config.get(GAME).getString("language") + ".yml");
+        Map<String, FileConfiguration> languages = new HashMap<>();
+
+        Config.get(GAME).getStringList("language").forEach(l -> {
+            Config.addConfig("strings" + l.toUpperCase() + ".yml");
+            languages.put(l, Config.getMostRecent());
+        });
 
         new WorldManager.Builder()
                 .setPlugin(this)
@@ -46,10 +52,10 @@ public class Xinada extends JavaPlugin implements Listener {
                 .build();
 
         new Language.Builder()
-                .setFileConfiguration(Config.get(STRINGS))
+                .setConfigurationFiles(languages)
                 .build();
 
-        Bukkit.getServer().createWorld(new WorldCreator("Xinada"));
+        if (Bukkit.getServer().getWorld("Xinada") == null) Bukkit.getServer().createWorld(new WorldCreator("Xinada"));
         Objects.requireNonNull(Bukkit.getServer().getWorld("Xinada")).setDifficulty(Difficulty.PEACEFUL);
 
         PluginManager pm = this.getServer().getPluginManager();
@@ -108,6 +114,13 @@ public class Xinada extends JavaPlugin implements Listener {
     }
 
     /**
+     * Drop current game.
+     */
+    public static void dropGame() {
+        game = null;
+    }
+
+    /**
      * Get Xinada purple tag for chat messages.
      * @return Xinada Tag.
      */
@@ -121,7 +134,7 @@ public class Xinada extends JavaPlugin implements Listener {
      */
     public boolean startGame() {
             HashSet<Player> players = Utils.getOnlinePlayers();
-            if (RoleManager.DEBUG || (players.size() > 2 && players.size() <= 10)) {
+            if (Config.get(GAME).getBoolean("debug") || (players.size() > 2 && players.size() <= 10)) {
                 game = new Game(players, Config.get(GAME).getInt("rounds"));
                 game.start(); // Start game
                 return true;
@@ -134,6 +147,11 @@ public class Xinada extends JavaPlugin implements Listener {
 
             Player player = (Player) sender;
 
+            if (label.equalsIgnoreCase("lang")) { // "/lang"
+                if (!Language.setKey(args[0].toUpperCase())) {
+                    Utils.messageGlobal(getTag() + Language.getString("keyLanguageInvalid"));
+                }
+            }
             if (label.equalsIgnoreCase("start")) { // "/start"
                 if (inGame()) player.sendMessage(getTag() + Language.getString("gameAlreadyStarted"));
                 else if (!startGame()) Utils.messageGlobal(getTag() + Language.getString("notEnoughPlayers"));

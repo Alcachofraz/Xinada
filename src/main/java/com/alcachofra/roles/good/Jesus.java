@@ -50,17 +50,20 @@ public class Jesus extends Role {
 
     @Override
     public void clean() {
-        candle.getBlock().setType(Material.AIR);
+        if (candle != null) candle.getBlock().setType(Material.AIR);
         super.clean();
     }
 
     @Override
     public void onInteract(PlayerInteractEvent event, Action action) {
         super.onInteract(event, action);
-        if (event.getClickedBlock() != null) {
+        if (!isActivated() && event.getClickedBlock() != null) {
             if (event.getClickedBlock().getType() == Material.CANDLE) {
                 if (event.getPlayer().getInventory().getItemInMainHand().getType() == Material.FLINT_AND_STEEL ||
                         event.getPlayer().getInventory().getItemInOffHand().getType() == Material.FLINT_AND_STEEL) {
+                    setActivated(true);
+                    Utils.removeItem(getPlayer(), Material.CANDLE);
+                    Utils.removeItem(getPlayer(), Material.FLINT_AND_STEEL);
                     Xinada.getGame().getRound().getCurrentRoles().forEach((p, r) -> {
                         if (r.getRoleSide() == Side.BAD) {
                             p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 3));

@@ -1,5 +1,6 @@
 package com.alcachofra.main;
 
+import com.alcachofra.utils.Config;
 import com.alcachofra.utils.Language;
 import com.alcachofra.utils.Utils;
 import com.alcachofra.utils.WorldManager;
@@ -51,6 +52,7 @@ public class Game {
 
         players.keySet().forEach(WorldManager::lobby);
         inGame = false;
+        Xinada.dropGame();
     }
 
     /**
@@ -71,7 +73,7 @@ public class Game {
                 if (cause == Round.EndCause.FORCED_GAME_END) {
                     end(false);
                 }
-                else if (players.keySet().size() < 3) {
+                else if (players.keySet().size() < 3 && !Config.get(Xinada.GAME).getBoolean("debug")) {
                     Utils.messageGlobal(Xinada.getTag() + Language.getString("notEnoughPlayers"));
                     end(false);
                 }

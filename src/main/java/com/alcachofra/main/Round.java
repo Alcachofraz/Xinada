@@ -80,6 +80,10 @@ public class Round {
         if (roundCountdown != null) roundCountdown.cancel();
         scorePoints(cause);
         clean();
+        for (Player player : currentRoles.keySet()) {
+            Utils.cleanPlayer(player);
+        }
+
         Utils.soundGlobal(Sound.ENTITY_BLAZE_HURT);
         Utils.messageGlobal(
                 Xinada.getTag() +

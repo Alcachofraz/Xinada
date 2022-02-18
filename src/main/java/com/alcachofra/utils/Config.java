@@ -45,6 +45,14 @@ public final class Config {
     }
 
     /**
+     * Get most recent config file added.
+     * @return Most recent Configuration File.
+     */
+    public static FileConfiguration getMostRecent() {
+        return configs.get(configs.size() - 1);
+    }
+
+    /**
      * Get a Configuration File. Order of paths passed in FileManager
      * Constructor is important, and is used here.
      * @param index Index of File Configuration wanted (refer to constructor).

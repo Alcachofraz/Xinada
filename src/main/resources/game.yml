@@ -1,3 +1,6 @@
+# Debug mode
+debug: false
+
 # Number of rounds per game:
 rounds: 5
 
@@ -44,7 +47,7 @@ athleteTime: 6
 terroristRows: 6
 
 # Rate at which the bomb's fuses crack (ticks):
-terroristFuseRate: 10
+terroristFuseRate: 20 # The lower, the faster (faster means harder for the Terrorist).
 
 # Role and Role Description language (Available: "PT", "EN"):
-language: "EN"
+language: ["PT", "EN"]

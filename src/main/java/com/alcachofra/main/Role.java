@@ -5,7 +5,6 @@ import com.alcachofra.utils.Language;
 import com.alcachofra.utils.Utils;
 import com.alcachofra.roles.good.*;
 import org.bukkit.*;
-import org.bukkit.command.Command;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
@@ -426,6 +425,7 @@ public abstract class Role {
                 if (event.getBlock().getLocation().equals(terrorist.getBombLocation())) {
                     terrorist.getPlayer().closeInventory();
                     terrorist.getPuzzle().stop();
+                    terrorist.getBombLocation().getBlock().setType(Material.AIR);
                     Xinada.getGame().getRound().getCurrentRoles().forEach((p, r) -> {
                         if (r instanceof Terrorist) p.sendMessage(ChatColor.RED +
                                 String.format(

@@ -4,14 +4,31 @@ import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 
 public class Language {
-    private static FileConfiguration config;
+    private static String key;
+    private static Map<String, FileConfiguration> configs;
 
-    private static void init(FileConfiguration config) {
-        Language.config = config;
+    private static void init(Map<String, FileConfiguration> configs) {
+        Language.configs = configs;
+        Language.key = configs.keySet().iterator().next();
+    }
+
+    /**
+     * Set key language.
+     * @param key If the file you want to use is "stringsPT.yml", then key
+     *            should be "PT".
+     * @return If language key is invalid, returns false.
+     */
+    public static boolean setKey(String key) {
+        if (configs.containsKey(key)) {
+            Language.key = key;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -20,35 +37,35 @@ public class Language {
      * @return String.
      */
     public static String getString(String path) {
-        String format = config.getString("strings." + path);
+        String format = configs.get(key).getString("strings." + path);
         if (format == null) return "";
         return ChatColor.translateAlternateColorCodes('&', format);
     }
 
     public static String getRoleName(String path) {
-        return config.getString("roles." + path + ".name");
+        return configs.get(key).getString("roles." + path + ".name");
     }
 
     public static String getRoleDescription(String path) {
-        return config.getString("roles." + path + ".description");
+        return configs.get(key).getString("roles." + path + ".description");
     }
 
     public static String getRandomJoke() {
         Random rand = new Random();
-        List<String> jokes = config.getStringList("jokes");
+        List<String> jokes = configs.get(key).getStringList("jokes");
         return jokes.get(rand.nextInt(jokes.size()));
     }
 
     public static final class Builder {
-        FileConfiguration config;
+        Map<String, FileConfiguration> configs;
 
         /**
-         * Set the Configuration File where Language will get its String from.
-         * @param config The Plugin instance.
+         * Set the Configuration Files where Language will get its String from.
+         * @param configs Configuration Files.
          * @return the Builder.
          */
-        public Language.Builder setFileConfiguration(FileConfiguration config) {
-            this.config = config;
+        public Language.Builder setConfigurationFiles(Map<String, FileConfiguration> configs) {
+            this.configs = configs;
             return this;
         }
 
@@ -58,10 +75,10 @@ public class Language {
          * This method must be called before all FileManager static methods.
          */
         public void build() {
-            if (config == null)
+            if (configs == null || configs.isEmpty())
                 throw new RuntimeException("Please, set the configuration file instance before initializing Language.");
             else
-                Language.init(config);
+                Language.init(configs);
         }
     }
 }

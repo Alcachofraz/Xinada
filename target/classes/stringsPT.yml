@@ -40,6 +40,9 @@ strings:
   # Thrown when an error occurs.
   errorOccurred: "&7Ocorreu um erro."
 
+  # Thrown when key language is invalid.
+  keyLanguageInvalid: "&7Idioma inválido."
+
   # Word 'Winner'.
   winner: "Vencedor"
 

@@ -12,3 +12,5 @@ commands:
     description: End the current game.
   role:
     description: See description for your role (in-game).
+  lang:
+    description: Change language.
