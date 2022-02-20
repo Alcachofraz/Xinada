@@ -6,6 +6,16 @@ My plugin is free for everyone to use, but feel free to donate, if you feel like
 
 ---------
 
+## Screenshots
+
+![Screenshot1](https://user-images.githubusercontent.com/75852333/154861028-3464ef91-c9f5-4d9b-83d0-ee84aa7954cb.png)
+
+![Screenshot2](https://user-images.githubusercontent.com/75852333/154861032-f2cec30a-a3a0-4c52-a870-20778a04e911.png)
+
+![Screenshot3](https://user-images.githubusercontent.com/75852333/154861038-b8369b2d-6a78-43bf-a160-fd35bd89b220.png)
+
+---------
+
 ## Demonstration Videos (Portuguese)
 
 These are old videos of an old version of the plugin, and there were some bugs. There still are, surely. I just haven't found them yet :)  
